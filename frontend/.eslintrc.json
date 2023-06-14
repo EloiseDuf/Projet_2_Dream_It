@@ -17,6 +17,7 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "react/props-validation": false,
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
