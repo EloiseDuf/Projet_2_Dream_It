@@ -18,7 +18,7 @@ function Switch({ Active }) {
         <p>Rêve</p>
         <label>
           <input type="checkbox" onClick={handleSwitch} />
-          <span />
+          <span id="SpanButton" />
         </label>
         <p>Cauchemar</p>
       </div>
