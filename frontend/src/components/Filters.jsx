@@ -229,6 +229,13 @@ function Filters() {
           </div>
         )}
       </div>
+      <div className="filter-barre-recherche">
+        <input type="text" name="researchBar" placeholder="Recherche..." />
+        <img
+          src="https://img.icons8.com/?size=1x&id=6ZM3xH1Ulu29&format=png"
+          alt="Recherche"
+        />
+      </div>
     </section>
   );
 }
