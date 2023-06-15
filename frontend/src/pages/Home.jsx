@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import SwitchButton from "../components/SwitchButton";
+import NavBar from "../components/NavBar";
 import "./Home.scss";
 
 function Home() {
@@ -16,6 +17,9 @@ function Home() {
       <Link to="/">Home</Link>
       <div className={`Light ${isOn ? "Light" : "Dark"}`}>
         <SwitchButton Active={handleActive} />
+      </div>
+      <div>
+        <NavBar />
       </div>
     </>
   );
