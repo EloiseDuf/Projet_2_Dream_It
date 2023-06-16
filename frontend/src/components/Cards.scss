@@ -1,0 +1,123 @@
+.globalCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+  background-image: url("https://th.bing.com/th/id/OIG.PZr5jFSU3njNRl0zZLLw?pid=ImgGn");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  //   border: 2px solid red;
+  //   -webkit-text-stroke: 2px white;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .cardContents {
+    width: 100%;
+    position: relative;
+    top: 68%;
+    // scroll-behavior: initial;
+    transition: top 0.5s;
+    background: rgba(255, 255, 255, 0.17);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.7px);
+    -webkit-backdrop-filter: blur(6.7px);
+
+    .desc {
+      text-align: justify;
+      padding: 0 15px 0 10px;
+    }
+  }
+
+  .icons {
+    margin: 5px 10px 0 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .cartFavorite {
+    display: flex;
+    flex-direction: row;
+
+    #buttonFavorite,
+    #buttonCart {
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  h1 {
+    color: white;
+    text-align: left;
+    line-height: 100%;
+    font-size: 25px;
+    padding: 0 0 5px 10px;
+    margin: 0 0 0 0;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+      0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+    //  0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+    //  0 0 2px black;
+  }
+
+  p {
+    text-align: right;
+    color: white;
+    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+      0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+      0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+      0 0 2px black;
+    font-weight: bold;
+
+    // p.desc {
+    //   position: top;
+    //   bottom: 0;
+    // }
+  }
+
+  .price {
+    margin: 0 5px 0 0;
+  }
+}
+
+.globalCard:hover {
+  overflow: scroll;
+  scroll-behavior: smooth;
+
+  .cardContents {
+    top: 0%;
+  }
+}
+
+.isFavorite {
+  width: 25px;
+  height: 25px;
+  background-image: url("../assets/images/etoile-pleine.png");
+  background-size: 100%;
+  align-self: flex-start;
+}
+
+.notFavorite {
+  width: 25px;
+  height: 25px;
+  background-image: url("../assets/images/etoile-vide.png");
+  background-size: 100%;
+  align-self: flex-start;
+}
+
+.isEmpty {
+  width: 25px;
+  height: 25px;
+  background-image: url("../assets/images/panier-plein.png");
+  background-size: 100%;
+  align-self: flex-start;
+}
+
+.notEmpty {
+  width: 25px;
+  height: 25px;
+  background-image: url("../assets/images/panier-vide.png");
+  background-size: 100%;
+  align-self: flex-start;
+}
