@@ -8,9 +8,10 @@
   gap: 32px;
   width: 95vw;
   //   max-width: 85vw;
-  background-color: pink;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgb(234, 234, 234);
 
   .div-choixTypeReve {
     height: 100%;

@@ -1,19 +1,36 @@
-.Light {
-  background-color: aqua;
+
+:root {
+  --my-color: #7661a3; // Définir une propriété CSS personnalisée
+  --my-url-background: url("src/assets/images/backgroundPurple.svg");
 }
 
-.Dark {
-  background-color: black;
-}
-$imgShadowColor: #7661a3;
-$urlBackground: "src/assets/images/backgroundPurple.svg";
+
+
+* {
+  margin: 0;
+  padding: 0;}
+
+
+  $imgShadowColor: #7661a3;
+  $urlBackground: "src/assets/images/backgroundPurple.svg";
+
 
 body {
-  background-image: url($urlBackground);
+  background-image: var(--my-url-background);
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
+  position: relative;
   opacity: 1;
+  width: 100vw;
+  z-index: -66;
+}
+
+
+
+.bodyHomepage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .logoDreamIt {
@@ -37,7 +54,7 @@ body {
   }
 }
 
-.shadow {
+.Light {
   margin-top: 9em;
   display: flex;
   border-radius: 50%;
@@ -61,12 +78,46 @@ body {
   }
 }
 
+.Dark {
+  margin-top: 9em;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  height: 50em;
+  width: 50em;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: inset 0px 0px 55px 53px black,
+    inset 0px 0px 55px 53px black;
+  box-shadow: 0px 0px 200px 200px black,
+    inset 0px 0px 100px 100px black;
+  img {
+    width: 50em;
+    height: 50em;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    -webkit-mask-image: radial-gradient(black, transparent);
+    mask-image: radial-gradient(black, transparent);
+  }
+}
+
 .divImage {
   margin-top: 3em;
   width: 100vw;
   height: 90vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   position: absolute;
+}
+
+.homeGlobal {
+ 
+  display: flex;
+  flex-direction: column;
+}
+
+.divSwitch {
+  z-index: 88;
 }

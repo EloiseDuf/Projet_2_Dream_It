@@ -38,7 +38,7 @@ function Cards() {
   ];
 
   return (
-    <>
+    <div className="cards">
       <div className="globalCard">
         <div className="cardContents">
           <h1>{sampleCards[0].name}</h1>
@@ -63,8 +63,7 @@ function Cards() {
           <p className="desc">{sampleCards[0].description}</p>
         </div>
       </div>
-      <p>je suis dans le comp Cards</p>
-    </>
+    </div>
   );
 }
 
