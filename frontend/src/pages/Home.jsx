@@ -1,8 +1,19 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useState } from "react";
+import SwitchButton from "../components/SwitchButton";
+// import GlobalNavBar from "../components/GlobalNavBar";
 import "./Home.scss";
+import Filters from "../components/Filters";
+import Cards from "../components/Cards";
 
 function Home() {
   const imgSrc = "src/assets/images/filleQuiDort.png";
+
+  const [isOn, setIson] = useState(true);
+
+  const handleActive = (isOn) => {
+    setIson(!isOn);
+  };
 
   return (
     <div id="bodyHomepage">
@@ -21,7 +32,12 @@ function Home() {
         </div>
       </div>
       {/* <p>je suis dans le comp Home</p> */}
+      <Filters />
+      <Cards />
       {/* <Link to="/">Home</Link> */}
+      <div className={`Light ${isOn ? "Light" : "Dark"}`}>
+        <SwitchButton Active={handleActive} />
+      </div>
     </div>
   );
 }
