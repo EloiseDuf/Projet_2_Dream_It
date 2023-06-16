@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import SwitchButton from "../components/SwitchButton";
-import GlobalNavBar from "../components/GlobalNavBar";
+// import GlobalNavBar from "../components/GlobalNavBar";
 import "./Home.scss";
+import Filters from "../components/Filters";
 
 function Home() {
   const [isOn, setIson] = useState(true);
@@ -14,7 +15,7 @@ function Home() {
   return (
     <>
       <p>je suis dans le comp Home</p>
-      <GlobalNavBar />
+      <Filters />
       <Link to="/">Home</Link>
       <div className={`Light ${isOn ? "Light" : "Dark"}`}>
         <SwitchButton Active={handleActive} />
