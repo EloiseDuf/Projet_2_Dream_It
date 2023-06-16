@@ -1,19 +1,11 @@
-
-:root {
-  --my-color: #7661a3; // Définir une propriété CSS personnalisée
-  --my-url-background: url("src/assets/images/backgroundPurple.svg");
-}
-
-
-
 * {
   margin: 0;
-  padding: 0;}
+  padding: 0;
+}
 
-
-  $imgShadowColor: #7661a3;
-  $urlBackground: "src/assets/images/backgroundPurple.svg";
-
+$imgShadowColor: var(--my-color);
+// $urlBackground: "src/assets/images/backgroundPurple.svg";
+$urlBackground: var(--my-url-background);
 
 body {
   background-image: var(--my-url-background);
@@ -25,12 +17,11 @@ body {
   z-index: -66;
 }
 
-
-
 .bodyHomepage {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  margin-bottom: 15vh;
 }
 
 .logoDreamIt {
@@ -40,72 +31,77 @@ body {
   display: flex;
   justify-content: center;
   p {
-    margin-top: 27em;
-    position: relative;
+    // margin-top: 70vh;
+    // position: relative;
+    position: absolute;
+    bottom: 15vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 22px;
+    font-size: 1.5rem;
     color: white;
     position: absolute;
-    width: 30em;
+    width: 800px;
+    max-width: 90vw;
   }
   img {
-    display: flex;
+    // display: flex;
     position: absolute;
+    height: 20vh;
   }
 }
 
-.Light {
-  margin-top: 9em;
+.imageHome {
+  margin-top: 10vh;
   display: flex;
   border-radius: 50%;
   justify-content: center;
-  height: 50em;
-  width: 50em;
+  height: 70vh;
+  width: 70vh;
   top: 0;
   left: 0;
   -webkit-box-shadow: inset 0px 0px 55px 53px $imgShadowColor,
     inset 0px 0px 55px 53px $imgShadowColor;
-  box-shadow: 0px 0px 200px 200px $imgShadowColor,
-    inset 0px 0px 100px 100px $imgShadowColor;
+  box-shadow: 0px 0px 20vh 20vh $imgShadowColor,
+    inset 0px 0px 12vh 12vh $imgShadowColor;
   img {
-    width: 50em;
-    height: 50em;
+    width: 70vh;
+    height: 70vh;
     border-radius: 50%;
     position: absolute;
+    top: 10vh;
     z-index: -1;
-    -webkit-mask-image: radial-gradient(#7661a3, transparent);
-    mask-image: radial-gradient(#7661a3, transparent);
+    -webkit-mask-image: radial-gradient(var(--my-color), transparent);
+    mask-image: radial-gradient(var(--my-color), transparent);
   }
 }
 
-.Dark {
-  margin-top: 9em;
-  display: flex;
-  border-radius: 50%;
-  justify-content: center;
-  height: 50em;
-  width: 50em;
-  top: 0;
-  left: 0;
-  -webkit-box-shadow: inset 0px 0px 55px 53px black,
-    inset 0px 0px 55px 53px black;
-  box-shadow: 0px 0px 200px 200px black,
-    inset 0px 0px 100px 100px black;
-  img {
-    width: 50em;
-    height: 50em;
-    border-radius: 50%;
-    position: absolute;
-    z-index: -1;
-    -webkit-mask-image: radial-gradient(black, transparent);
-    mask-image: radial-gradient(black, transparent);
-  }
-}
+// .Dark {
+//   margin-top: 9em;
+//   display: flex;
+//   border-radius: 50%;
+//   justify-content: center;
+//   height: 50em;
+//   width: 50em;
+//   top: 0;
+//   left: 0;
+//   -webkit-box-shadow: inset 0px 0px 55px 53px black,
+//     inset 0px 0px 55px 53px black;
+//   box-shadow: 0px 0px 200px 200px black,
+//     inset 0px 0px 100px 100px black;
+//   img {
+//     width: 50em;
+//     height: 50em;
+//     border-radius: 50%;
+//     position: absolute;
+//     z-index: -1;
+//     -webkit-mask-image: radial-gradient(black, transparent);
+//     mask-image: radial-gradient(black, transparent);
+//   }
+// }
 
 .divImage {
-  margin-top: 3em;
+  margin-top: 2vh;
   width: 100vw;
-  height: 90vh;
+  height: 96vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -113,11 +109,14 @@ body {
 }
 
 .homeGlobal {
- 
   display: flex;
   flex-direction: column;
 }
 
 .divSwitch {
   z-index: 88;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

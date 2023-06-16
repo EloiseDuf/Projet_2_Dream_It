@@ -7,6 +7,12 @@ function Switch({ Active }) {
   const handleSwitch = () => {
     setIson(!isOn);
     Active(!isOn);
+
+    // if(isOn) {
+    //   homeRef.current.style.setProperty("--my-color", "black");
+    // } else {
+    //   homeRef.current.style.setProperty("--my-color", "#7661a3");
+    // }
   };
 
   return (
