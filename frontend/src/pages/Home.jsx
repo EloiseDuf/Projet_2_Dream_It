@@ -5,7 +5,7 @@ function Home() {
   const imgSrc = "src/assets/images/filleQuiDort.png";
 
   return (
-    <div className="bodyHomepage">
+    <div id="bodyHomepage">
       <div className="divImage">
         <div className="logoDreamIt">
           <img src="src/assets/images/deam it LOGOLogo.png" alt="logo" />
