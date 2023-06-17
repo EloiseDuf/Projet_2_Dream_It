@@ -56,8 +56,12 @@ function Home() {
         {/* <Link to="/">Home</Link> */}
       </div>
       <div className="homeGlobal">
-        <Filters />
-        <Cards />
+        <div className="divFiltersHome">
+          <Filters />
+        </div>
+        <div className="divCardsHome">
+          <Cards />
+        </div>
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 :root {
   --my-color: #7661a3;
   --my-url-background: url("src/assets/images/backgroundPurple.svg");
+  --dimensionImageHome: 70vh;
 }
