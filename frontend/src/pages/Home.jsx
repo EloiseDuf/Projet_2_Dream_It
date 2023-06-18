@@ -18,11 +18,27 @@ function Home() {
     if (isOn) {
       document.documentElement.style.setProperty("--my-color", "black");
       document.documentElement.style.setProperty(
+        "--couleurFiltreActif",
+        "rgb(100, 255, 255)"
+      );
+      document.documentElement.style.setProperty(
+        "--colorBoutonFiltre",
+        "rgb(175, 20, 20)"
+      );
+      document.documentElement.style.setProperty(
         "--my-url-background",
         'url("src/assets/images/backgroundRed.svg")'
       );
     } else {
       document.documentElement.style.setProperty("--my-color", "#7661a3");
+      document.documentElement.style.setProperty(
+        "--couleurFiltreActif",
+        "rgb(100, 255, 100)"
+      );
+      document.documentElement.style.setProperty(
+        "--colorBoutonFiltre",
+        "rgb(255, 100, 100)"
+      );
       document.documentElement.style.setProperty(
         "--my-url-background",
         'url("src/assets/images/backgroundPurple.svg")'

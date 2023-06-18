@@ -121,7 +121,7 @@
 .isEmpty {
   width: 25px;
   height: 25px;
-  background-image: url("../assets/images/panier-plein.png");
+  // background-image: url("../assets/images/panier-plein.png");
   background-size: 100%;
   align-self: flex-start;
 }
@@ -129,7 +129,7 @@
 .notEmpty {
   width: 25px;
   height: 25px;
-  background-image: url("../assets/images/panier-vide.png");
+  // background-image: url("../assets/images/panier-vide.png");
   background-size: 100%;
   align-self: flex-start;
 }

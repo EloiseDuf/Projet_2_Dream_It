@@ -45,17 +45,39 @@ function Cards() {
           <div className="icons">
             <p className="price">{sampleCards[0].price} €</p>
             <div className="cartFavorite">
-              <input
+              {/* <input
                 type="button"
                 className={isFavorite === true ? "isFavorite" : "notFavorite"}
                 onClick={handleClickFavorite}
                 id="buttonFavorite"
+              /> */}
+              <img
+                src={
+                  isFavorite === true
+                    ? "./src/assets/images/etoile-pleine.png"
+                    : "./src/assets/images/etoile-vide.png"
+                }
+                className={isFavorite === true ? "isFavorite" : "notFavorite"}
+                onClick={handleClickFavorite}
+                id="buttonFavorite"
+                alt="Etoile favori"
               />
-              <input
+              {/* <input
                 type="button"
                 className={isEmpty === true ? "isEmpty" : "notEmpty"}
                 onClick={handleClickEmpty}
                 id="buttonCart"
+              /> */}
+              <img
+                src={
+                  isEmpty === true
+                    ? "./src/assets/images/panier-vide.png"
+                    : "./src/assets/images/panier-plein.png"
+                }
+                className={isEmpty === true ? "isEmpty" : "notEmpty"}
+                onClick={handleClickEmpty}
+                id="buttonCart"
+                alt="icone panier"
               />
             </div>
           </div>
