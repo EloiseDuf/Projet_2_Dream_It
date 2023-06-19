@@ -7,7 +7,7 @@ function Cards() {
     setIsFavorite(!isFavorite);
   };
 
-  const [isEmpty, setIsEmpty] = useState();
+  const [isEmpty, setIsEmpty] = useState(true);
   const handleClickEmpty = () => {
     setIsEmpty(!isEmpty);
   };
@@ -72,7 +72,7 @@ function Cards() {
                 src={
                   isEmpty === true
                     ? "./src/assets/images/panier-vide.png"
-                    : "./src/assets/images/panier-plein.png"
+                    : "./src/assets/images/panier-rempli-vert.png"
                 }
                 className={isEmpty === true ? "isEmpty" : "notEmpty"}
                 onClick={handleClickEmpty}
