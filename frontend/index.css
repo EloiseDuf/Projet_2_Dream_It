@@ -1,0 +1,7 @@
+:root {
+  --my-color: #7661a3;
+  --colorBoutonFiltre: rgb(255, 100, 100);
+  --couleurFiltreActif: rgb(100, 255, 255);
+  --my-url-background: url("src/assets/images/backgroundPurple.svg");
+  --dimensionImageHome: 70vh;
+}

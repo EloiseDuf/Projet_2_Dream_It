@@ -1,19 +1,27 @@
-.Light {
-  background-color: aqua;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.Dark {
-  background-color: black;
-}
-$imgShadowColor: #7661a3;
-$urlBackground: "src/assets/images/backgroundPurple.svg";
+$imgShadowColor: var(--my-color);
+// $urlBackground: "src/assets/images/backgroundPurple.svg";
+$urlBackground: var(--my-url-background);
 
 body {
-  background-image: url($urlBackground);
+  background-image: var(--my-url-background);
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
+  position: relative;
   opacity: 1;
+  width: 100vw;
+  z-index: -66;
+}
+
+.bodyHomepage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-bottom: 15vh;
 }
 
 .logoDreamIt {
@@ -23,50 +31,111 @@ body {
   display: flex;
   justify-content: center;
   p {
-    margin-top: 27em;
-    position: relative;
+    // margin-top: 70vh;
+    // position: relative;
+    position: absolute;
+    bottom: 15vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 22px;
+    font-size: 1.4rem;
     color: white;
     position: absolute;
-    width: 30em;
+    width: 800px;
+    max-width: 90vw;
   }
   img {
-    display: flex;
+    // display: flex;
     position: absolute;
+    height: 20vh;
   }
 }
 
-.shadow {
-  margin-top: 9em;
+.imageHome {
+  margin-top: 10vh;
   display: flex;
   border-radius: 50%;
   justify-content: center;
-  height: 50em;
-  width: 50em;
+  height: var(--dimensionImageHome);
+  width: var(--dimensionImageHome);
   top: 0;
   left: 0;
   -webkit-box-shadow: inset 0px 0px 55px 53px $imgShadowColor,
     inset 0px 0px 55px 53px $imgShadowColor;
-  box-shadow: 0px 0px 200px 200px $imgShadowColor,
-    inset 0px 0px 100px 100px $imgShadowColor;
+  box-shadow: 0px 0px calc(0.3 * var(--dimensionImageHome))
+      calc(0.3 * var(--dimensionImageHome)) $imgShadowColor,
+    inset 0px 0px calc(0.17 * var(--dimensionImageHome))
+      calc(0.17 * var(--dimensionImageHome)) $imgShadowColor;
   img {
-    width: 50em;
-    height: 50em;
+    width: var(--dimensionImageHome);
+    height: var(--dimensionImageHome);
     border-radius: 50%;
     position: absolute;
+    top: 10vh;
     z-index: -1;
-    -webkit-mask-image: radial-gradient(#7661a3, transparent);
-    mask-image: radial-gradient(#7661a3, transparent);
+    -webkit-mask-image: radial-gradient(var(--my-color), transparent);
+    mask-image: radial-gradient(var(--my-color), transparent);
   }
 }
 
 .divImage {
-  margin-top: 3em;
+  margin-top: 2vh;
   width: 100vw;
-  height: 90vh;
+  height: 96vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   position: absolute;
+}
+
+.homeGlobal {
+  display: flex;
+  flex-direction: column;
+
+  .divFiltersHome {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+
+  .divFiltersHome::before {
+    position: absolute;
+    z-index: 2;
+    background-image: var(--my-url-background);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .divCardsHome {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.divSwitch {
+  z-index: 88;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media screen and (max-width: 700px) {
+  .logoDreamIt {
+    p {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logoDreamIt {
+    p {
+      font-size: 1.1rem;
+    }
+  }
 }

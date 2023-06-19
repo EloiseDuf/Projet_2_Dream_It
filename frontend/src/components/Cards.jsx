@@ -7,7 +7,7 @@ function Cards() {
     setIsFavorite(!isFavorite);
   };
 
-  const [isEmpty, setIsEmpty] = useState();
+  const [isEmpty, setIsEmpty] = useState(true);
   const handleClickEmpty = () => {
     setIsEmpty(!isEmpty);
   };
@@ -38,24 +38,46 @@ function Cards() {
   ];
 
   return (
-    <>
+    <div className="cards">
       <div className="globalCard">
         <div className="cardContents">
           <h1>{sampleCards[0].name}</h1>
           <div className="icons">
             <p className="price">{sampleCards[0].price} €</p>
             <div className="cartFavorite">
-              <input
+              {/* <input
                 type="button"
                 className={isFavorite === true ? "isFavorite" : "notFavorite"}
                 onClick={handleClickFavorite}
                 id="buttonFavorite"
+              /> */}
+              <img
+                src={
+                  isFavorite === true
+                    ? "./src/assets/images/etoile-pleine.png"
+                    : "./src/assets/images/etoile-vide.png"
+                }
+                className={isFavorite === true ? "isFavorite" : "notFavorite"}
+                onClick={handleClickFavorite}
+                id="buttonFavorite"
+                alt="Etoile favori"
               />
-              <input
+              {/* <input
                 type="button"
                 className={isEmpty === true ? "isEmpty" : "notEmpty"}
                 onClick={handleClickEmpty}
                 id="buttonCart"
+              /> */}
+              <img
+                src={
+                  isEmpty === true
+                    ? "./src/assets/images/panier-vide.png"
+                    : "./src/assets/images/panier-rempli-vert.png"
+                }
+                className={isEmpty === true ? "isEmpty" : "notEmpty"}
+                onClick={handleClickEmpty}
+                id="buttonCart"
+                alt="icone panier"
               />
             </div>
           </div>
@@ -63,8 +85,7 @@ function Cards() {
           <p className="desc">{sampleCards[0].description}</p>
         </div>
       </div>
-      <p>je suis dans le comp Cards</p>
-    </>
+    </div>
   );
 }
 

@@ -10,6 +10,12 @@
 
 .GlobalSwitch {
   color: white;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 label {
@@ -32,12 +38,12 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  background: red;
+  background: #b32417;
   transition: 0.3s;
   border-radius: 30px;
 }
 
-span:before {
+#SpanButton:before {
   position: absolute;
   content: "";
   color: black;
@@ -50,10 +56,10 @@ span:before {
   transition: 0.3s;
 }
 
-input:checked + span {
-  background-color: lightblue;
+input:checked + #SpanButton {
+  background-color: #7661a3;
 }
 
-input:checked + span:before {
+input:checked + #SpanButton:before {
   transform: translateX(29px);
 }
