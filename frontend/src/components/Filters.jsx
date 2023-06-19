@@ -237,8 +237,6 @@ function Filters() {
           alt="Recherche"
         />
       </div>
-
-      <NavBar />
     </section>
   );
 }
