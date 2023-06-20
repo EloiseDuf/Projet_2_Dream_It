@@ -2,8 +2,9 @@
 import { useState } from "react";
 import SwitchButton from "../components/SwitchButton";
 import "./Home.scss";
-import Filters from "../components/Filters";
+// import Filters from "../components/Filters";
 import Cards from "../components/Cards";
+import NavBar from "../components/NavBar";
 
 function Home() {
   const imgReve = "src/assets/images/filleQuiDort.png";
@@ -49,6 +50,7 @@ function Home() {
   return (
     <>
       <div className="bodyHomepage">
+        <NavBar />
         <div className="divImage">
           <div className="logoDreamIt">
             <img src="src/assets/images/deam it LOGOLogo.png" alt="logo" />
@@ -72,9 +74,7 @@ function Home() {
         {/* <Link to="/">Home</Link> */}
       </div>
       <div className="homeGlobal">
-        <div className="divFiltersHome">
-          <Filters />
-        </div>
+        <div className="divFiltersHome">{/* <Filters /> */}</div>
         <div className="divCardsHome">
           <Cards />
         </div>

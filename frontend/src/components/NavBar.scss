@@ -1,16 +1,32 @@
-.Buttons {
+.NavBar {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  width: 150px;
-}
-
-.Buttons button {
-  background: none;
-  border: none;
-}
-
-.Buttons img {
-  width: 40px;
-  height: 40px;
+  justify-content: space-between;
+  width: 100%;
+  .homeRightDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+    gap: 3rem;
+    color: white;
+    img {
+      height: 5rem;
+    }
+  }
+  .homeLeftDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 3rem;
+    button {
+      background: none;
+      border: none;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 }
