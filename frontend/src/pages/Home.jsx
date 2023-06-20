@@ -1,9 +1,25 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import SwitchButton from "../components/SwitchButton";
 import "./Home.scss";
 import Filters from "../components/Filters";
 import Cards from "../components/Cards";
+
+const user = {
+  nom: "Manson",
+  prenom: "Marilyn",
+  adresse: "15 rue St Honoré",
+  ville: "LA",
+  codePostal: "99099",
+  pays: "USA",
+  email: "marilyn.manson@youpi.us",
+  tel: "+32 7 79 85 76 20",
+  age: 30,
+  image:
+    "https://th.bing.com/th/id/OIP.qwbSJ0-sbRTlwQRt6lMDNAHaE8?pid=ImgDet&rs=1",
+};
+
+const utilisateur = btoa(JSON.stringify(user));
 
 function Home() {
   const imgReve = "src/assets/images/filleQuiDort.png";
@@ -72,6 +88,9 @@ function Home() {
         {/* <Link to="/">Home</Link> */}
       </div>
       <div className="homeGlobal">
+        <p>
+          <Link to={`/profil/${utilisateur}`}>Voir profil</Link>
+        </p>
         <div className="divFiltersHome">
           <Filters />
         </div>

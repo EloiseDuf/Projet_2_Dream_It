@@ -3,12 +3,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  height: 65vh;
 
   h1 {
     margin-bottom: 24px;
     color: var(--colorText);
     margin-left: 24px;
-    font-size: 2rem;
+    font-size: var(--fontSizeH1);
   }
 
   div {
@@ -22,7 +23,7 @@
         text-align: left;
         margin-bottom: 8px;
         color: var(--colorText);
-        font-size: 1.2rem;
+        font-size: var(--fontSizeP);
 
         span {
           color: #c3bef6;

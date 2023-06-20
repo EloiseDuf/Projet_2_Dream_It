@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import ProfilSection from "./components/ProfilSection";
 import CommandeSection from "./components/CommandeSection";
@@ -7,6 +7,21 @@ import DemandeParticuliereSection from "./components/DemandeParticuliereSection"
 
 import "./App.scss";
 import Profil from "./pages/Profil";
+
+const user = {
+  nom: "Manson",
+  prenom: "Marilyn",
+  adresse: "15 rue St Honoré",
+  ville: "LA",
+  codePostal: "99099",
+  pays: "USA",
+  email: "marilyn.manson@youpi.us",
+  tel: "+32 7 79 85 76 20",
+  age: 30,
+  // image:"https://th.bing.com/th/id/OIP.qwbSJ0-sbRTlwQRt6lMDNAHaE8?pid=ImgDet&rs=1"
+};
+
+const utilisateur = btoa(JSON.stringify(user));
 
 function App() {
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
@@ -41,9 +56,20 @@ function App() {
   // on appelle la fonction lorsque la fenêtre est redimensionnée
   window.onresize = resetWidthImageHome;
 
+  //-----------------------------------------
+  // création d'une route privée : il faut être connecté (utilisateur != null) pour pouvoir accéder à la page du lien.
+  // function PrivateRoute({ children, utilisateur, ...rest }) {
+  //   if (utilisateur === null) {
+  //     return <Navigate to="/connexion" />;
+  //   }
+
+  //   return <Route {...rest}>{children}</Route>;
+  // }
+  //-----------------------------------------
+
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profil" element={<Profil />} />
         <Route path="/profil/" element={<Profil />}>
@@ -55,8 +81,22 @@ function App() {
             element={<DemandeParticuliereSection />}
           />
         </Route>
+      </Routes> */}
+      <Link to={`/profil/${utilisateur}`}>Voir profil</Link>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profil/:utilisateur" element={<Profil />}>
+          <Route index element={<ProfilSection />} />
+          <Route path="commandesection" element={<CommandeSection />} />
+          <Route path="favorissection" element={<FavorisSection />} />
+          <Route
+            path="demandeparticuliere"
+            element={<DemandeParticuliereSection />}
+          />
+        </Route>
+        <Route render={() => <h1>404: page not found</h1>} />
       </Routes>
-      {/* <p>coucou</p> */}
     </div>
   );
 }

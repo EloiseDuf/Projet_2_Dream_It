@@ -1,8 +1,12 @@
 :root {
   --my-color: #7661a3;
+  --colorButton: rgb(46, 213, 46);
   --colorBoutonFiltre: rgb(255, 100, 100);
   --couleurFiltreActif: rgb(100, 255, 255);
   --my-url-background: url("src/assets/images/backgroundPurple.svg");
   --dimensionImageHome: 70vh;
   --colorText: rgb(255, 255, 255);
+  --fontSizeP: 1.2rem;
+  --fontSizeH1: 2rem;
+  --fontSizeH2: 1.4rem;
 }
