@@ -1,6 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import ProfilSection from "./components/ProfilSection";
+import CommandeSection from "./components/CommandeSection";
+import FavorisSection from "./components/FavorisSection";
+import DemandeParticuliereSection from "./components/DemandeParticuliereSection";
+
 import "./App.scss";
+import Profil from "./pages/Profil";
 
 function App() {
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
@@ -39,6 +45,16 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/profil" element={<Profil />} />
+        <Route path="/profil/" element={<Profil />}>
+          <Route index element={<ProfilSection />} />
+          <Route path="commandesection" element={<CommandeSection />} />
+          <Route path="favorissection" element={<FavorisSection />} />
+          <Route
+            path="demandeparticuliere"
+            element={<DemandeParticuliereSection />}
+          />
+        </Route>
       </Routes>
       {/* <p>coucou</p> */}
     </div>

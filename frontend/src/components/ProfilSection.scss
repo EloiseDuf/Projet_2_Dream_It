@@ -1,0 +1,33 @@
+.mainProfilSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  h1 {
+    margin-bottom: 24px;
+    color: var(--colorText);
+    margin-left: 24px;
+    font-size: 2rem;
+  }
+
+  div {
+    border-left: 3px solid lightgray;
+    padding-left: 24px;
+
+    section {
+      margin-bottom: 36px;
+
+      p {
+        text-align: left;
+        margin-bottom: 8px;
+        color: var(--colorText);
+        font-size: 1.2rem;
+
+        span {
+          color: #c3bef6;
+        }
+      }
+    }
+  }
+}
