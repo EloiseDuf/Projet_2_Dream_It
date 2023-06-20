@@ -4,70 +4,83 @@
 }
 
 :root {
-  --my-color: #FFFFFF;
-  --text-color:#000000;
+  --my-color: #ffffff;
+  --text-color: #000000;
   --sectionTitle-background: url("src/assets/images/sectionTitle.png");
   --top-page-background: url("src/assets/images/topPage.png");
 }
-
 
 .topPage {
   background-image: var(--top-page-background);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 40vh;
-  border-bottom: 2px solid #000;
-  border-bottom-left-radius: 50% 50px;
-  border-bottom-right-radius: 50% 50px;
+  height: 50vh;
+  border-bottom-left-radius: 50% 6.25rem;
+  border-bottom-right-radius: 50% 6.25rem;
+  // box-shadow: ;
 }
 
 .divText {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2rem;
   height: 20vh;
-  color:var(--text-color);
-  margin-left:10rem;
-  margin-right:10rem;
+  color: var(--text-color);
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
 .sectionTitle1 {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   background-image: var(--sectionTitle-background);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 50vh;
+  height: 60vh;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.4rem;
+  color: white;
 }
 
-// .makeIt {
-
-// }
+.makeIt {
+  height: 70vh;
+}
 
 .sectionTitle2 {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   background-image: var(--sectionTitle-background);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 50vh;
+  height: 60vh;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.4rem;
+  color: white;
 }
 
-// .pikcOne {
+.pikcOne {
+  height: 40vh;
+}
 
-// }
-
+.sectionTitle3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: var(--sectionTitle-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  color: white;
+}
 
 body {
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
   // position: relative;
   // opacity: 1;
   // width: 100vw;
