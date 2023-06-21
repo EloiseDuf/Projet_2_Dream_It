@@ -9,12 +9,9 @@ import NavBar from "../components/NavBar";
 function Home() {
   const imgTopReve = "src/assets/images/topDoctor.png";
   const imgTopCauchemar = "src/assets/images/topDemon.png";
-  // const imgBottomReve = "src/assets/images/bottomGirl.png";
-  // const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
 
   const [isOn, setIson] = useState(true);
-  // const [textCompo, setTextCompo] = useState("composez votre rêve");
-  // const [textSwitch, setTextSwitch] = useState("...ou votre cauchemar");
+
   const [textBonheur, setTextBonheur] = useState(
     "Vous ne trouver pas votre bonheur ?"
   );

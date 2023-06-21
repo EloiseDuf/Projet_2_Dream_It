@@ -9,7 +9,7 @@ function ProfilSection() {
   // const { utilisateur } = useParams();
   // const user = JSON.parse(atob(utilisateur));
 
-  const user = useContext(MyContext);
+  const { user } = useContext(MyContext);
 
   // destructuration de user
   const { nom, prenom, age, adresse, codePostal, ville, pays, email, tel } =

@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
-// import { useContext } from "react";
+import { useState, useMemo } from "react";
 import MyContext from "./components/Context";
+import users from "./assets/Variables";
 import Home from "./pages/Home";
 import ProfilSection from "./components/ProfilSection";
 import CommandeSection from "./components/CommandeSection";
@@ -9,22 +10,6 @@ import DemandeParticuliereSection from "./components/DemandeParticuliereSection"
 
 import "./App.scss";
 import Profil from "./pages/Profil";
-
-const user = {
-  nom: "Manson",
-  prenom: "Marilyn",
-  adresse: "15 rue St Honoré",
-  ville: "LA",
-  codePostal: "99099",
-  pays: "USA",
-  email: "marilyn.manson@youpi.us",
-  tel: "+32 7 79 85 76 20",
-  age: 30,
-  image:
-    "https://th.bing.com/th/id/OIP.qwbSJ0-sbRTlwQRt6lMDNAHaE8?pid=ImgDet&rs=1",
-  favoris: [],
-  commandes: [],
-};
 
 function App() {
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
@@ -59,12 +44,21 @@ function App() {
   // on appelle la fonction lorsque la fenêtre est redimensionnée
   window.onresize = resetWidthImageHome;
 
-  // console.log(user);
+  // user sera l'utilisateur de mon site, quand on entre sur le site il est initialisé à null
+  // il changera quand on l'utilisateur se connectera
+  const [user, setUser] = useState(null);
+
+  // stockage de l'état initial de user, setUser et users via un useMemo
+  const valeursFourniesDansMyContextProvider = useMemo(
+    () => ({ user, setUser, users }),
+    [user, setUser, users]
+  );
 
   return (
     <div className="App">
       <Link to="/profil">Voir profil</Link>
-      <MyContext.Provider value={user}>
+      {/* <MyContext.Provider value={{ user, setUser, users }}> */}
+      <MyContext.Provider value={valeursFourniesDansMyContextProvider}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profil" element={<Profil />} />
