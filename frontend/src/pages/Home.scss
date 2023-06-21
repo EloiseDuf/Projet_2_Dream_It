@@ -96,7 +96,6 @@
   height: 80vh;
   margin: 20px;
   border-radius: 12px;
-  border: 2px solid rgb(115, 0, 255);
 }
 .sectionTextImg {
   display: flex;
@@ -107,17 +106,14 @@
   color: white;
   height: auto;
   width: 100%;
-  border: 2px solid lime;
   height: 95%;
   .imgSection1 {
     display: flex;
     justify-content: flex-start;
-    border: 2px solid orange;
     height: 100%;
     img {
       width: auto;
       height: 80vh;
-      border: 2px solid green;
       margin-right: 3em;
     }
   }
@@ -223,15 +219,66 @@
   height: 40vh;
 }
 
-.sectionTitle3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-image: var(--sectionTitle-background);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 60vh;
+.bottomText {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.4rem;
-  color: white;
+  color: gray;
+}
+
+.bottomTotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .sectionTitle3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: var(--sectionTitle-background);
+    background-repeat: no-repeat;
+    background-size: 1600px;
+    width: 70vw;
+    height: 40vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4rem;
+    color: white;
+  }
+  .formText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    input {
+      border-radius: 20px;
+      border: none;
+      background-color: lightgray;
+    }
+    .Mail {
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      margin-top: 50px;
+    }
+    .Password {
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      margin-top: 50px;
+    }
+    label {
+      width: max-content;
+    }
+  }
+}
+
+.loginButton {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 160px;
+  margin-top: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #bfa1c1;
 }
