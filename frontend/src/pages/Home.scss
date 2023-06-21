@@ -1,141 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Capriola&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Capriola", sans-serif;
 }
 
-$imgShadowColor: var(--my-color);
-// $urlBackground: "src/assets/images/backgroundPurple.svg";
-$urlBackground: var(--my-url-background);
+:root {
+  --my-color: #ffffff;
+  --text-color: #000000;
+  --sectionTitle-background: url("src/assets/images/sectionTitle.png");
+  --top-page-background: url("src/assets/images/topPage.png");
+}
 
-body {
-  background-image: var(--my-url-background);
+.Reve {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  margin-left: 3em;
+}
+
+.Cauchemar {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5em;
+  margin-left: 3em;
+}
+
+.topPage {
+  background-image: var(--top-page-background);
   background-size: cover;
   background-repeat: no-repeat;
-  position: relative;
-  opacity: 1;
-  width: 100vw;
-  z-index: -66;
-}
-
-.bodyHomepage {
+  height: 50vh;
+  border-bottom-left-radius: 70% 9.25rem;
+  border-bottom-right-radius: 70% 9.25rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  margin-bottom: 15vh;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 5px rgba(89, 89, 89, 0.762);
 }
 
-.logoDreamIt {
-  position: absolute;
-  height: 100%;
-  width: 50%;
+.topSwitchGlobal {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  p {
-    // margin-top: 70vh;
-    // position: relative;
-    position: absolute;
-    bottom: 15vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.4rem;
-    color: white;
-    position: absolute;
-    width: 800px;
-    max-width: 90vw;
-  }
-  img {
-    // display: flex;
-    position: absolute;
-    height: 20vh;
-  }
-}
-
-.imageHome {
-  margin-top: 10vh;
-  display: flex;
-  border-radius: 50%;
-  justify-content: center;
-  height: var(--dimensionImageHome);
-  width: var(--dimensionImageHome);
-  top: 0;
-  left: 0;
-  -webkit-box-shadow: inset 0px 0px 55px 53px $imgShadowColor,
-    inset 0px 0px 55px 53px $imgShadowColor;
-  box-shadow: 0px 0px calc(0.3 * var(--dimensionImageHome))
-      calc(0.3 * var(--dimensionImageHome)) $imgShadowColor,
-    inset 0px 0px calc(0.17 * var(--dimensionImageHome))
-      calc(0.17 * var(--dimensionImageHome)) $imgShadowColor;
-  img {
-    width: var(--dimensionImageHome);
-    height: var(--dimensionImageHome);
-    border-radius: 50%;
-    position: absolute;
-    top: 10vh;
-    z-index: -1;
-    -webkit-mask-image: radial-gradient(var(--my-color), transparent);
-    mask-image: radial-gradient(var(--my-color), transparent);
-  }
-}
-
-.divImage {
-  margin-top: 2vh;
-  width: 100vw;
-  height: 96vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 10em;
   position: absolute;
 }
 
-.homeGlobal {
+.topSwitchText {
   display: flex;
   flex-direction: column;
-
-  .divFiltersHome {
-    position: sticky;
-    top: 0;
-    z-index: 3;
-  }
-
-  .divFiltersHome::before {
-    position: absolute;
-    z-index: 2;
-    background-image: var(--my-url-background);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  .divCardsHome {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-.divSwitch {
-  z-index: 88;
-  height: 100%;
-  display: flex;
   justify-content: center;
-  align-items: flex-end;
+  color: white;
+  font-size: 30px;
+  gap: 2rem;
 }
 
-@media screen and (max-width: 700px) {
-  .logoDreamIt {
-    p {
-      font-size: 1.3rem;
-    }
+.divText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2rem;
+  height: 60vh;
+  width: 50em;
+  color: var(--text-color);
+  margin-left: 10rem;
+  margin-right: 10rem;
+  border: 2px solid red;
+  :nth-child(1) {
+    color: #ffffff;
+  }
+  :nth-child(2) {
+    color: orange;
+    margin-top: 10px;
+  }
+  :nth-child(3) {
+    color: #000000;
+    margin-top: 60px;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .logoDreamIt {
-    p {
-      font-size: 1.1rem;
-    }
+.sectionTitle1 {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background-image: var(--sectionTitle-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  color: white;
+  img {
+    width: 15em;
+    height: 15em;
+    margin-right: 7em;
+  }
+  .textSection1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .imgSection1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
+
+.makeIt {
+  height: 70vh;
+}
+
+.sectionTitle2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: var(--sectionTitle-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  color: white;
+}
+
+.pikcOne {
+  height: 40vh;
+}
+
+.sectionTitle3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: var(--sectionTitle-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  color: white;
+}
+
+body {
+  background-color: #d8d8d8;
+  // position: relative;
+  // opacity: 1;
+  // width: 100vw;
+  // z-index: -66;
+}
+
+// .bodyHomepage {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   margin-bottom: 15vh;
+// }
+
+// .logoDreamIt {
+//   position: absolute;
+//   height: 100%;
+//   width: 50%;
+//   display: flex;
+//   justify-content: center;
+//   p {
+//     // margin-top: 70vh;
+//     // position: relative;
+//     position: absolute;
+//     bottom: 15vh;
+//     font-family: Verdana, Geneva, Tahoma, sans-serif;
+//     font-size: 1.4rem;
+//     color: white;
+//     position: absolute;
+//     width: 800px;
+//     max-width: 90vw;
+//   }
+//   img {
+//     // display: flex;
+//     position: absolute;
+//     height: 20vh;
+//   }
+// }
+
+// .imageHome {
+//   margin-top: 10vh;
+//   display: flex;
+//   border-radius: 50%;
+//   justify-content: center;
+//   height: var(--dimensionImageHome);
+//   width: var(--dimensionImageHome);
+//   top: 0;
+//   left: 0;
+//   -webkit-box-shadow: inset 0px 0px 55px 53px $imgShadowColor,
+//     inset 0px 0px 55px 53px $imgShadowColor;
+//   box-shadow: 0px 0px calc(0.3 * var(--dimensionImageHome))
+//       calc(0.3 * var(--dimensionImageHome)) $imgShadowColor,
+//     inset 0px 0px calc(0.17 * var(--dimensionImageHome))
+//       calc(0.17 * var(--dimensionImageHome)) $imgShadowColor;
+//   img {
+//     width: var(--dimensionImageHome);
+//     height: var(--dimensionImageHome);
+//     border-radius: 50%;
+//     position: absolute;
+//     top: 10vh;
+//     z-index: -1;
+//     -webkit-mask-image: radial-gradient(var(--my-color), transparent);
+//     mask-image: radial-gradient(var(--my-color), transparent);
+//   }
+// }
+
+// .divImage {
+//   margin-top: 2vh;
+//   width: 100vw;
+//   height: 96vh;
+//   display: flex;
+//   align-items: flex-end;
+//   justify-content: center;
+//   position: absolute;
+// }
+
+// .homeGlobal {
+//   display: flex;
+//   flex-direction: column;
+
+//   .divFiltersHome {
+//     position: sticky;
+//     top: 0;
+//     z-index: 3;
+//   }
+
+//   .divFiltersHome::before {
+//     position: absolute;
+//     z-index: 2;
+//     background-image: var(--my-url-background);
+//     width: 100%;
+//     height: 100%;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     backdrop-filter: blur(10px);
+//     -webkit-backdrop-filter: blur(10px);
+//   }
+
+//   .divCardsHome {
+//     position: relative;
+//     z-index: 1;
+//   }
+// }
+
+// .divSwitch {
+//   z-index: 88;
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: flex-end;
+// }
+
+// @media screen and (max-width: 700px) {
+//   .logoDreamIt {
+//     p {
+//       font-size: 1.3rem;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 500px) {
+//   .logoDreamIt {
+//     p {
+//       font-size: 1.1rem;
+//     }
+//   }
+// }
