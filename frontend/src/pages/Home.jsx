@@ -96,7 +96,7 @@ function Home() {
           A travers nos pillule, vous trouverez une porte pour échapper à la
           réalité, le temps d'une nuit.
         </p>
-        <p>If you can't do it, at least you can DreamIt</p>
+        <p>"If you can't do it, at least you can DreamIt"</p>
       </div>
       <div className="sectionTitle1">
         <div className="imgSection1">
