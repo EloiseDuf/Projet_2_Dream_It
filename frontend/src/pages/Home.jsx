@@ -5,7 +5,7 @@ import "./Home.scss";
 import Filters from "../components/Filters";
 import Cards from "../components/Cards";
 
-function Home() {
+function Home({ dreams }) {
   const imgReve = "src/assets/images/filleQuiDort.png";
   const imgCauchemar = "src/assets/images/imgDemon.jpg";
 
@@ -76,7 +76,7 @@ function Home() {
           <Filters />
         </div>
         <div className="divCardsHome">
-          <Cards />
+          <Cards dreams={dreams} />
         </div>
       </div>
     </>
