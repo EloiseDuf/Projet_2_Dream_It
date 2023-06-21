@@ -9,8 +9,13 @@ import NavBar from "../components/NavBar";
 function Home() {
   const imgTopReve = "src/assets/images/topDoctor.png";
   const imgTopCauchemar = "src/assets/images/topDemon.png";
-  // const imgBottomReve = "src/assets/images/bottomGirl.png";
-  // const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
+
+  // const [dreams, setDreams] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:4242/api/all")
+  //     .then((res) => res.json())
+  //     .then((res) => setDreams(res));
+  // }, []);
 
   const [isOn, setIson] = useState(true);
   // const [textCompo, setTextCompo] = useState("composez votre rêve");
