@@ -9,8 +9,8 @@ import NavBar from "../components/NavBar";
 function Home() {
   const imgTopReve = "src/assets/images/topDoctor.png";
   const imgTopCauchemar = "src/assets/images/topDemon.png";
-  // const imgBottomReve = "src/assets/images/bottomGirl.png";
-  // const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
+  const imgBottomReve = "src/assets/images/bottomGirl.png";
+  const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
 
   const [isOn, setIson] = useState(true);
   // const [textCompo, setTextCompo] = useState("composez votre rêve");
@@ -96,25 +96,39 @@ function Home() {
           A travers nos pillule, vous trouverez une porte pour échapper à la
           réalité, le temps d'une nuit.
         </p>
-        <p>"If you can't do it, at least you can DreamIt"</p>
+        <p>"If you can't do it, at least you can DreamIT"</p>
       </div>
       <div className="sectionTitle1">
-        <div className="imgSection1">
-          <img src="src/assets/images/homePill.png" alt="pillule" />
+        <div className="sectionTextImg">
+          <div className="imgSection1">
+            <img src="src/assets/images/homePill.png" alt="pillule" />
+          </div>
+          <div className="textSection1">
+            <p>BEST-SELLER : la pillule magique</p>
+            <p>
+              Grâce à son principe actif breveté, notre pillule de rêve vous
+              fera voyager le temps d'une nuit.
+            </p>
+            <p>Voie Orale.</p>
+          </div>
         </div>
-        <div className="textSection1">
-          <p>BEST-SELLER : la pillule magique</p>
+        <div className="sectionDisclaimer">
           <p>
-            Grâce à son principe actif breveté, notre pillule de rêve vous fera
-            voyager le temps d'une nuit.
+            Attention, ceci n'est pas un médicament. À consommer avec modération
           </p>
-          <p>Voie Orale</p>
         </div>
       </div>
       <div className="makeIt">espace de création à la carte</div>
       <div className="sectionTitle2">
-        <h1>En panne d'inspiration ?</h1>
-        {/* <img src="src/assets/images/bottomGirl.png"/> */}
+        <div className="textSection2">
+          <h1>En panne d'inspiration ?</h1>
+        </div>
+        <div className={`Girl ${isOn ? "Girl" : "Sorcière"}`}>
+          <img
+            src={isOn ? imgBottomReve : imgBottomCauchemar}
+            alt="Fille ou Sorcière"
+          />
+        </div>
       </div>
       <div className="pickOne">
         Espace sélection rêve tout fait
