@@ -100,9 +100,6 @@ function Home() {
       </div>
       <div className="sectionTitle1">
         <div className="sectionTextImg">
-          <div className="imgSection1">
-            <img src="src/assets/images/homePill.png" alt="pillule" />
-          </div>
           <div className="textSection1">
             <p>BEST-SELLER : la pillule magique</p>
             <p>
@@ -110,6 +107,9 @@ function Home() {
               fera voyager le temps d'une nuit.
             </p>
             <p>Voie Orale.</p>
+          </div>
+          <div className="imgSection1">
+            <img src="src/assets/images/homePill.png" alt="pillule" />
           </div>
         </div>
         <div className="sectionDisclaimer">
