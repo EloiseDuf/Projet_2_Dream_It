@@ -7,15 +7,17 @@ import Cards from "../components/Cards";
 import NavBar from "../components/NavBar";
 
 function Home() {
-  // const imgReve = "src/assets/images/filleQuiDort.png";
-  // const imgCauchemar = "src/assets/images/imgDemon.jpg";
+  const imgTopReve = "src/assets/images/topDoctor.png";
+  const imgTopCauchemar = "src/assets/images/topDemon.png";
+  // const imgBottomReve = "src/assets/images/bottomGirl.png";
+  // const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
 
-  // const [isOn, setIson] = useState(true);
-  const [textCompo, setTextCompo] = useState("composez votre rêve");
+  const [isOn, setIson] = useState(true);
+  // const [textCompo, setTextCompo] = useState("composez votre rêve");
+  // const [textSwitch, setTextSwitch] = useState("...ou votre cauchemar");
   const [textBonheur, setTextBonheur] = useState(
     "Vous ne trouver pas votre bonheur ?"
   );
-  const [textSwitch, setTextSwitch] = useState("...ou votre cauchemar");
 
   const switchTheme = (isOn) => {
     const root = document.documentElement;
@@ -46,19 +48,19 @@ function Home() {
 
   const switchText = (isOn) => {
     if (isOn) {
-      setTextCompo("Composez votre rêve");
       setTextBonheur("Vous ne trouver pas votre bonheur ?");
-      setTextSwitch("...ou votre cauchemar");
+      // setTextCompo("Composez votre rêve");
+      // setTextSwitch("...ou votre cauchemar");
     } else {
-      setTextCompo("Composez votre cauchemar");
       setTextBonheur("Vous ne trouver pas votre malheur ?");
-      setTextSwitch("...ou votre rêve");
+      // setTextCompo("Composez votre cauchemar");
+      // setTextSwitch("...ou votre rêve");
     }
   };
 
   const handleActive = (isOn) => {
-    // setIson(!isOn);
-    setTextCompo("Composez votre cauchemar");
+    setIson(!isOn);
+    // setTextCompo("Composez votre cauchemar");
     switchTheme(!isOn);
     switchText(!isOn);
   };
@@ -67,23 +69,52 @@ function Home() {
     <>
       <div className="topPage">
         <NavBar />
+        <div className={`Reve ${isOn ? "Reve" : "Cauchemar"}`}>
+          <img
+            src={isOn ? imgTopReve : imgTopCauchemar}
+            alt="docteur ou demon"
+          />
+        </div>
+        <div className="topSwitchGlobal">
+          <div className="topSwitchText">
+            {/* <h1>{textCompo}</h1>
+            <h1>{textSwitch}</h1> */}
+            <h1>Composez votre rêve</h1>
+            <h1>...ou votre cauchemar</h1>
+          </div>
+          <div className="topSwitchButton">
+            <SwitchButton Active={handleActive} />
+          </div>
+        </div>
       </div>
       <div className="divText">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.{" "}
+          DreamIt est une startup qui développe des solutions médicales pour
+          échapper à la réalité et vivre ses rêve sur demande.{" "}
         </p>
+        <p>
+          A travers nos pillule, vous trouverez une porte pour échapper à la
+          réalité, le temps d'une nuit.
+        </p>
+        <p>If you can't do it, at least you can DreamIt</p>
       </div>
       <div className="sectionTitle1">
-        <h1>{textCompo}</h1>
-        <SwitchButton Active={handleActive} />
-        <h1>{textSwitch}</h1>
+        <div className="imgSection1">
+          <img src="src/assets/images/homePill.png" alt="pillule" />
+        </div>
+        <div className="textSection1">
+          <p>BEST-SELLER : la pillule magique</p>
+          <p>
+            Grâce à son principe actif breveté, notre pillule de rêve vous fera
+            voyager le temps d'une nuit.
+          </p>
+          <p>Voie Orale</p>
+        </div>
       </div>
       <div className="makeIt">espace de création à la carte</div>
       <div className="sectionTitle2">
         <h1>En panne d'inspiration ?</h1>
+        {/* <img src="src/assets/images/bottomGirl.png"/> */}
       </div>
       <div className="pickOne">
         Espace sélection rêve tout fait

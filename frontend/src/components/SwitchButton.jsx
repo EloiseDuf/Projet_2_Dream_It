@@ -11,17 +11,10 @@ function Switch({ Active }) {
 
   return (
     <div className="GlobalSwitch">
-      <div className="Mode">
-        <h1>Mode</h1>
-      </div>
-      <div className="Switch">
-        <p>Rêve</p>
-        <label>
-          <input type="checkbox" onClick={handleSwitch} />
-          <span id="SpanButton" />
-        </label>
-        <p>Cauchemar</p>
-      </div>
+      <label>
+        <input type="checkbox" onClick={handleSwitch} />
+        <span id="SpanButton" />
+      </label>
     </div>
   );
 }
