@@ -22,6 +22,8 @@ const user = {
   age: 30,
   image:
     "https://th.bing.com/th/id/OIP.qwbSJ0-sbRTlwQRt6lMDNAHaE8?pid=ImgDet&rs=1",
+  favoris: [],
+  commandes: [],
 };
 
 function App() {
