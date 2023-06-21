@@ -26,7 +26,8 @@
         font-size: var(--fontSizeP);
 
         span {
-          color: #c3bef6;
+          // color: #c3bef6;
+          color: var(--colorBoutonMenuProfil);
         }
       }
     }
