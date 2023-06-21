@@ -1,27 +1,28 @@
 // import { Link } from "react-router-dom";
-import { useState } from "react";
-import SwitchButton from "../components/SwitchButton";
+import { useEffect, useState } from "react";
+
 import "./Home.scss";
 // import Filters from "../components/Filters";
-import Cards from "../components/Cards";
+import SwitchButton from "../components/SwitchButton";
 import NavBar from "../components/NavBar";
+import CardsCarousel from "../components/CardsCarousel";
 
 function Home() {
   const imgTopReve = "src/assets/images/topDoctor.png";
   const imgTopCauchemar = "src/assets/images/topDemon.png";
 
-  // const [dreams, setDreams] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://localhost:4242/api/all")
-  //     .then((res) => res.json())
-  //     .then((res) => setDreams(res));
-  // }, []);
+  const [dreams, setDreams] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4242/api/all")
+      .then((res) => res.json())
+      .then((res) => setDreams(res));
+  }, []);
 
   const [isOn, setIson] = useState(true);
   // const [textCompo, setTextCompo] = useState("composez votre rêve");
   // const [textSwitch, setTextSwitch] = useState("...ou votre cauchemar");
   const [textBonheur, setTextBonheur] = useState(
-    "Vous ne trouver pas votre bonheur ?"
+    "Vous ne trouvez pas votre bonheur ?"
   );
 
   const switchTheme = (isOn) => {
@@ -123,7 +124,7 @@ function Home() {
       </div>
       <div className="pickOne">
         Espace sélection rêve tout fait
-        <Cards />
+        <CardsCarousel dreams={dreams} />
       </div>
       <div className="sectionTitle3">
         <h1>{textBonheur}</h1>
