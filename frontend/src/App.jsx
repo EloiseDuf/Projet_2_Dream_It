@@ -1,15 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import "./App.scss";
 
 function App() {
-  const [dreams, setDreams] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3001/api/all")
-      .then((res) => res.json())
-      .then((res) => setDreams(res));
-  }, []);
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
   let largeurWindow = window.innerWidth;
   let hauteurWindow = window.innerHeight;
@@ -45,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home dreams={dreams} />} />
+        <Route path="/" element={<Home />} />
       </Routes>
       {/* <p>coucou</p> */}
     </div>

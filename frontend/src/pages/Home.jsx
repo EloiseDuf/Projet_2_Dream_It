@@ -1,11 +1,18 @@
 // import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SwitchButton from "../components/SwitchButton";
 import "./Home.scss";
 import Filters from "../components/Filters";
 import Cards from "../components/Cards";
 
-function Home({ dreams }) {
+function Home() {
+  const [dreams, setDreams] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4242/api/all")
+      .then((res) => res.json())
+      .then((res) => setDreams(res));
+  }, []);
+
   const imgReve = "src/assets/images/filleQuiDort.png";
   const imgCauchemar = "src/assets/images/imgDemon.jpg";
 
