@@ -1,17 +1,21 @@
 import "./Profil.scss";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import MyContext from "../components/Context";
 
 function Profil() {
-  const { utilisateur } = useParams();
-  const user = JSON.parse(atob(utilisateur));
+  const user = useContext(MyContext);
+
+  const { image } = user;
 
   return (
     <main className="mainProfil">
       <section className="profilMenu">
-        <img src={user.image} alt="profil" />
+        {/* <img src={user.image} alt="profil" /> */}
+        <img src={image} alt="profil" />
 
         <NavLink
-          to={`/profil/${utilisateur}`}
+          to="/profil/"
           className={({ isActive }) =>
             isActive ? "linkProfil active" : "linkProfil"
           }
@@ -20,7 +24,7 @@ function Profil() {
           <img src="../src/assets/images/Account.png" alt="icone profil" />
         </NavLink>
         <NavLink
-          to={`/profil/${utilisateur}/commandesection`}
+          to="/profil/commandesection"
           className={({ isActive }) =>
             isActive ? "linkProfil active" : "linkProfil"
           }
@@ -29,7 +33,7 @@ function Profil() {
           <img src="../src/assets/images/commande.png" alt="icone commande" />
         </NavLink>
         <NavLink
-          to={`/profil/${utilisateur}/favorissection`}
+          to="/profil/favorissection"
           className={({ isActive }) =>
             isActive ? "linkProfil active" : "linkProfil"
           }
@@ -41,7 +45,7 @@ function Profil() {
           />
         </NavLink>
         <NavLink
-          to={`/profil/${utilisateur}/demandeparticuliere`}
+          to="/profil/demandeparticuliere"
           className={({ isActive }) =>
             isActive ? "linkProfil active" : "linkProfil"
           }

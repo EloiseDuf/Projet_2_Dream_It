@@ -1,12 +1,12 @@
 .mainProfilSection {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   height: 65vh;
 
   h1 {
-    margin-bottom: 24px;
+    margin-bottom: 40px;
     color: var(--colorText);
     margin-left: 24px;
     font-size: var(--fontSizeH1);

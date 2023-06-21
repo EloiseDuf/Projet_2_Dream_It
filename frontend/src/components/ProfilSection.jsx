@@ -1,9 +1,19 @@
 import "./ProfilSection.scss";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import MyContext from "./Context";
+
+// const MyContext = createContext(null);
 
 function ProfilSection() {
-  const { utilisateur } = useParams();
-  const user = JSON.parse(atob(utilisateur));
+  // const { utilisateur } = useParams();
+  // const user = JSON.parse(atob(utilisateur));
+
+  const user = useContext(MyContext);
+
+  // destructuration de user
+  const { nom, prenom, age, adresse, codePostal, ville, pays, email, tel } =
+    user;
 
   return (
     <main className="mainProfilSection">
@@ -12,29 +22,29 @@ function ProfilSection() {
         <section>
           <p>
             <span>Nom : </span>
-            {user.nom}
+            {nom}
           </p>
           <p>
             <span>Prenom : </span>
-            {user.prenom}
+            {prenom}
           </p>
           <p>
             <span>Age : </span>
-            {`${user.age} ans`}
+            {`${age} ans`}
           </p>
         </section>
         <section>
           <p>
             <span>Adresse : </span>
-            {`${user.adresse}, ${user.codePostal} ${user.ville}, ${user.pays}`}
+            {`${adresse}, ${codePostal} ${ville}, ${pays}`}
           </p>
           <p>
             <span>Email : </span>
-            {user.email}
+            {email}
           </p>
           <p>
             <span>Tel : </span>
-            {user.tel}
+            {tel}
           </p>
         </section>
       </div>

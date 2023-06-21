@@ -1,4 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
+// import { useContext } from "react";
+import MyContext from "./components/Context";
 import Home from "./pages/Home";
 import ProfilSection from "./components/ProfilSection";
 import CommandeSection from "./components/CommandeSection";
@@ -18,10 +20,9 @@ const user = {
   email: "marilyn.manson@youpi.us",
   tel: "+32 7 79 85 76 20",
   age: 30,
-  // image:"https://th.bing.com/th/id/OIP.qwbSJ0-sbRTlwQRt6lMDNAHaE8?pid=ImgDet&rs=1"
+  image:
+    "https://th.bing.com/th/id/OIP.qwbSJ0-sbRTlwQRt6lMDNAHaE8?pid=ImgDet&rs=1",
 };
-
-const utilisateur = btoa(JSON.stringify(user));
 
 function App() {
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
@@ -56,35 +57,28 @@ function App() {
   // on appelle la fonction lorsque la fenêtre est redimensionnée
   window.onresize = resetWidthImageHome;
 
-  //-----------------------------------------
-  // création d'une route privée : il faut être connecté (utilisateur != null) pour pouvoir accéder à la page du lien.
-  // function PrivateRoute({ children, utilisateur, ...rest }) {
-  //   if (utilisateur === null) {
-  //     return <Navigate to="/connexion" />;
-  //   }
-
-  //   return <Route {...rest}>{children}</Route>;
-  // }
-  //-----------------------------------------
+  // console.log(user);
 
   return (
     <div className="App">
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profil" element={<Profil />} />
-        <Route path="/profil/" element={<Profil />}>
-          <Route index element={<ProfilSection />} />
-          <Route path="commandesection" element={<CommandeSection />} />
-          <Route path="favorissection" element={<FavorisSection />} />
-          <Route
-            path="demandeparticuliere"
-            element={<DemandeParticuliereSection />}
-          />
-        </Route>
-      </Routes> */}
-      <Link to={`/profil/${utilisateur}`}>Voir profil</Link>
+      <Link to="/profil">Voir profil</Link>
+      <MyContext.Provider value={user}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/profil/" element={<Profil />}>
+            <Route index element={<ProfilSection />} />
+            <Route path="commandesection" element={<CommandeSection />} />
+            <Route path="favorissection" element={<FavorisSection />} />
+            <Route
+              path="demandeparticuliere"
+              element={<DemandeParticuliereSection />}
+            />
+          </Route>
+        </Routes>
+      </MyContext.Provider>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profil/:utilisateur" element={<Profil />}>
           <Route index element={<ProfilSection />} />
@@ -96,7 +90,7 @@ function App() {
           />
         </Route>
         <Route render={() => <h1>404: page not found</h1>} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
