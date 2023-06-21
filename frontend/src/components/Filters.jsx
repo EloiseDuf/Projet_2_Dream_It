@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./Filters.scss";
-import NavBar from "./NavBar";
 
 const mesFiltres = [
   {
@@ -237,8 +236,6 @@ function Filters() {
           alt="Recherche"
         />
       </div>
-
-      <NavBar />
     </section>
   );
 }

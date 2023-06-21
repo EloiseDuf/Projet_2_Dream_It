@@ -1,26 +1,24 @@
-// import { useState } from "react";
+import React from "react";
+// import {link} from "react-router-dom";
 import "./NavBar.scss";
 
 function NavBar() {
-  // const [itemCount, setItemCount] = useState(0);
-
-  // const addItem = (item) => {
-
-  //     setItemCount(itemCount + 1);
-  // } {itemCount}
-
   return (
-    <div className="Buttons">
-      <button id="Home" type="button">
-        <img src="src/assets/images/Home.png" alt="Home" />
-      </button>
-      <button id="Account" type="button">
-        <img src="src/assets/images/Account.png" alt="Account" />
-      </button>
-      <button id="Cart" type="button">
-        <img src="src/assets/images/Cart.png" alt="Cart" />
-        <span className="item-count" />
-      </button>
+    <div className="NavBar">
+      <div className="homeRightDiv">
+        <img src="src/assets/images/deam it LOGOLogo.png" alt="Logo" />
+        <p>A la carte</p>
+        <p>Préfabriqué</p>
+      </div>
+      <div className="homeLeftDiv">
+        <button id="Account" type="button">
+          <img src="src/assets/images/Account.png" alt="Account" />
+        </button>
+        <button id="Cart" type="button">
+          <img src="src/assets/images/CartHome.png" alt="Cart" />
+          <span className="item-count" />
+        </button>
+      </div>
     </div>
   );
 }
