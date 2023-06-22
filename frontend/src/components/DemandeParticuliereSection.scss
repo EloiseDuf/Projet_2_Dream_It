@@ -1,0 +1,46 @@
+.mainDemandeParticuliere {
+  width: 50vw;
+  height: 65vh;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  border-left: 3px solid lightgray;
+  box-sizing: border-box;
+
+  h1 {
+    color: var(--colorText);
+    font-size: var(--fontSizeH1);
+  }
+
+  section {
+    width: 80%;
+
+    p {
+      color: var(--colorText);
+      font-size: var(--fontSizeP);
+      text-align: left;
+      margin-bottom: 16px;
+    }
+  }
+
+  textarea {
+    width: 80%;
+    height: 150px;
+    padding: 16px;
+    border-radius: 30px;
+    color: black;
+  }
+
+  button {
+    height: 50px;
+    border-radius: 50px;
+    font-size: var(--fontSizeH2);
+    color: var(--colorText);
+    background-color: var(--colorButton);
+    padding: 8px 24px;
+    box-sizing: border-box;
+  }
+}

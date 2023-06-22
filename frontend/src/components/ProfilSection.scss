@@ -1,0 +1,35 @@
+.mainProfilSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 65vh;
+
+  h1 {
+    margin-bottom: 40px;
+    color: var(--colorText);
+    margin-left: 24px;
+    font-size: var(--fontSizeH1);
+  }
+
+  div {
+    border-left: 3px solid lightgray;
+    padding-left: 24px;
+
+    section {
+      margin-bottom: 36px;
+
+      p {
+        text-align: left;
+        margin-bottom: 8px;
+        color: var(--colorText);
+        font-size: var(--fontSizeP);
+
+        span {
+          // color: #c3bef6;
+          color: var(--colorBoutonMenuProfil);
+        }
+      }
+    }
+  }
+}
