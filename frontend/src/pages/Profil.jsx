@@ -2,7 +2,7 @@ import "./Profil.scss";
 import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import MyContext from "../components/Context";
-import Header from "../components/header";
+import Header from "../components/Header";
 
 function Profil() {
   const { user } = useContext(MyContext);

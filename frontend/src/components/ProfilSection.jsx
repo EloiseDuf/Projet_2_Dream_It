@@ -16,8 +16,7 @@ function ProfilSection() {
     user;
 
   return (
-    <>
-      <main className="mainProfilSection">
+    <main className="mainProfilSection">
       <h1>Mon Profil</h1>
       <div>
         <section>
@@ -50,8 +49,7 @@ function ProfilSection() {
         </section>
       </div>
     </main>
-    </>
-    
+
     // <main className="mainProfilSection">
     //   <h1>Mon Profil</h1>
     //   <div>
