@@ -87,7 +87,6 @@ function Cards({ dream }) {
         <p className="desc">{dream?.description}</p>
       </div>
     </div>
-  
   );
 }
 
