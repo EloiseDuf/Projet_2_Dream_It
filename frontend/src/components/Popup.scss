@@ -1,0 +1,20 @@
+.popup {
+  display: flex;
+  justify-content: center;
+}
+
+.popup-content {
+  width: 40vw;
+  height: 40vh;
+  background-color: rgb(155, 232, 232);
+  border-radius: 12px;
+}
+
+.inputConnection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  label {
+    width: 7em;
+  }
+}
