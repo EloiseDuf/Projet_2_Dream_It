@@ -31,8 +31,6 @@ function CardsCarousel({ dreams }) {
       setCardIndexMin(dreams.length - (nbCard + 1));
       setCardIndexMax(dreams.length + 1);
     }
-
-    console.log("dreams.length", dreams.length);
     setCardIndexMin(cardIndexMin + nbCard);
     setCardIndexMax(cardIndexMax + nbCard);
   };
@@ -46,7 +44,11 @@ function CardsCarousel({ dreams }) {
   return (
     <div className="carouselBox">
       <div>
-        <button className="previousButton" onClick={handleClickPreviousCard}>
+        <button
+          type="button"
+          className="previousButton"
+          onClick={handleClickPreviousCard}
+        >
           <svg
             width="50"
             height="50"
@@ -75,7 +77,11 @@ function CardsCarousel({ dreams }) {
             dream.id <= cardIndexMax && <Cards key={dream.id} dream={dream} />
         )}
       </div>
-      <button className="nextButton" onClick={handleClickNextCard}>
+      <button
+        type="button"
+        className="nextButton"
+        onClick={handleClickNextCard}
+      >
         <svg
           width="50"
           height="50"
