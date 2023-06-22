@@ -1,0 +1,67 @@
+.mainProfil {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 64px;
+  margin: auto;
+
+  .profilMenu {
+    max-width: 30vw;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: center;
+    padding: 16px;
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 100px;
+      object-fit: cover;
+    }
+
+    .linkProfil {
+      height: 50px;
+      width: 290px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 24px;
+      background-color: lightgrey;
+      border-radius: 40px;
+      box-sizing: border-box;
+      text-decoration: none;
+
+      h2 {
+        display: block;
+        color: white;
+        font-size: var(--fontSizeH2);
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .active {
+      background-color: var(--colorBoutonMenuProfil);
+    }
+
+    .linkProfil:last-child {
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .sectionAffichagePageProfil {
+    width: 60vw;
+  }
+}

@@ -1,6 +1,15 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import { useState, useMemo } from "react";
+import MyContext from "./components/Context";
+import users from "./assets/Variables";
 import Home from "./pages/Home";
+import ProfilSection from "./components/ProfilSection";
+import CommandeSection from "./components/CommandeSection";
+import FavorisSection from "./components/FavorisSection";
+import DemandeParticuliereSection from "./components/DemandeParticuliereSection";
+
 import "./App.scss";
+import Profil from "./pages/Profil";
 
 function App() {
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
@@ -35,11 +44,49 @@ function App() {
   // on appelle la fonction lorsque la fenêtre est redimensionnée
   window.onresize = resetWidthImageHome;
 
+  // user sera l'utilisateur de mon site, quand on entre sur le site il est initialisé à null
+  // il changera quand on l'utilisateur se connectera
+  const [user, setUser] = useState(null);
+
+  // stockage de l'état initial de user, setUser et users via un useMemo
+  const valeursFourniesDansMyContextProvider = useMemo(
+    () => ({ user, setUser, users }),
+    [user, setUser, users]
+  );
+
   return (
     <div className="App">
-      <Routes>
+      <Link to="/profil">Voir profil</Link>
+      {/* <MyContext.Provider value={{ user, setUser, users }}> */}
+      <MyContext.Provider value={valeursFourniesDansMyContextProvider}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/profil/" element={<Profil />}>
+            <Route index element={<ProfilSection />} />
+            <Route path="commandesection" element={<CommandeSection />} />
+            <Route path="favorissection" element={<FavorisSection />} />
+            <Route
+              path="demandeparticuliere"
+              element={<DemandeParticuliereSection />}
+            />
+          </Route>
+        </Routes>
+      </MyContext.Provider>
+
+      {/* <Routes>
         <Route path="/" element={<Home />} />
-      </Routes>
+        <Route path="/profil/:utilisateur" element={<Profil />}>
+          <Route index element={<ProfilSection />} />
+          <Route path="commandesection" element={<CommandeSection />} />
+          <Route path="favorissection" element={<FavorisSection />} />
+          <Route
+            path="demandeparticuliere"
+            element={<DemandeParticuliereSection />}
+          />
+        </Route>
+        <Route render={() => <h1>404: page not found</h1>} />
+      </Routes> */}
     </div>
   );
 }
