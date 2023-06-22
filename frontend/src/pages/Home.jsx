@@ -5,6 +5,7 @@ import "./Home.scss";
 // import Filters from "../components/Filters";
 import Cards from "../components/Cards";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 function Home({ dreams }) {
   // const [dreams, setDreams] = useState([]);
@@ -176,6 +177,7 @@ function Home({ dreams }) {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
