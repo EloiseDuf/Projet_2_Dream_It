@@ -1,20 +1,16 @@
-* {
-  margin: 0;
-}
-
 // .bundleCards {
 //   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   grid-template-rows: repeat(8, 1fr);
-//   grid-column-gap: 0px;
-//   grid-row-gap: 0px;
-//   align-items: center;
+//   grid-template-columns: repeat(4, 250px);
+//   grid-template-rows: repeat(18, 300px);
+//   grid-row-gap: 40px;
+//   grid-auto-flow: row;
 // }
 
 .bundleCards {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
 }
