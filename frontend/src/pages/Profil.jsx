@@ -2,7 +2,7 @@ import "./Profil.scss";
 import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import MyContext from "../components/Context";
-import NavBar from "../components/NavBar";
+import Header from "../components/header";
 
 function Profil() {
   const { user } = useContext(MyContext);
@@ -12,7 +12,7 @@ function Profil() {
 
   return (
     <>
-      <NavBar />
+      <Header />
       <main className="mainProfil">
         <section className="profilMenu">
           {/* <img src={user.image} alt="profil" /> */}

@@ -56,7 +56,6 @@ function App() {
 
   return (
     <div className="App">
-      <Link to="/profil">Voir profil</Link>
       {/* <MyContext.Provider value={{ user, setUser, users }}> */}
       <MyContext.Provider value={valeursFourniesDansMyContextProvider}>
         <Routes>
