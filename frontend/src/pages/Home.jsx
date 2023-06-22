@@ -1,18 +1,18 @@
 // import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SwitchButton from "../components/SwitchButton";
 import "./Home.scss";
 // import Filters from "../components/Filters";
 import Cards from "../components/Cards";
 import NavBar from "../components/NavBar";
 
-function Home() {
-  const [dreams, setDreams] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:4242/api/all")
-      .then((res) => res.json())
-      .then((res) => setDreams(res));
-  }, []);
+function Home({ dreams }) {
+  // const [dreams, setDreams] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:4242/api/all")
+  //     .then((res) => res.json())
+  //     .then((res) => setDreams(res));
+  // }, []);
 
   const imgTopReve = "src/assets/images/topDoctor.png";
   const imgTopCauchemar = "src/assets/images/topDemon.png";
@@ -139,6 +139,10 @@ function Home() {
       </div>
       <div className="pickOne">
         Espace sélection rêve tout fait
+        {/* {dreams.map((dream) => (
+        <Cards dream={dream} key={dream.id} />
+      ))} 
+      ICI EST LE MAP QUI PERMET D'AFFICHER LES CARDS, IL EST COMMENTE POUR NE PAS POLLUER POUR LE MOMENT */}
         <Cards dreams={dreams} />
       </div>
       <div className="bottomText">
