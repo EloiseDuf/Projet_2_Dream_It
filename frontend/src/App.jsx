@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState, useMemo } from "react";
 import MyContext from "./components/Context";
 import users from "./assets/Variables";
@@ -56,7 +56,6 @@ function App() {
 
   return (
     <div className="App">
-      <Link to="/profil">Voir profil</Link>
       {/* <MyContext.Provider value={{ user, setUser, users }}> */}
       <MyContext.Provider value={valeursFourniesDansMyContextProvider}>
         <Routes>
