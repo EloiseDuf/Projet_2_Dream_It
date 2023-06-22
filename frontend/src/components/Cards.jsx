@@ -38,40 +38,42 @@ function Cards({ dreams }) {
   // ];
 
   return (
-    <div
-      className="globalCard"
-      style={{ backgroundImage: `url("${dreams?.image}")` }}
-    >
-      <div className="cardContents">
-        <h1>{dreams?.name}</h1>
-        <div className="icons">
-          <p className="price">{dreams?.price} €</p>
-          <div className="cartFavorite">
-            <img
-              src={
-                isFavorite === true
-                  ? "./src/assets/images/etoile-pleine.png"
-                  : "./src/assets/images/etoile-vide.png"
-              }
-              className={isFavorite === true ? "isFavorite" : "notFavorite"}
-              onClick={handleClickFavorite}
-              id="buttonFavorite"
-              alt="Etoile favori"
-            />
-            <img
-              src={
-                isEmpty === true
-                  ? "./src/assets/images/panier-vide.png"
-                  : "./src/assets/images/panier-rempli-vert.png"
-              }
-              className={isEmpty === true ? "isEmpty" : "notEmpty"}
-              onClick={handleClickEmpty}
-              id="buttonCart"
-              alt="icone panier"
-            />
+    <div className="cards">
+      <div
+        className="globalCard"
+        style={{ backgroundImage: `url("${dreams?.image}")` }}
+      >
+        <div className="cardContents">
+          <h1>{dreams?.name}</h1>
+          <div className="icons">
+            <p className="price">{dreams?.price} €</p>
+            <div className="cartFavorite">
+              <img
+                src={
+                  isFavorite === true
+                    ? "./src/assets/images/etoile-pleine.png"
+                    : "./src/assets/images/etoile-vide.png"
+                }
+                className={isFavorite === true ? "isFavorite" : "notFavorite"}
+                onClick={handleClickFavorite}
+                id="buttonFavorite"
+                alt="Etoile favori"
+              />
+              <img
+                src={
+                  isEmpty === true
+                    ? "./src/assets/images/panier-vide.png"
+                    : "./src/assets/images/panier-rempli-vert.png"
+                }
+                className={isEmpty === true ? "isEmpty" : "notEmpty"}
+                onClick={handleClickEmpty}
+                id="buttonCart"
+                alt="icone panier"
+              />
+            </div>
           </div>
+          <p className="desc">{dreams?.description}</p>
         </div>
-        <p className="desc">{dreams?.description}</p>
       </div>
     </div>
   );
