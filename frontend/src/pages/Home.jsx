@@ -140,7 +140,6 @@ function Home({ dreams }) {
         </div>
       </div>
       <div className="pickOne">
-        Espace sélection rêve tout fait
         <CardsCarousel dreams={dreams} />
       </div>
       <div className="bottomText">

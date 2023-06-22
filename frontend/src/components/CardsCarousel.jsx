@@ -74,7 +74,7 @@ function CardsCarousel({ dreams }) {
           (dream) =>
             dream.type === "ready-to-use" &&
             dream.id > cardIndexMin &&
-            dream.id <= cardIndexMax && <Cards key={dream.id} dream={dream} />
+            dream.id <= cardIndexMax && <Cards key={dream.id} dreams={dream} />
         )}
       </div>
       <button

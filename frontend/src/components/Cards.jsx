@@ -1,7 +1,7 @@
 import "./Cards.scss";
 import { useState } from "react";
 
-function Cards({ dream }) {
+function Cards({ dreams }) {
   const [isFavorite, setIsFavorite] = useState();
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
@@ -38,53 +38,42 @@ function Cards({ dream }) {
   // ];
 
   return (
-    <div
-      className="globalCard"
-      style={{ backgroundImage: `url("${dream?.image}")` }}
-    >
-      <div className="cardContents">
-        <h1>{dream?.name}</h1>
-        <div className="icons">
-          <p className="price">{dream?.price} €</p>
-          <div className="cartFavorite">
-            {/* <input
-                type="button"
+    <div className="cards">
+      <div
+        className="globalCard"
+        style={{ backgroundImage: `url("${dreams?.image}")` }}
+      >
+        <div className="cardContents">
+          <h1>{dreams?.name}</h1>
+          <div className="icons">
+            <p className="price">{dreams?.price} €</p>
+            <div className="cartFavorite">
+              <img
+                src={
+                  isFavorite === true
+                    ? "./src/assets/images/etoile-pleine.png"
+                    : "./src/assets/images/etoile-vide.png"
+                }
                 className={isFavorite === true ? "isFavorite" : "notFavorite"}
                 onClick={handleClickFavorite}
                 id="buttonFavorite"
-              /> */}
-            <img
-              src={
-                isFavorite === true
-                  ? "./src/assets/images/etoile-pleine.png"
-                  : "./src/assets/images/etoile-vide.png"
-              }
-              className={isFavorite === true ? "isFavorite" : "notFavorite"}
-              onClick={handleClickFavorite}
-              id="buttonFavorite"
-              alt="Etoile favori"
-            />
-            {/* <input
-                type="button"
+                alt="Etoile favori"
+              />
+              <img
+                src={
+                  isEmpty === true
+                    ? "./src/assets/images/panier-vide.png"
+                    : "./src/assets/images/panier-rempli-vert.png"
+                }
                 className={isEmpty === true ? "isEmpty" : "notEmpty"}
                 onClick={handleClickEmpty}
                 id="buttonCart"
-              /> */}
-            <img
-              src={
-                isEmpty === true
-                  ? "./src/assets/images/panier-vide.png"
-                  : "./src/assets/images/panier-rempli-vert.png"
-              }
-              className={isEmpty === true ? "isEmpty" : "notEmpty"}
-              onClick={handleClickEmpty}
-              id="buttonCart"
-              alt="icone panier"
-            />
+                alt="icone panier"
+              />
+            </div>
           </div>
+          <p className="desc">{dreams?.description}</p>
         </div>
-        {/* <img src={sampleCards[0].image} alt={sampleCards[0].name} /> */}
-        <p className="desc">{dream?.description}</p>
       </div>
     </div>
   );
