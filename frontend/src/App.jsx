@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import MyContext from "./components/Context";
 import users from "./assets/Variables";
 import Home from "./pages/Home";
+import Bundle from "./pages/Bundle";
 import ProfilSection from "./components/ProfilSection";
 import CommandeSection from "./components/CommandeSection";
 import FavorisSection from "./components/FavorisSection";
@@ -12,6 +13,12 @@ import "./App.scss";
 import Profil from "./pages/Profil";
 
 function App() {
+  const [dreams, setDreams] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4242/api/all")
+      .then((res) => res.json())
+      .then((res) => setDreams(res));
+  }, []);
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
   let largeurWindow = window.innerWidth;
   let hauteurWindow = window.innerHeight;
@@ -59,7 +66,7 @@ function App() {
       {/* <MyContext.Provider value={{ user, setUser, users }}> */}
       <MyContext.Provider value={valeursFourniesDansMyContextProvider}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home dreams={dreams} />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/profil/" element={<Profil />}>
             <Route index element={<ProfilSection />} />
@@ -70,6 +77,7 @@ function App() {
               element={<DemandeParticuliereSection />}
             />
           </Route>
+          <Route path="/bundle" element={<Bundle dreams={dreams} />} />
         </Routes>
       </MyContext.Provider>
 

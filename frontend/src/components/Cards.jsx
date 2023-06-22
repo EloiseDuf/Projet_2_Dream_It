@@ -41,12 +41,12 @@ function Cards({ dreams }) {
     <div className="cards">
       <div
         className="globalCard"
-        style={{ backgroundImage: `url("${dreams[0]?.image}")` }}
+        style={{ backgroundImage: `url("${dreams?.image}")` }}
       >
         <div className="cardContents">
-          <h1>{dreams[0]?.name}</h1>
+          <h1>{dreams?.name}</h1>
           <div className="icons">
-            <p className="price">{dreams[0]?.price} €</p>
+            <p className="price">{dreams?.price} €</p>
             <div className="cartFavorite">
               <img
                 src={
@@ -72,7 +72,7 @@ function Cards({ dreams }) {
               />
             </div>
           </div>
-          <p className="desc">{dreams[0]?.description}</p>
+          <p className="desc">{dreams?.description}</p>
         </div>
       </div>
     </div>
