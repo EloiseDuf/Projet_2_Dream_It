@@ -49,6 +49,7 @@ function ProfilSection() {
         </section>
       </div>
     </main>
+
     // <main className="mainProfilSection">
     //   <h1>Mon Profil</h1>
     //   <div>
