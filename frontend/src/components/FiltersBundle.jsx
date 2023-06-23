@@ -1,17 +1,13 @@
 import { useState } from "react";
-import "./Filters.scss";
+import "./FiltersBundle.scss";
 import FiltersTab from "../assets/FiltersTab";
 
-function FiltersBundle() {
-  //   const [typeReve, setTypeReve] = useState("Scénario");
-
+function FiltersBundle({ handleFilter, handleReset }) {
   const [filtres, setFiltres] = useState(FiltersTab);
-
-  const handleClickFiltre = (image) => {
+  const handleClickFiltre = (image, theme) => {
     const ancienneClasse = filtres.find(
       (filtre) => filtre.image === image
     ).classe;
-
     if (ancienneClasse === "image-filter") {
       setFiltres((ancienEtat) =>
         ancienEtat.map((filtre) =>
@@ -20,6 +16,7 @@ function FiltersBundle() {
             : filtre
         )
       );
+      handleFilter(theme);
     } else {
       setFiltres((ancienEtat) =>
         ancienEtat.map((filtre) =>
@@ -33,10 +30,12 @@ function FiltersBundle() {
 
   return (
     <section className="section-filters">
-      <div className="div-choixTypeReve">
-        <p title="Clique sur le bouton pour modifier">Thème d rêve</p>
+      <div className="filtersBundleTitle">
+        <p title="Clique sur le bouton pour modifier">
+          Sélectionnez un ou plusieurs thèmes
+        </p>
       </div>
-      <div className="filters">
+      <div className="filtersBundleFilters">
         <div
           className="div-filtre-theme"
           style={{ borderBottom: "1px solid white", paddingBottom: "8px" }}
@@ -46,15 +45,23 @@ function FiltersBundle() {
               filtre.id <= 12 && (
                 <img
                   className={filtre.classe}
-                  onClick={() => handleClickFiltre(filtre.image)}
+                  onClick={() => handleClickFiltre(filtre.image, filtre.theme)}
                   src={filtre.image}
                   alt={`"filtre" ${filtre.title}`}
                   title={filtre.title}
                   key={filtre.id}
-                  // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 />
               )
           )}
+        </div>
+        <div className="reset">
+          <button
+            id="resetButtonFiltersBundle"
+            type="button"
+            onClick={() => handleReset() && setFiltres(FiltersTab)}
+          >
+            Reset
+          </button>
         </div>
       </div>
     </section>
