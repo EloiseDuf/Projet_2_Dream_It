@@ -17,6 +17,7 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    // "react/props-validation": false,
     "react/prop-types": "off",
     "no-shadow": "off",
     "no-console": "off",
