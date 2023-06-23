@@ -58,7 +58,7 @@ function FiltersBundle({ handleFilter, handleReset }) {
           <button
             id="resetButtonFiltersBundle"
             type="button"
-            onClick={() => handleReset() && setFiltres(FiltersTab)}
+            onClick={() => handleReset()}
           >
             Reset
           </button>
