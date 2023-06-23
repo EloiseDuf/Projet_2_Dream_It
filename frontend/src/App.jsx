@@ -8,7 +8,7 @@ import ProfilSection from "./components/ProfilSection";
 import CommandeSection from "./components/CommandeSection";
 import FavorisSection from "./components/FavorisSection";
 import DemandeParticuliereSection from "./components/DemandeParticuliereSection";
-import Pagetest from "./pages/Pagetest";
+// import Pagetest from "./pages/Pagetest";
 
 import "./App.scss";
 import Profil from "./pages/Profil";
@@ -79,7 +79,7 @@ function App() {
             />
           </Route>
           <Route path="/bundle" element={<Bundle dreams={dreams} />} />
-          <Route path="/test" element={<Pagetest />} />
+          {/* <Route path="/test" element={<Pagetest />} /> */}
         </Routes>
       </MyContext.Provider>
 

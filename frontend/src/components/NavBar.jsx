@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MyContext from "./Context";
 import "./NavBar.scss";
@@ -8,19 +8,20 @@ import cartHome from "../assets/images/CartHome.png";
 
 function NavBar() {
   const { user, setUser, users } = useContext(MyContext);
+  const [isDivVisible, setIsDivVisible] = useState(false);
 
   const navigate = useNavigate();
 
   // destructuration de user
-  // const { nom, prenom, age, adresse, codePostal, ville, pays, email, tel } = user;
+  // const {image, pseudo } = user;
 
-  let pseudo = "";
+  let usedPseudo = "";
   let motDePasse = "";
-  const handleClickConnerter = () => {
+  const handleClickLogin = () => {
     if (user === null) {
-      pseudo = prompt("Veuillez entrer votre pseudo");
+      usedPseudo = prompt("Veuillez entrer votre usedPseudo");
       motDePasse = prompt("Veuillez entrer votre mot de passe");
-      const utilisateur = users.find((user) => user.pseudo === pseudo);
+      const utilisateur = users.find((user) => user.pseudo === usedPseudo);
       if (utilisateur === undefined) {
         alert("Aucun utilisateur de ce nom existe");
       } else if (utilisateur.mdp === motDePasse) {
@@ -30,6 +31,16 @@ function NavBar() {
     } else {
       navigate("/profil/");
     }
+  };
+
+  const handleClickLogout = () => {
+    if (user !== null) {
+      setUser(null);
+    }
+  };
+
+  const handleClickNavMenu = () => {
+    setIsDivVisible(!isDivVisible);
   };
 
   return (
@@ -43,43 +54,59 @@ function NavBar() {
       </Link>
       <div className="homeLeftDiv">
         <button id="Account" type="button">
-          <img src={logoAccount} alt="Account" onClick={handleClickConnerter} />
+          <img src={logoAccount} alt="Account" onClick={handleClickNavMenu} />
         </button>
         <button id="Cart" type="button">
           <img src={cartHome} alt="Cart" />
           <span className="item-count" />
         </button>
-        <div className="menuProfilNavbar">
-          {/* Ajouter 2 div
-        la première contient la photo et le pseudo de l'utilisateur et n'est affiché que si l'utilisateur est connecté
-        la 2eme est un bouton Se connecter / se déconnecter qui change en fonction de l'état de la variable "user"
-        si user === null ? Se connecter : Se déconnecter
-        user est déjà un usestate partagé avec toutes les pages (je vous expliquerai) */}
+      </div>
+      <div className="menuProfilNavbar">
+        {isDivVisible && (
+          <>
+            <div className="seConnecter">
+              {user === null ? (
+                <button type="button" onClick={handleClickLogin}>
+                  Se Connecter
+                </button>
+              ) : (
+                <button type="button" onClick={handleClickLogout}>
+                  Se Deconnecter
+                </button>
+              )}
+            </div>
+            {user !== null && (
+              <>
+                <div className="imageUser">
+                  <img src={user.image} alt="user" />
+                  <h2>{user.pseudo}</h2>
+                </div>
 
-          {/* Link à remplacer par des div avec une fonction onClick et un navigate à l'intérieur 
-        Si utilisateur connecté --> navigate direct
-        Si utilisateur pas connecté : redirection vers POPUP pour se connecter
-        utilisation d'un useState pour stocker le lien à suivre après s'être connecté dans la popup
-        Si on clique sur se déconnecter on redirige vers la page home */}
-          <Link to="/profil" className="linkProfilElementNavbar">
-            Mon profil
-          </Link>
-          <Link
-            to="/profil/commandesection"
-            className="linkProfilElementNavbar"
-          >
-            Mes commandes
-          </Link>
-          <Link to="/profil/favorissection" className="linkProfilElementNavbar">
-            Mes favoris
-          </Link>
-          <Link
-            to="/profil/demandeparticuliere"
-            className="linkProfilElementNavbar"
-          >
-            Demandes particulières
-          </Link>
-        </div>
+                <Link to="/profil" className="linkProfilElementNavbar">
+                  Mon profil
+                </Link>
+                <Link
+                  to="/profil/commandesection"
+                  className="linkProfilElementNavbar"
+                >
+                  Mes commandes
+                </Link>
+                <Link
+                  to="/profil/favorissection"
+                  className="linkProfilElementNavbar"
+                >
+                  Mes favoris
+                </Link>
+                <Link
+                  to="/profil/demandeparticuliere"
+                  className="linkProfilElementNavbar"
+                >
+                  Demandes particulières
+                </Link>
+              </>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
