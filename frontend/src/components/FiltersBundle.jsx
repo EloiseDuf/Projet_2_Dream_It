@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Filters.scss";
+import "./FiltersBundle.scss";
 import FiltersTab from "../assets/FiltersTab";
 
 function FiltersBundle() {
@@ -33,10 +33,10 @@ function FiltersBundle() {
 
   return (
     <section className="section-filters">
-      <div className="div-choixTypeReve">
-        <p title="Clique sur le bouton pour modifier">Thème d rêve</p>
+      <div className="filtersBundleTitle">
+        <p title="Clique sur le bouton pour modifier">Choisissez un thème</p>
       </div>
-      <div className="filters">
+      <div className="filtersBundleFilters">
         <div
           className="div-filtre-theme"
           style={{ borderBottom: "1px solid white", paddingBottom: "8px" }}
@@ -51,7 +51,6 @@ function FiltersBundle() {
                   alt={`"filtre" ${filtre.title}`}
                   title={filtre.title}
                   key={filtre.id}
-                  // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 />
               )
           )}
