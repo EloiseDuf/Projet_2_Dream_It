@@ -105,7 +105,7 @@
 .isFavorite {
   width: 25px;
   height: 25px;
-  background-image: url("../assets/images/etoile-pleine.png");
+  // background-image: url("../assets/images/etoile-pleine.png");
   background-size: 100%;
   align-self: flex-start;
 }
@@ -113,7 +113,7 @@
 .notFavorite {
   width: 25px;
   height: 25px;
-  background-image: url("../assets/images/etoile-vide.png");
+  // background-image: url("../assets/images/etoile-vide.png");
   background-size: 100%;
   align-self: flex-start;
 }
