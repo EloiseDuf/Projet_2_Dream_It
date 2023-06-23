@@ -32,6 +32,10 @@
       border: 3px outset #c7cd6f;
     }
 
+    .linkProfil:active {
+      border: 3px inset #c7cd6f;
+    }
+
     .linkProfil {
       height: 50px;
       width: 290px;
