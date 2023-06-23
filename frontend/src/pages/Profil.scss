@@ -1,4 +1,6 @@
 .mainProfil {
+  position: relative;
+  z-index: 2;
   width: 80vw;
   display: flex;
   flex-direction: row;
@@ -6,6 +8,8 @@
   align-items: flex-end;
   gap: 64px;
   margin: auto;
+  margin-bottom: -50px;
+  box-sizing: border-box;
 
   .profilMenu {
     max-width: 30vw;
@@ -24,6 +28,10 @@
       object-fit: cover;
     }
 
+    .linkProfil:hover {
+      border: 3px outset #c7cd6f;
+    }
+
     .linkProfil {
       height: 50px;
       width: 290px;
@@ -37,6 +45,7 @@
       border-radius: 40px;
       box-sizing: border-box;
       text-decoration: none;
+      border: 3px outset #d9d9d9;
 
       h2 {
         display: block;

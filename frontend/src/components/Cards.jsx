@@ -1,5 +1,10 @@
 import "./Cards.scss";
 import { useState } from "react";
+import etoilePleine from "../assets/images/etoile-pleine.png";
+import etoileVide from "../assets/images/etoile-vide.png";
+import panierVide from "../assets/images/panier-plein.png";
+import panierRempliVert from "../assets/images/panier-rempli-vert.png";
+// import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
 function Cards({ dreams }) {
   const [isFavorite, setIsFavorite] = useState();
@@ -49,22 +54,14 @@ function Cards({ dreams }) {
             <p className="price">{dreams?.price} €</p>
             <div className="cartFavorite">
               <img
-                src={
-                  isFavorite === true
-                    ? "./src/assets/images/etoile-pleine.png"
-                    : "./src/assets/images/etoile-vide.png"
-                }
+                src={isFavorite === true ? { etoilePleine } : { etoileVide }}
                 className={isFavorite === true ? "isFavorite" : "notFavorite"}
                 onClick={handleClickFavorite}
                 id="buttonFavorite"
                 alt="Etoile favori"
               />
               <img
-                src={
-                  isEmpty === true
-                    ? "./src/assets/images/panier-vide.png"
-                    : "./src/assets/images/panier-rempli-vert.png"
-                }
+                src={isEmpty === true ? { panierVide } : { panierRempliVert }}
                 className={isEmpty === true ? "isEmpty" : "notEmpty"}
                 onClick={handleClickEmpty}
                 id="buttonCart"
