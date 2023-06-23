@@ -2,16 +2,12 @@ import { useState } from "react";
 import "./FiltersBundle.scss";
 import FiltersTab from "../assets/FiltersTab";
 
-function FiltersBundle() {
-  //   const [typeReve, setTypeReve] = useState("Scénario");
-
+function FiltersBundle({ handleFilter, handleReset }) {
   const [filtres, setFiltres] = useState(FiltersTab);
-
-  const handleClickFiltre = (image) => {
+  const handleClickFiltre = (image, theme) => {
     const ancienneClasse = filtres.find(
       (filtre) => filtre.image === image
     ).classe;
-
     if (ancienneClasse === "image-filter") {
       setFiltres((ancienEtat) =>
         ancienEtat.map((filtre) =>
@@ -20,6 +16,7 @@ function FiltersBundle() {
             : filtre
         )
       );
+      handleFilter(theme);
     } else {
       setFiltres((ancienEtat) =>
         ancienEtat.map((filtre) =>
@@ -34,7 +31,9 @@ function FiltersBundle() {
   return (
     <section className="section-filters">
       <div className="filtersBundleTitle">
-        <p title="Clique sur le bouton pour modifier">Choisissez un thème</p>
+        <p title="Clique sur le bouton pour modifier">
+          Sélectionnez un ou plusieurs thèmes
+        </p>
       </div>
       <div className="filtersBundleFilters">
         <div
@@ -46,7 +45,7 @@ function FiltersBundle() {
               filtre.id <= 12 && (
                 <img
                   className={filtre.classe}
-                  onClick={() => handleClickFiltre(filtre.image)}
+                  onClick={() => handleClickFiltre(filtre.image, filtre.theme)}
                   src={filtre.image}
                   alt={`"filtre" ${filtre.title}`}
                   title={filtre.title}
@@ -54,6 +53,15 @@ function FiltersBundle() {
                 />
               )
           )}
+        </div>
+        <div className="reset">
+          <button
+            id="resetButtonFiltersBundle"
+            type="button"
+            onClick={() => handleReset() && setFiltres(FiltersTab)}
+          >
+            Reset
+          </button>
         </div>
       </div>
     </section>
