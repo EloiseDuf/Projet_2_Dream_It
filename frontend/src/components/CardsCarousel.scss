@@ -1,0 +1,22 @@
+.carouselBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mapFlex {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nextButton,
+.previousButton {
+  border: none;
+  background: none;
+}

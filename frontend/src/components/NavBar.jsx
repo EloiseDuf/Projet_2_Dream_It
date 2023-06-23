@@ -37,7 +37,9 @@ function NavBar() {
       <Link to="/" className="homeRightDiv">
         <img src={logoDreamIt} alt="Logo" />
         <p>A la carte</p>
-        <p>Préfabriqué</p>
+        <p>
+          <Link to="/bundle">Préfabriqué</Link>
+        </p>
       </Link>
       <div className="homeLeftDiv">
         <button id="Account" type="button">

@@ -1,18 +1,20 @@
 // import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import SwitchButton from "../components/SwitchButton";
+import { useState } from "react";
+
 import "./Home.scss";
 // import Filters from "../components/Filters";
-import Cards from "../components/Cards";
+import SwitchButton from "../components/SwitchButton";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import CardsCarousel from "../components/CardsCarousel";
 
-function Home() {
-  const [dreams, setDreams] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:4242/api/all")
-      .then((res) => res.json())
-      .then((res) => setDreams(res));
-  }, []);
+function Home({ dreams }) {
+  // const [dreams, setDreams] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:4242/api/all")
+  //     .then((res) => res.json())
+  //     .then((res) => setDreams(res));
+  // }, []);
 
   const imgTopReve = "src/assets/images/topDoctor.png";
   const imgTopCauchemar = "src/assets/images/topDemon.png";
@@ -138,8 +140,7 @@ function Home() {
         </div>
       </div>
       <div className="pickOne">
-        Espace sélection rêve tout fait
-        <Cards dreams={dreams} />
+        <CardsCarousel dreams={dreams} />
       </div>
       <div className="bottomText">
         <h1>{textBonheur}</h1>
@@ -172,6 +173,7 @@ function Home() {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

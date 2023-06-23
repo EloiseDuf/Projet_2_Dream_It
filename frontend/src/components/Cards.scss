@@ -24,8 +24,8 @@
   // margin-left: 300px;
 
   .cardContents {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 300px;
     position: relative;
     top: 71%;
     // scroll-behavior: initial;
@@ -132,8 +132,4 @@
   // background-image: url("../assets/images/panier-vide.png");
   background-size: 100%;
   align-self: flex-start;
-}
-
-.cards {
-  height: 80vh;
 }
