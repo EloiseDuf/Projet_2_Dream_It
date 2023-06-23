@@ -7,6 +7,7 @@ import SwitchButton from "../components/SwitchButton";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import CardsCarousel from "../components/CardsCarousel";
+import Drag from "../components/Drag";
 
 function Home({ dreams }) {
   // const [dreams, setDreams] = useState([]);
@@ -127,7 +128,10 @@ function Home({ dreams }) {
           <p>{textSwitch}</p>
         </div>
       </div>
-      <div className="makeIt">espace de création à la carte</div>
+      <div className="makeIt">
+        espace de création à la carte
+        <Drag />
+      </div>
       <div className="sectionTitle2">
         <div className="textSection2">
           <h1>En panne d'inspiration ?</h1>

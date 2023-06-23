@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  cursor: move;
+}
