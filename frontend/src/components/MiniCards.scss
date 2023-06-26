@@ -1,0 +1,65 @@
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.MiniglobalCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 150px;
+  // background-image: url("https://th.bing.com/th/id/OIG.PZr5jFSU3njNRl0zZLLw?pid=ImgGn");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  //   border: 2px solid red;
+  //   -webkit-text-stroke: 2px white;
+  border-radius: 10px;
+  overflow: hidden;
+  // margin: 30px;
+  // margin-left: 300px;
+
+  .Mini-icons {
+    margin: 5px 10px 0 10px;
+
+    .Mini-price {
+      margin: 0 5px 0 0;
+      text-align: right;
+      color: white;
+      text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black;
+      font-weight: bold;
+    }
+  }
+
+  .Mini-cardContents {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 0;
+    // scroll-behavior: initial;
+
+    background: rgba(255, 255, 255, 0.17);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.7px);
+    -webkit-backdrop-filter: blur(6.7px);
+
+    h1 {
+      color: white;
+      text-align: left;
+      line-height: 100%;
+      font-size: 12px;
+      padding: 0 0 5px 10px;
+      margin: 0 0 0 0;
+      text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black;
+    }
+  }
+}

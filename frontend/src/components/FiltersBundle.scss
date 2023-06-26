@@ -2,50 +2,38 @@
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   gap: 32px;
-  width: 95vw;
+  width: 15vw;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
   padding-bottom: 16px;
-  border-bottom: 2px solid rgb(234, 234, 234);
+  border-right: 2px solid black;
 
-  .div-choixTypeReve {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 8px;
-
+  .filtersBundleTitle {
     p {
       margin: 0;
-      font-size: 1rem;
+      font-size: 2rem;
       color: black;
-    }
-
-    button {
-      font-size: 1.1rem;
-      padding: 8px;
-      min-width: 100px;
-      border-radius: 8px;
-      background-color: var(--colorBoutonFiltre);
-      color: white;
-      cursor: pointer;
     }
   }
 
-  .filters {
-    background-color: black;
+  .filtersBundleFilters {
+    // background-color: red;
     width: auto;
     height: auto;
-    display: flex;
+    display: grid;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     gap: 8px;
+
+    #resetButtonFiltersBundle {
+      width: 4rem;
+      height: 1.5rem;
+    }
 
     .div-filtre-theme,
     .div-filtre-aLaCarte {
@@ -60,7 +48,7 @@
         display: block;
         width: 40px;
         height: 40px;
-        filter: invert(1);
+        // filter: invert(1);
         cursor: pointer;
         border-radius: 10px;
         transition: transform 0.25s;
@@ -71,9 +59,9 @@
       }
 
       .filtreActif {
-        border: 1px solid green;
-        background-color: rgb(0, 128, 68);
+        border: 1px solid var(--couleurFiltreActif);
         background-color: var(--couleurFiltreActif);
+        filter: invert(1);
       }
 
       .image-filter.active {
