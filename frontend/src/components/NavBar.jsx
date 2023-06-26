@@ -5,31 +5,41 @@ import "./NavBar.scss";
 import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 import logoAccount from "../assets/images/Account.png";
 import cartHome from "../assets/images/CartHome.png";
+import Popup from "./Popup";
 
 function NavBar() {
   const { user, setUser, users } = useContext(MyContext);
   const [isDivVisible, setIsDivVisible] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const navigate = useNavigate();
 
   // destructuration de user
   // const {image, pseudo } = user;
 
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   let usedPseudo = "";
   let motDePasse = "";
-  const handleClickLogin = () => {
+  const handleSubmitPopup = (username, password) => {
     if (user === null) {
-      usedPseudo = prompt("Veuillez entrer votre usedPseudo");
-      motDePasse = prompt("Veuillez entrer votre mot de passe");
+      usedPseudo = username;
+      motDePasse = password;
       const utilisateur = users.find((user) => user.pseudo === usedPseudo);
-      if (utilisateur === undefined) {
-        alert("Aucun utilisateur de ce nom existe");
+      if (utilisateur === undefined || utilisateur.mdp !== motDePasse) {
+        alert("Mot de passe ou pseudo incorrect");
       } else if (utilisateur.mdp === motDePasse) {
         setUser(utilisateur);
+        setIsPopupOpen(false);
+      } else {
         navigate("/profil/");
       }
-    } else {
-      navigate("/profil/");
     }
   };
 
@@ -52,6 +62,11 @@ function NavBar() {
           <Link to="/bundle">Préfabriqué</Link>
         </p>
       </Link>
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        onSubmit={handleSubmitPopup}
+      />
       <div className="homeLeftDiv">
         <button id="Account" type="button">
           <img src={logoAccount} alt="Account" onClick={handleClickNavMenu} />
@@ -66,13 +81,15 @@ function NavBar() {
           <>
             <div className="seConnecter">
               {user === null ? (
-                <button type="button" onClick={handleClickLogin}>
+                <button type="button" onClick={handleOpenPopup}>
                   Se Connecter
                 </button>
               ) : (
-                <button type="button" onClick={handleClickLogout}>
-                  Se Deconnecter
-                </button>
+                <Link to="/" className="SeDeconnecter">
+                  <button type="button" onClick={handleClickLogout}>
+                    Se Deconnecter
+                  </button>
+                </Link>
               )}
             </div>
             {user !== null && (

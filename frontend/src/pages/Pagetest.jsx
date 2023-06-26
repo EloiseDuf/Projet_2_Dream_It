@@ -13,10 +13,10 @@
 //     setIsPopupOpen(false);
 //   };
 
-//     const handleSubmitPopup = (username, password) => {
-//       // Faire quelque chose avec les valeurs du pseudo et du mot de passe
-//       setIsPopupOpen(false);
-//     };
+//   const handleSubmitPopup = (username, password) => {
+//     // Faire quelque chose avec les valeurs du pseudo et du mot de passe
+//     setIsPopupOpen(false);
+//   };
 
 //   return (
 //     <>
