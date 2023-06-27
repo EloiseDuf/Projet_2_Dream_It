@@ -3,10 +3,12 @@ import "./Basket.scss";
 
 function Basket({ dreams }) {
   return (
-    <div className="mainCommandeSection">
+    <div className="mainBasketSection">
       <div>
         <p>Mon panier</p>
-        <ItemsRow dreams={dreams} />
+        <div>
+          <ItemsRow dreams={dreams} />
+        </div>
       </div>
     </div>
   );
