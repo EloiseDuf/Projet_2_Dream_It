@@ -4,64 +4,100 @@
   justify-content: space-between;
   width: 100%;
   position: fixed;
+  border: 2px solid red;
+  z-index: 40;
+  height: 100px;
+  top: 0;
   .homeRightDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 1rem;
+    margin-top: 0.5em;
     gap: 3rem;
+
     color: white;
     img {
       height: 5rem;
     }
   }
+
   .homeLeftDiv {
     display: flex;
     position: relative;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin-right: 3rem;
-    border: 2px solid red;
+    justify-content: end;
+    margin-right: 3em;
+    border: 2px solid rgb(165, 98, 98);
 
     button {
       background: none;
       border: none;
+      width: 60px;
+      height: 50px;
     }
     img {
       width: 40px;
       height: 40px;
     }
-
-    .menuProfilNavbar {
-      width: 200px;
-      height: 160px;
-      position: absolute;
-      top: 100%;
-      right: -3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: white;
-      border: 2px solid blue;
-
-      .linkProfilElementNavbar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40px;
-        width: 100%;
-        text-decoration: none;
-        color: black;
-        padding: 8px;
-        box-sizing: border-box;
-        border: 1px solid red;
-      }
-    }
   }
   button {
     width: 5em;
     height: 2em;
+    z-index: 3;
   }
+}
+
+// .seConnecter {
+//   display: flex;
+//   justify-content: center;
+// }
+
+.test {
+  display: flex;
+  flex-direction: row;
+}
+
+.menuProfilNavbar {
+  width: 20%;
+  height: 100%;
+  top: 0;
+  margin-right: 3em;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px solid rgb(0, 255, 38);
+
+  // .displayNone {
+  //   display: none;
+  // }
+
+  .linkProfilElementNavbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    box-sizing: border-box;
+    z-index: 4;
+  }
+}
+.toutesLesDivs {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  top: 0;
+  justify-content: end;
+  align-items: end;
+  position: absolute;
+  flex-direction: column;
+  border: 2px solid orange;
+  z-index: 40;
 }

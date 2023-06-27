@@ -8,6 +8,9 @@
   height: 40vh;
   background-color: rgb(155, 232, 232);
   border-radius: 12px;
+  position: absolute;
+  z-index: 50;
+  margin: 4em;
 }
 
 .inputConnection {
