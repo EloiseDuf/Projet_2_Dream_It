@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MyContext from "./Context";
 import "./NavBar.scss";
 import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
@@ -8,11 +8,11 @@ import cartHome from "../assets/images/CartHome.png";
 import Popup from "./Popup";
 
 function NavBar() {
-  const { user, setUser, users } = useContext(MyContext);
+  const { user, setUser } = useContext(MyContext);
   const [isDivVisible, setIsDivVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // destructuration de user
   // const {image, pseudo } = user;
@@ -25,23 +25,23 @@ function NavBar() {
     setIsPopupOpen(false);
   };
 
-  let usedPseudo = "";
-  let motDePasse = "";
-  const handleSubmitPopup = (username, password) => {
-    if (user === null) {
-      usedPseudo = username;
-      motDePasse = password;
-      const utilisateur = users.find((user) => user.pseudo === usedPseudo);
-      if (utilisateur === undefined || utilisateur.mdp !== motDePasse) {
-        alert("Mot de passe ou pseudo incorrect");
-      } else if (utilisateur.mdp === motDePasse) {
-        setUser(utilisateur);
-        setIsPopupOpen(false);
-      } else {
-        navigate("/profil/");
-      }
-    }
-  };
+  // let usedPseudo = "";
+  // let motDePasse = "";
+  // const handleSubmitPopup = (username, password) => {
+  //   if (user === null) {
+  //     usedPseudo = username;
+  //     motDePasse = password;
+  //     const utilisateur = users.find((user) => user.pseudo === usedPseudo);
+  //     if (utilisateur === undefined || utilisateur.mdp !== motDePasse) {
+  //       alert("Mot de passe ou pseudo incorrect");
+  //     } else if (utilisateur.mdp === motDePasse) {
+  //       setUser(utilisateur);
+  //       setIsPopupOpen(false);
+  //     } else {
+  //       navigate("/profil/");
+  //     }
+  //   }
+  // };
 
   const handleClickLogout = () => {
     if (user !== null) {
@@ -65,7 +65,7 @@ function NavBar() {
       <Popup
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-        onSubmit={handleSubmitPopup}
+        // onSubmit={handleSubmitPopup}
       />
       <div className="homeLeftDiv">
         <button id="Account" type="button">
