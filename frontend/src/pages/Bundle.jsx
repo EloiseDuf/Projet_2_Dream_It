@@ -41,6 +41,11 @@ function Bundle({ dreams }) {
     handleFilter();
   }, [dreams, filters]);
 
+  // ce second useEffect permet de conserver l'affichage des Cards lorsque la page est rafraichie
+  useEffect(() => {
+    setFilterDreams(originalDreams);
+  }, [originalDreams]);
+
   return (
     <main>
       <Header />
