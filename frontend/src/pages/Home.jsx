@@ -130,7 +130,7 @@ function Home({ dreams }) {
       </div>
       <div className="makeIt">
         espace de création à la carte
-        <Drag />
+        <Drag dreams={dreams} />
       </div>
       <div className="sectionTitle2">
         <div className="textSection2">
