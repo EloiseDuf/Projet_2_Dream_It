@@ -15,11 +15,6 @@ function Popup({ isOpen, onClose }) {
     setPassword(event.target.value);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   onSubmit(username, password);
-  // };
-
   const handleSubmitPopup = (event) => {
     event.preventDefault();
     const utilisateur = users.find((user) => user.pseudo === username);

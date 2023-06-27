@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MyContext from "./Context";
 import "./NavBar.scss";
 import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
@@ -12,10 +12,7 @@ function NavBar() {
   const [isDivVisible, setIsDivVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // const navigate = useNavigate();
-
-  // destructuration de user
-  // const {image, pseudo } = user;
+  const navigate = useNavigate();
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
@@ -24,24 +21,6 @@ function NavBar() {
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
-
-  // let usedPseudo = "";
-  // let motDePasse = "";
-  // const handleSubmitPopup = (username, password) => {
-  //   if (user === null) {
-  //     usedPseudo = username;
-  //     motDePasse = password;
-  //     const utilisateur = users.find((user) => user.pseudo === usedPseudo);
-  //     if (utilisateur === undefined || utilisateur.mdp !== motDePasse) {
-  //       alert("Mot de passe ou pseudo incorrect");
-  //     } else if (utilisateur.mdp === motDePasse) {
-  //       setUser(utilisateur);
-  //       setIsPopupOpen(false);
-  //     } else {
-  //       navigate("/profil/");
-  //     }
-  //   }
-  // };
 
   const handleClickLogout = () => {
     if (user !== null) {
@@ -53,15 +32,18 @@ function NavBar() {
     setIsDivVisible(!isDivVisible);
   };
 
+  const handleMouseLeave = () => {
+    setIsDivVisible(false);
+  };
   return (
     <div className="NavBar">
-      <Link to="/" className="homeRightDiv">
-        <img src={logoDreamIt} alt="Logo" />
-        <p>A la carte</p>
-        <p>
-          <Link to="/bundle">Préfabriqué</Link>
-        </p>
-      </Link>
+      <div className="homeRightDiv">
+        <Link to="/">
+          <img src={logoDreamIt} alt="Logo" />
+          <p>A la carte</p>
+        </Link>
+        <Link to="/bundle">Préfabriqué</Link>
+      </div>
       <Popup
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
@@ -76,7 +58,7 @@ function NavBar() {
           <span className="item-count" />
         </button>
       </div>
-      <div className="menuProfilNavbar">
+      <div className="menuProfilNavbar" onMouseLeave={handleMouseLeave}>
         {isDivVisible && (
           <>
             <div className="seConnecter">
@@ -100,7 +82,7 @@ function NavBar() {
                 </div>
 
                 <Link to="/profil" className="linkProfilElementNavbar">
-                  Mon profil
+                  Profil
                 </Link>
                 <Link
                   to="/profil/commandesection"
