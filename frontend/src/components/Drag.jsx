@@ -79,25 +79,21 @@
 
 import React, { useState } from "react";
 import "./Drag.scss";
+import Cards from "./Cards";
+import "./Cards.scss";
 
-function Drag() {
-  const items = [
-    { id: 1, text: "Item 1" },
-    { id: 2, text: "Item 2" },
-    { id: 3, text: "Item 3" },
-  ];
-
+function Drag({ dreams }) {
   // const [items, setItems] = useState([
   //   { id: 1, text: "Item 1" },
   //   { id: 2, text: "Item 2" },
   //   { id: 3, text: "Item 3" },
   // ]);
 
-  const [column1, setColumn1] = useState(items);
+  const [column1, setColumn1] = useState(dreams);
   const [column2, setColumn2] = useState([]);
 
-  const handleDragStart = (event, item) => {
-    event.dataTransfer.setData("text/plain", JSON.stringify(item));
+  const handleDragStart = (event, dream) => {
+    event.dataTransfer.setData("application/json", JSON.stringify(dream));
   };
 
   const handleDragOver = (event) => {
@@ -106,20 +102,22 @@ function Drag() {
 
   const handleDrop = (event, targetColumn) => {
     event.preventDefault();
-    const droppedItem = JSON.parse(event.dataTransfer.getData("text/plain"));
+    const droppedItem = JSON.parse(
+      event.dataTransfer.getData("application/json")
+    );
 
     if (
       targetColumn === "idcolumn1" &&
-      column1.every((item) => item.id !== droppedItem.id)
+      column1.every((dream) => dream.id !== droppedItem.id)
     ) {
       setColumn1([...column1, droppedItem]);
-      setColumn2(column2.filter((item) => item.id !== droppedItem.id));
+      setColumn2(column2.filter((dream) => dream.id !== droppedItem.id));
     } else if (
       targetColumn === "column2" &&
-      column2.every((item) => item.id !== droppedItem.id)
+      column2.every((dream) => dream.id !== droppedItem.id)
     ) {
       setColumn2([...column2, droppedItem]);
-      setColumn1(column1.filter((item) => item.id !== droppedItem.id));
+      setColumn1(column1.filter((dream) => dream.id !== droppedItem.id));
     }
   };
 
@@ -131,15 +129,14 @@ function Drag() {
         onDragOver={handleDragOver}
         onDrop={(event) => handleDrop(event, "idcolumn1")}
       >
-        {column1.map((item) => (
-          <div
-            key={item.id}
+        {column1.map((dream) => (
+          <Cards
+            dreams={dream}
+            key={dream.id}
             className="item"
             draggable
-            onDragStart={(event) => handleDragStart(event, item)}
-          >
-            {item.text}
-          </div>
+            onDragStart={(event) => handleDragStart(event, dream)}
+          />
         ))}
       </div>
       <div

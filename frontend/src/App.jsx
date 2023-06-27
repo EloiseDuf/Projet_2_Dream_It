@@ -8,6 +8,7 @@ import ProfilSection from "./components/ProfilSection";
 import CommandeSection from "./components/CommandeSection";
 import FavorisSection from "./components/FavorisSection";
 import DemandeParticuliereSection from "./components/DemandeParticuliereSection";
+import Basket from "./pages/Basket";
 
 import "./App.scss";
 import Profil from "./pages/Profil";
@@ -78,6 +79,7 @@ function App() {
             />
           </Route>
           <Route path="/bundle" element={<Bundle dreams={dreams} />} />
+          <Route path="/panier" element={<Basket dreams={dreams} />} />
         </Routes>
       </MyContext.Provider>
 
