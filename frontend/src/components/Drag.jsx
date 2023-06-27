@@ -48,7 +48,7 @@ function Drag({ dreams }) {
         (dream) => !column2.some((dream2) => dream2.id === dream.id)
       )
     );
-  });
+  }, [dreams, column2]);
 
   return (
     <div className="container">
