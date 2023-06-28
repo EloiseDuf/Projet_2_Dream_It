@@ -7,7 +7,7 @@ function ItemsRow({ dreams }) {
   const [count, setCount] = useState(0);
 
   const handleClickLess = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
     }
   };
