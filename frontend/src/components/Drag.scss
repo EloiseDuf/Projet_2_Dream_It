@@ -5,13 +5,30 @@
 .column {
   flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
+  background-color: #d5c1d7;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 30%;
+  margin: 10px;
+  overflow-y: auto;
+  height: 25em;
 }
 
-.item {
-  // background-color: #f9f9f9;
-  // padding: 10px;
-  // margin-bottom: 10px;
-  // border: 1px solid #ccc;
+.column2 {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #000000;
+  background-color: #d5c1d7;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 30%;
+  margin: 10px;
+  overflow-y: auto;
+  height: 25em;
+  gap: 25px;
+}
+
+.carte {
   cursor: move;
 }
