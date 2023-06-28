@@ -144,7 +144,7 @@ function Home({ dreams }) {
         </div>
       </div>
       <div className="pickOne">
-        <CardsCarousel dreams={dreams} />
+        <CardsCarousel dreams={dreams} isOn={isOn} />
       </div>
       <div className="bottomText">
         <h1>{textBonheur}</h1>
