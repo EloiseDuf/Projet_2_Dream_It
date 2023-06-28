@@ -14,12 +14,18 @@
     flex-direction: row;
   }
 
+  .custom {
+    display: flex;
+    flex-direction: column;
+  }
+
   .div-section-minicards {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 24px;
     overflow-x: auto;
+    flex-wrap: wrap;
   }
 
   .details {

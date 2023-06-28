@@ -1,87 +1,147 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import MyContext from "./Context";
 import "./NavBar.scss";
 import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 import logoAccount from "../assets/images/Account.png";
 import cartHome from "../assets/images/CartHome.png";
+import Popup from "./Popup";
 
 function NavBar() {
-  const { user, setUser, users } = useContext(MyContext);
+  const { user, setUser } = useContext(MyContext);
+  const [isDivVisible, setIsDivVisible] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+    };
 
-  // destructuration de user
-  // const { nom, prenom, age, adresse, codePostal, ville, pays, email, tel } = user;
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-  let pseudo = "";
-  let motDePasse = "";
-  const handleClickConnerter = () => {
-    if (user === null) {
-      pseudo = prompt("Veuillez entrer votre pseudo");
-      motDePasse = prompt("Veuillez entrer votre mot de passe");
-      const utilisateur = users.find((user) => user.pseudo === pseudo);
-      if (utilisateur === undefined) {
-        alert("Aucun utilisateur de ce nom existe");
-      } else if (utilisateur.mdp === motDePasse) {
-        setUser(utilisateur);
-        navigate("/profil/");
-      }
-    } else {
-      navigate("/profil/");
+  const shouldChangeBackground = scrollPosition > 100; // Changer l'arrière-plan après un défilement de 100 pixels
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  const handleClickLogout = () => {
+    if (user !== null) {
+      setUser(null);
     }
   };
 
-  return (
-    <div className="NavBar">
-      <Link to="/" className="homeRightDiv">
-        <img src={logoDreamIt} alt="Logo" />
-        <p>A la carte</p>
-        <p>
-          <Link to="/bundle">Préfabriqué</Link>
-        </p>
-      </Link>
-      <div className="homeLeftDiv">
-        <button id="Account" type="button">
-          <img src={logoAccount} alt="Account" onClick={handleClickConnerter} />
-        </button>
-        <Link to="/panier">
-          <button id="Cart" type="button">
-            <img src={cartHome} alt="Cart" />
-            <span className="item-count" />
-          </button>
-        </Link>
-        <div className="menuProfilNavbar">
-          {/* Ajouter 2 div
-        la première contient la photo et le pseudo de l'utilisateur et n'est affiché que si l'utilisateur est connecté
-        la 2eme est un bouton Se connecter / se déconnecter qui change en fonction de l'état de la variable "user"
-        si user === null ? Se connecter : Se déconnecter
-        user est déjà un usestate partagé avec toutes les pages (je vous expliquerai) */}
+  const handleClickNavMenu = () => {
+    setIsDivVisible(!isDivVisible);
+  };
 
-          {/* Link à remplacer par des div avec une fonction onClick et un navigate à l'intérieur 
-        Si utilisateur connecté --> navigate direct
-        Si utilisateur pas connecté : redirection vers POPUP pour se connecter
-        utilisation d'un useState pour stocker le lien à suivre après s'être connecté dans la popup
-        Si on clique sur se déconnecter on redirige vers la page home */}
-          <Link to="/profil" className="linkProfilElementNavbar">
-            Mon profil
+  const handleMouseLeave = () => {
+    setIsDivVisible(false);
+  };
+
+  return (
+    <div className="toutesLesDivs">
+      <div className={shouldChangeBackground ? "change-bg" : "NavBar"}>
+        <div className="homeRightDiv">
+          <Link to="/">
+            <img src={logoDreamIt} alt="Logo" />
           </Link>
-          <Link
-            to="/profil/commandesection"
-            className="linkProfilElementNavbar"
-          >
-            Mes commandes
-          </Link>
-          <Link to="/profil/favorissection" className="linkProfilElementNavbar">
-            Mes favoris
-          </Link>
-          <Link
-            to="/profil/demandeparticuliere"
-            className="linkProfilElementNavbar"
-          >
-            Demandes particulières
-          </Link>
+          <p>A la carte</p>
+          <Link to="/bundle">Préfabriqué</Link>
         </div>
+        <Popup
+          isOpen={isPopupOpen}
+          onClose={handleClosePopup}
+          // onSubmit={handleSubmitPopup}
+        />
+        <div className="homeLeftDiv">
+          <div className="test">
+            <button id={user === null ? "Account" : "userActive"} type="button">
+              <img
+                src={user === null ? logoAccount : user.image}
+                alt="Account"
+                onClick={handleClickNavMenu}
+              />
+            </button>
+            <Link to="/panier">
+              <button id={user === null ? "Cart" : "activeUser"} type="button">
+                <img src={cartHome} alt="Cart" />
+                <span className="item-count" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div
+        className={
+          user === null
+            ? isDivVisible
+              ? "menuProfilNavbarSmall"
+              : "displayNone"
+            : isDivVisible
+            ? "menuProfilNavbar"
+            : "displayNone"
+        }
+        onMouseLeave={handleMouseLeave}
+      >
+        {isDivVisible && (
+          <div>
+            <div>
+              {user !== null && (
+                <>
+                  <div className="imageUser">
+                    {/* <img src={user.image} alt="user" /> */}
+                    <h2>{user.pseudo}</h2>
+                  </div>
+                  <Link to="/profil" className="linkProfilElementNavbar">
+                    <p>Profil</p>
+                  </Link>
+                  <Link
+                    to="/profil/commandesection"
+                    className="linkProfilElementNavbar"
+                  >
+                    <p>Mes commandes</p>
+                  </Link>
+                  <Link
+                    to="/profil/favorissection"
+                    className="linkProfilElementNavbar"
+                  >
+                    <p>Mes favoris</p>
+                  </Link>
+                  <Link
+                    to="/profil/demandeparticuliere"
+                    className="linkProfilElementNavbar"
+                  >
+                    <p>Demandes particulières</p>
+                  </Link>
+                </>
+              )}
+            </div>
+            <div className="seConnecter">
+              {user === null ? (
+                <button type="button" onClick={handleOpenPopup}>
+                  Se Connecter
+                </button>
+              ) : (
+                <Link to="/" className="SeDeconnecter">
+                  <button type="button" onClick={handleClickLogout}>
+                    Se Deconnecter
+                  </button>
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

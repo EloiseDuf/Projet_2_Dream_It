@@ -3,7 +3,7 @@ import { useState } from "react";
 import Cards from "./Cards";
 import "./CardsCarousel.scss";
 
-function CardsCarousel({ dreams }) {
+function CardsCarousel({ dreams, isOn }) {
   const calculerNbCardAffichees = () => {
     const largeurWindow = window.innerWidth;
     const largeurCards = 300;
@@ -70,12 +70,18 @@ function CardsCarousel({ dreams }) {
         </button>
       </div>
       <div className="mapFlex">
-        {dreams.map(
-          (dream) =>
+        {dreams.map((dream) => {
+          if (
             dream.type === "ready-to-use" &&
+            ((isOn && dream.mode === "dream") ||
+              (!isOn && dream.mode === "nightmare")) &&
             dream.id > cardIndexMin &&
-            dream.id <= cardIndexMax && <Cards key={dream.id} dreams={dream} />
-        )}
+            dream.id <= cardIndexMax
+          ) {
+            return <Cards key={dream.id} dreams={dream} />;
+          }
+          return null;
+        })}
       </div>
       <button
         type="button"

@@ -5,7 +5,7 @@ import "./Drag.scss";
 import CardsDrag from "./CardsDrag";
 import MiniCards from "./MiniCards";
 
-function Drag({ dreams }) {
+function Drag({ dreams, isOn }) {
   const { panier, setPanier } = useContext(MyContext);
   const [totalReve, setTotalReve] = useState(0);
   const [column1, setColumn1] = useState(dreams);
@@ -80,9 +80,13 @@ function Drag({ dreams }) {
         onDragOver={handleDragOver}
         onDrop={(event) => handleDrop(event, "idColumn1")}
       >
-        {column1.map(
-          (dream) =>
-            dream.type === "custom" && (
+        {column1.map((dream) => {
+          if (
+            dream.type === "custom" &&
+            ((isOn && dream.mode === "dream") ||
+              (!isOn && dream.mode === "nightmare"))
+          ) {
+            return (
               <div
                 key={dream.id}
                 className="carte"
@@ -91,8 +95,10 @@ function Drag({ dreams }) {
               >
                 <CardsDrag dreams={dream} key={dream.id} />
               </div>
-            )
-        )}
+            );
+          }
+          return null;
+        })}
       </section>
       <section
         className="column2"
@@ -101,19 +107,16 @@ function Drag({ dreams }) {
         onDrop={(event) => handleDrop(event, "idColumn2")}
       >
         <div className="divtoDragInColumn2">
-          {column2.map(
-            (dream) =>
-              dream.type === "custom" && (
-                <div
-                  key={dream.id}
-                  className="carte"
-                  draggable
-                  onDragStart={(event) => handleDragStart(event, dream)}
-                >
-                  <MiniCards dreams={dream} key={dream.id} />
-                </div>
-              )
-          )}
+          {column2.map((dream) => (
+            <div
+              key={dream.id}
+              className="carte"
+              draggable
+              onDragStart={(event) => handleDragStart(event, dream)}
+            >
+              <MiniCards dreams={dream} key={dream.id} />
+            </div>
+          ))}
         </div>
         <div className="divSendToPanier">
           <div className="totalReveAlaCarte">

@@ -5,7 +5,9 @@ import "./Header.scss";
 function Header() {
   return (
     <div className="header">
-      <img src={imgHeader} alt="header" />
+      <div className="imgHeader">
+        <img src={imgHeader} alt="header" />
+      </div>
       <NavBar />
     </div>
   );
