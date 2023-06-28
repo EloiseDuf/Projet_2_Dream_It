@@ -1,0 +1,170 @@
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.708);
+}
+
+.popup-content {
+  border-radius: 12px;
+  width: 30.5vw;
+  height: 60vh;
+  position: absolute;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.52);
+  border: 2px solid rgba(255, 254, 254, 0.49);
+  background: linear-gradient(
+    90deg,
+    rgba(167, 170, 121, 1) 1%,
+    rgba(211, 131, 101, 1) 38%,
+    rgba(157, 137, 211, 1) 73%,
+    rgba(109, 182, 223, 1) 100%
+  );
+
+  .contentDiv {
+    background-color: rgb(226, 226, 226);
+    height: 50vh;
+    width: 98%;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  form {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    height: 80%;
+  }
+
+  h2 {
+    position: absolute;
+    margin-bottom: 490px;
+    color: white;
+    font-size: 40px;
+  }
+
+  .inputConnection {
+    box-sizing: border-box;
+    display: flex;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    padding-top: 5em;
+  }
+
+  .buttonsConnexion {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    height: 40%;
+    width: 100%;
+    align-items: center;
+    button {
+      width: 200px;
+      font-size: 16px;
+      font-weight: 600;
+      color: rgb(143, 143, 143);
+      cursor: pointer;
+      height: 55px;
+      text-align: center;
+      background-size: 300% 100%;
+      background-color: linear-gradient(
+        90deg,
+        rgba(167, 170, 121, 1) 1%,
+        rgba(211, 131, 101, 1) 38%,
+        rgba(157, 137, 211, 1) 73%,
+        rgba(109, 182, 223, 1) 100%
+      );
+      border-radius: 50px;
+      moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+      border: 2px solid;
+    }
+
+    button:hover {
+      color: white;
+      background-position: 100% 0;
+      moz-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      -webkit-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      background-image: linear-gradient(
+        90deg,
+        rgba(167, 170, 121, 1) 1%,
+        rgba(211, 131, 101, 1) 38%,
+        rgba(157, 137, 211, 1) 73%,
+        rgba(109, 182, 223, 1) 100%
+      );
+      box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+    }
+
+    button:focus {
+      outline: none;
+    }
+  }
+}
+
+.inputConnection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  label {
+    width: 7em;
+  }
+  input {
+    padding: 5px;
+    font-size: 16px;
+    border-width: 1px;
+    border-color: #cccccc;
+    background-color: #ffffff86;
+    color: #000000;
+    border-style: solid;
+    border-radius: 0px;
+    box-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+    text-shadow: -14px -2px 0px rgba(66, 66, 66, 0);
+    width: 20em;
+    height: 3em;
+  }
+  input:focus {
+    outline: none;
+  }
+  .pseudoInput {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .passwordInput {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#closingCross {
+  display: inline-block;
+  background: none;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  cursor: pointer;
+  border: none;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
