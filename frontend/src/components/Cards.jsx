@@ -1,5 +1,6 @@
 import "./Cards.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import MyContext from "./Context";
 import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
 import panierVide from "../assets/images/panier-vide.png";
@@ -7,14 +8,31 @@ import panierRempliVert from "../assets/images/panier-rempli-vert.png";
 // import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
 function Cards({ dreams }) {
+  const { panier, setPanier } = useContext(MyContext);
+
   const [isFavorite, setIsFavorite] = useState();
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
 
   const [isEmpty, setIsEmpty] = useState(true);
+
   const handleClickEmpty = () => {
+    // fonction au click sur bouton panier)
+    let newPanier;
+
     setIsEmpty(!isEmpty);
+    if (isEmpty) {
+      const panierItem = [[dreams]];
+      newPanier = panier.concat(panierItem);
+      // setPanier([...panier,dreams]);
+      setPanier(newPanier);
+      // console.log(newPanier);
+    } else {
+      newPanier = panier.filter((element) => element[0].id !== dreams.id);
+      setPanier(newPanier);
+      // console.log(newPanier);
+    }
   };
 
   return (

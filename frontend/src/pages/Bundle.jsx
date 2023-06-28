@@ -51,7 +51,9 @@ function Bundle({ dreams }) {
       <Header />
       <h1 className="bundleH1">Choisissez parmi nos différents bundle</h1>
       <div className="bundleCardsFilters">
-        <FiltersBundle filters={filters} setFilters={setFilters} />
+        <div className="bundleFilters">
+          <FiltersBundle filters={filters} setFilters={setFilters} />
+        </div>
         <div className="bundleCards">
           {filterDreams.map(
             (dream) =>
