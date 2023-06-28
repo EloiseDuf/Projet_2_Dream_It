@@ -55,10 +55,13 @@ function App() {
   // il changera quand on l'utilisateur se connectera
   const [user, setUser] = useState(null);
 
+  // variable panier qui doit pouvoir être modifiée et récupérée dans toutes les pages
+  const [panier, setPanier] = useState([]);
+
   // stockage de l'état initial de user, setUser et users via un useMemo
   const valeursFourniesDansMyContextProvider = useMemo(
-    () => ({ user, setUser, users }),
-    [user, setUser, users]
+    () => ({ user, setUser, users, panier, setPanier }),
+    [user, setUser, users, panier, setPanier]
   );
 
   return (
