@@ -1,0 +1,93 @@
+.sectionItemsRow {
+  width: calc(50vw - 24px);
+  border: 1px solid lightgray;
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .cardAndDetails {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .div-section-minicards {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    overflow-x: auto;
+  }
+
+  .details {
+    width: 70%;
+    padding: 1rem;
+    justify-content: start;
+    align-items: start;
+
+    h1 {
+      text-align: start;
+    }
+
+    p {
+      text-align: start;
+    }
+
+    .longText {
+      font-size: 0.75rem;
+    }
+  }
+
+  .quantity {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    button {
+      padding: 0.5rem;
+      img {
+        width: 20px;
+      }
+    }
+
+    .less,
+    .more {
+      font-size: 2rem;
+      padding: 0.2rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  .total-commande {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 16px;
+    border-left: 2px solid lightgray;
+
+    button {
+      padding: 8px;
+      border-radius: 8px;
+      background-color: lightgray;
+      border: 3px outset lightgray;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      border: 3px outset #c7cd6f;
+    }
+
+    button:active {
+      border: 3px inset #c7cd6f;
+    }
+  }
+}
