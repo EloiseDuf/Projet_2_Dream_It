@@ -1,17 +1,16 @@
-// import React, { useState, useEffect, useContext } from "react";
-import React, { useState, useEffect } from "react";
-// remettre useContext au dessus
-// import MyContext from "./Context";
+import React, { useState, useEffect, useContext } from "react";
+import MyContext from "./Context";
 import "./Drag.scss";
 // import Cards from "./Cards";
 import CardsDrag from "./CardsDrag";
 import MiniCards from "./MiniCards";
 
 function Drag({ dreams }) {
-  // const { panier, setPanier } = useContext(MyContext);
-  // const { panier, setPanier } = useContext(MyContext);
+  const { panier, setPanier } = useContext(MyContext);
+  const [totalReve, setTotalReve] = useState(0);
   const [column1, setColumn1] = useState(dreams);
   const [column2, setColumn2] = useState([]);
+  const [newReve, setNewReve] = useState([]);
   // console.log("mon CL est ICI", dreams)
   // console.log("mon CL est ICI", dreams)
   // console.log("ICI CL Colone 1")
@@ -46,6 +45,16 @@ function Drag({ dreams }) {
     }
   };
 
+  const handleClickSendToPanier = () => {
+    if (column2.length > 0) {
+      const newPanier = panier.concat(newReve);
+      setPanier(newPanier);
+      setColumn2([]);
+      const newTotal = 0;
+      setTotalReve(newTotal);
+    }
+  };
+
   // useEffect utiliser car problème d'affichage. La page initialement n'affiche pas les cards. il faut passer par un useEfect pour envoyer les données
   // le .filter est la pour indiquer que nous souhaitons ce qui est different de colone2
   useEffect(() => {
@@ -56,12 +65,12 @@ function Drag({ dreams }) {
     );
   }, [dreams, column2]);
 
-  // useEffect(()=>{
-  //   const newReve= column2;
-
-  //     console.log("reveAlaCarte");
-  //     console.log(newReve);
-  // },[column2]);
+  useEffect(() => {
+    const globalReve = column2;
+    setNewReve([globalReve]);
+    const newTotal = globalReve.reduce((acc, reve) => acc + reve.price, 0);
+    setTotalReve(newTotal);
+  }, [column2]);
 
   return (
     <main className="container">
@@ -91,27 +100,29 @@ function Drag({ dreams }) {
         onDragOver={handleDragOver}
         onDrop={(event) => handleDrop(event, "idColumn2")}
       >
-        {column2.map(
-          (dream) =>
-            dream.type === "custom" && (
-              <div
-                key={dream.id}
-                className="carte"
-                draggable
-                onDragStart={(event) => handleDragStart(event, dream)}
-              >
-                <MiniCards dreams={dream} key={dream.id} />
-              </div>
-            )
-          //   <div className="bundleCards">
-          //   {filterDreams.map(
-          //     (dream) =>
-          //       dream.type === "ready-to-use" && (
-          //         <Cards dreams={dream} key={dream.id} />
-          //       )
-          //   )}
-          // </div>
-        )}
+        <div className="divtoDragInColumn2">
+          {column2.map(
+            (dream) =>
+              dream.type === "custom" && (
+                <div
+                  key={dream.id}
+                  className="carte"
+                  draggable
+                  onDragStart={(event) => handleDragStart(event, dream)}
+                >
+                  <MiniCards dreams={dream} key={dream.id} />
+                </div>
+              )
+          )}
+        </div>
+        <div className="divSendToPanier">
+          <div className="totalReveAlaCarte">
+            <p>{`Total : ${totalReve} €`}</p>
+          </div>
+          <button type="button" onClick={handleClickSendToPanier}>
+            Ajouter au panier
+          </button>
+        </div>
       </section>
     </main>
   );
