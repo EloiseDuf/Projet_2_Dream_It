@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useContext } from "react";
+import MyContext from "./Context";
 import "./SwitchButton.scss";
 
 function Switch({ Active }) {
-  const [isOn, setIson] = useState(false);
+  // function Switch() {
+  // const [isOn, setIson] = useState(false);
+  const { isOn, setIson } = useContext(MyContext);
 
   const handleSwitch = () => {
     setIson(!isOn);
-    Active(!isOn);
+    // Active(!isOn);
+    Active();
   };
 
   return (
