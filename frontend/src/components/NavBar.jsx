@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MyContext from "./Context";
 import "./NavBar.scss";
@@ -11,6 +11,21 @@ function NavBar() {
   const { user, setUser } = useContext(MyContext);
   const [isDivVisible, setIsDivVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const shouldChangeBackground = scrollPosition > 100; // Changer l'arrière-plan après un défilement de 100 pixels
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
@@ -36,7 +51,7 @@ function NavBar() {
 
   return (
     <div className="toutesLesDivs">
-      <div className="NavBar">
+      <div className={shouldChangeBackground ? "change-bg" : "NavBar"}>
         <div className="homeRightDiv">
           <Link to="/">
             <img src={logoDreamIt} alt="Logo" />
@@ -51,28 +66,39 @@ function NavBar() {
         />
         <div className="homeLeftDiv">
           <div className="test">
-            <button id="Account" type="button">
+            <button id={user === null ? "Account" : "userActive"} type="button">
               <img
-                src={logoAccount}
+                src={user === null ? logoAccount : user.image}
                 alt="Account"
                 onClick={handleClickNavMenu}
               />
             </button>
-            <button id="Cart" type="button">
+            <button id={user === null ? "Cart" : "activeUser"} type="button">
               <img src={cartHome} alt="Cart" />
               <span className="item-count" />
             </button>
           </div>
         </div>
       </div>
-      <div className="menuProfilNavbar" onMouseLeave={handleMouseLeave}>
+      <div
+        className={
+          user === null
+            ? isDivVisible
+              ? "menuProfilNavbarSmall"
+              : "displayNone"
+            : isDivVisible
+            ? "menuProfilNavbar"
+            : "displayNone"
+        }
+        onMouseLeave={handleMouseLeave}
+      >
         {isDivVisible && (
           <div>
             <div>
               {user !== null && (
                 <>
                   <div className="imageUser">
-                    <img src={user.image} alt="user" />
+                    {/* <img src={user.image} alt="user" /> */}
                     <h2>{user.pseudo}</h2>
                   </div>
                   <Link to="/profil" className="linkProfilElementNavbar">

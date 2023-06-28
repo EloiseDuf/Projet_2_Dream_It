@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import "./Popup.scss";
 import MyContext from "./Context";
 
@@ -6,6 +6,27 @@ function Popup({ isOpen, onClose }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setUser, users } = useContext(MyContext);
+  const buttonRef = useRef(null);
+  const popupRef = useRef(null);
+
+  const handleKeyPressEnter = (event) => {
+    if (event.key === "Enter") {
+      buttonRef.current.click();
+    }
+  };
+
+  const handleKeyPressEscape = (event) => {
+    if (event.key === "Escape") {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPressEscape);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPressEscape);
+    };
+  }, []);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -19,7 +40,7 @@ function Popup({ isOpen, onClose }) {
     event.preventDefault();
     const utilisateur = users.find((user) => user.pseudo === username);
     if (utilisateur === undefined || utilisateur.mdp !== password) {
-      alert("wrong password or shit");
+      alert("wrong Pseudo or Password");
       setPassword("");
       setUsername("");
     } else {
@@ -33,37 +54,43 @@ function Popup({ isOpen, onClose }) {
   }
 
   return (
-    <div className="popup">
+    <div className="popup" ref={popupRef}>
       <div className="popup-content">
-        <h2>Connexion</h2>
-        <form>
-          <div className="inputConnection">
-            <div>
-              <label htmlFor="username">Pseudo:</label>
-              <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={handleUsernameChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="password">Mot de passe:</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-            </div>
-          </div>
-          <button type="submit" onClick={handleSubmitPopup}>
-            Valider
-          </button>
-        </form>
-        <button type="button" onClick={onClose}>
-          Fermer
+        <button id="closingCross" type="button" onClick={onClose}>
+          X
         </button>
+        <h2>Connexion</h2>
+        <div className="contentDiv">
+          <form>
+            <div className="inputConnection">
+              <div className="pseudoInput">
+                <input
+                  placeholder="Pseudo"
+                  type="text"
+                  id="username"
+                  value={username}
+                  onKeyDown={handleKeyPressEnter}
+                  onChange={handleUsernameChange}
+                />
+              </div>
+              <div className="passwordInput">
+                <input
+                  placeholder="Mot de Passe"
+                  type="password"
+                  id="password"
+                  value={password}
+                  onKeyDown={handleKeyPressEnter}
+                  onChange={handlePasswordChange}
+                />
+              </div>
+            </div>
+          </form>
+          <div className="buttonsConnexion">
+            <button ref={buttonRef} type="submit" onClick={handleSubmitPopup}>
+              Se connecter
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
