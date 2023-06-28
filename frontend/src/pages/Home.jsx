@@ -130,7 +130,7 @@ function Home({ dreams }) {
       </div>
       <div className="makeIt">
         espace de création à la carte
-        <Drag dreams={dreams} />
+        <Drag dreams={dreams} isOn={isOn} />
       </div>
       <div className="sectionTitle2">
         <div className="textSection2">
@@ -144,7 +144,7 @@ function Home({ dreams }) {
         </div>
       </div>
       <div className="pickOne">
-        <CardsCarousel dreams={dreams} />
+        <CardsCarousel dreams={dreams} isOn={isOn} />
       </div>
       <div className="bottomText">
         <h1>{textBonheur}</h1>
