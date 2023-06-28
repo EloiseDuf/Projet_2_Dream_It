@@ -45,10 +45,12 @@ function NavBar() {
         <button id="Account" type="button">
           <img src={logoAccount} alt="Account" onClick={handleClickConnerter} />
         </button>
-        <button id="Cart" type="button">
-          <img src={cartHome} alt="Cart" />
-          <span className="item-count" />
-        </button>
+        <Link to="/panier">
+          <button id="Cart" type="button">
+            <img src={cartHome} alt="Cart" />
+            <span className="item-count" />
+          </button>
+        </Link>
         <div className="menuProfilNavbar">
           {/* Ajouter 2 div
         la première contient la photo et le pseudo de l'utilisateur et n'est affiché que si l'utilisateur est connecté

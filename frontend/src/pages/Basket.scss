@@ -1,0 +1,12 @@
+.mainBasketSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  height: 65vh;
+  width: 50vw;
+  overflow-y: auto;
+  border: 4px solid lightgray;
+  margin: auto;
+}
