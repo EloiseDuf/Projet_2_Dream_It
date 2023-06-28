@@ -59,10 +59,13 @@ function App() {
   // variable panier qui doit pouvoir être modifiée et récupérée dans toutes les pages
   const [panier, setPanier] = useState([]);
 
+  // variable pour le changement de mode reve / cauchemar
+  const [isOn, setIson] = useState(false);
+
   // stockage de l'état initial de user, setUser et users via un useMemo
   const valeursFourniesDansMyContextProvider = useMemo(
-    () => ({ user, setUser, users, panier, setPanier }),
-    [user, setUser, users, panier, setPanier]
+    () => ({ user, setUser, users, panier, setPanier, isOn, setIson }),
+    [user, setUser, users, panier, setPanier, isOn, setIson]
   );
 
   return (

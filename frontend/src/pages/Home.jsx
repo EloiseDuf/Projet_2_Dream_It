@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import MyContext from "../components/Context";
 
 import "./Home.scss";
 // import Filters from "../components/Filters";
@@ -22,7 +23,7 @@ function Home({ dreams }) {
   const imgBottomReve = "src/assets/images/bottomGirl.png";
   const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
 
-  const [isOn, setIson] = useState(true);
+  const { isOn } = useContext(MyContext);
   const [textCompo, setTextCompo] = useState("Voie orale.");
   const [textSwitch, setTextSwitch] = useState(
     "Attention, ceci n'est pas un médicament. À consommer avec modération"
@@ -31,7 +32,7 @@ function Home({ dreams }) {
     "Vous n'avez pas trouvé votre bonheur ?"
   );
 
-  const switchTheme = (isOn) => {
+  const switchTheme = () => {
     const root = document.documentElement;
     if (isOn) {
       root.style.setProperty(
@@ -58,7 +59,8 @@ function Home({ dreams }) {
     }
   };
 
-  const switchText = (isOn) => {
+  // const switchText = (isOn) => {
+  const switchText = () => {
     if (isOn) {
       setTextBonheur("Vous n'avez pas trouvé votre bonheur ?");
       setTextCompo("Voie orale.");
@@ -72,12 +74,17 @@ function Home({ dreams }) {
     }
   };
 
-  const handleActive = (isOn) => {
-    setIson(!isOn);
+  // const handleActive = (isOn) => {
+  const handleActive = () => {
+    // setIson(!isOn);
     // setTextCompo("Composez votre cauchemar");
-    switchTheme(!isOn);
-    switchText(!isOn);
+    switchTheme();
+    switchText();
   };
+
+  useEffect(() => {
+    handleActive();
+  }, [isOn]);
 
   return (
     <>
