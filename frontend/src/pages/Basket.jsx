@@ -4,11 +4,7 @@ import "./Basket.scss";
 import MyContext from "../components/Context";
 
 function Basket() {
-  const { user } = useContext(MyContext);
-
-  // destructuration de user
-  const { commandes } = user;
-  const panier = commandes;
+  const { panier } = useContext(MyContext);
 
   return (
     <div className="mainBasketSection">

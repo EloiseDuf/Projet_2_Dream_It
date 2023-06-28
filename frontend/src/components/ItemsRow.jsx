@@ -5,7 +5,7 @@ import poubelle from "../assets/images/poubelle.png";
 import MiniCards from "./MiniCards";
 
 function ItemsRow({ panierRow }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const handleClickLess = () => {
     if (count > 1) {
