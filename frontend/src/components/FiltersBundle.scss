@@ -1,6 +1,6 @@
 .section-filters {
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 20px 0 20px;
+  margin: 30px 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -15,7 +15,7 @@
   .filtersBundleTitle {
     p {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: black;
     }
   }
@@ -31,8 +31,21 @@
     gap: 8px;
 
     #resetButtonFiltersBundle {
-      width: 4rem;
-      height: 1.5rem;
+      width: 6rem;
+      height: 3rem;
+      margin: 2rem 0 0 0;
+      font-size: 1.1rem;
+      border: 3px outset lightgrey;
+      background-color: lightgrey;
+      border-radius: 16px;
+    }
+
+    #resetButtonFiltersBundle:hover {
+      border: 3px outset #c7cd6f;
+    }
+
+    #resetButtonFiltersBundle:active {
+      border: 3px inset #c7cd6f;
     }
 
     .div-filtre-theme,

@@ -8,7 +8,7 @@ import ProfilSection from "./components/ProfilSection";
 import CommandeSection from "./components/CommandeSection";
 import FavorisSection from "./components/FavorisSection";
 import DemandeParticuliereSection from "./components/DemandeParticuliereSection";
-// import Pagetest from "./pages/Pagetest";
+import Basket from "./pages/Basket";
 
 import "./App.scss";
 import Profil from "./pages/Profil";
@@ -56,10 +56,13 @@ function App() {
   // il changera quand on l'utilisateur se connectera
   const [user, setUser] = useState(null);
 
+  // variable panier qui doit pouvoir être modifiée et récupérée dans toutes les pages
+  const [panier, setPanier] = useState([]);
+
   // stockage de l'état initial de user, setUser et users via un useMemo
   const valeursFourniesDansMyContextProvider = useMemo(
-    () => ({ user, setUser, users }),
-    [user, setUser, users]
+    () => ({ user, setUser, users, panier, setPanier }),
+    [user, setUser, users, panier, setPanier]
   );
 
   return (
@@ -79,7 +82,7 @@ function App() {
             />
           </Route>
           <Route path="/bundle" element={<Bundle dreams={dreams} />} />
-          {/* <Route path="/test" element={<Pagetest />} /> */}
+          <Route path="/panier" element={<Basket dreams={dreams} />} />
         </Routes>
       </MyContext.Provider>
 

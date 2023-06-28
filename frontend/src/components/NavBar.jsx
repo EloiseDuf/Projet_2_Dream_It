@@ -73,10 +73,12 @@ function NavBar() {
                 onClick={handleClickNavMenu}
               />
             </button>
-            <button id={user === null ? "Cart" : "activeUser"} type="button">
-              <img src={cartHome} alt="Cart" />
-              <span className="item-count" />
-            </button>
+            <Link to="/panier">
+              <button id={user === null ? "Cart" : "activeUser"} type="button">
+                <img src={cartHome} alt="Cart" />
+                <span className="item-count" />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
