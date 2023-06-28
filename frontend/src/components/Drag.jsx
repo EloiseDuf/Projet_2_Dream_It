@@ -1,5 +1,6 @@
 // import React, { useState, useEffect, useContext } from "react";
 import React, { useState, useEffect } from "react";
+// remettre useContext au dessus
 // import MyContext from "./Context";
 import "./Drag.scss";
 // import Cards from "./Cards";
@@ -7,6 +8,7 @@ import CardsDrag from "./CardsDrag";
 import MiniCards from "./MiniCards";
 
 function Drag({ dreams }) {
+  // const { panier, setPanier } = useContext(MyContext);
   // const { panier, setPanier } = useContext(MyContext);
   const [column1, setColumn1] = useState(dreams);
   const [column2, setColumn2] = useState([]);
@@ -69,16 +71,19 @@ function Drag({ dreams }) {
         onDragOver={handleDragOver}
         onDrop={(event) => handleDrop(event, "idColumn1")}
       >
-        {column1.map((dream) => (
-          <div
-            key={dream.id}
-            className="carte"
-            draggable
-            onDragStart={(event) => handleDragStart(event, dream)}
-          >
-            <CardsDrag dreams={dream} key={dream.id} />
-          </div>
-        ))}
+        {column1.map(
+          (dream) =>
+            dream.type === "custom" && (
+              <div
+                key={dream.id}
+                className="carte"
+                draggable
+                onDragStart={(event) => handleDragStart(event, dream)}
+              >
+                <CardsDrag dreams={dream} key={dream.id} />
+              </div>
+            )
+        )}
       </section>
       <section
         className="column2"
@@ -86,16 +91,27 @@ function Drag({ dreams }) {
         onDragOver={handleDragOver}
         onDrop={(event) => handleDrop(event, "idColumn2")}
       >
-        {column2.map((dream) => (
-          <div
-            key={dream.id}
-            className="carte"
-            draggable
-            onDragStart={(event) => handleDragStart(event, dream)}
-          >
-            <MiniCards dreams={dream} key={dream.id} />
-          </div>
-        ))}
+        {column2.map(
+          (dream) =>
+            dream.type === "custom" && (
+              <div
+                key={dream.id}
+                className="carte"
+                draggable
+                onDragStart={(event) => handleDragStart(event, dream)}
+              >
+                <MiniCards dreams={dream} key={dream.id} />
+              </div>
+            )
+          //   <div className="bundleCards">
+          //   {filterDreams.map(
+          //     (dream) =>
+          //       dream.type === "ready-to-use" && (
+          //         <Cards dreams={dream} key={dream.id} />
+          //       )
+          //   )}
+          // </div>
+        )}
       </section>
     </main>
   );
