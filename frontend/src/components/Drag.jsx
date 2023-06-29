@@ -2,8 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import MyContext from "./Context";
 import "./Drag.scss";
 // import Cards from "./Cards";
+import FiltersTab from "../assets/FiltersTab";
+
 import CardsDrag from "./CardsDrag";
 import MiniCards from "./MiniCards";
+import FiltersDrag from "./FiltersDrag";
 
 function Drag({ dreams, isOn }) {
   const { panier, setPanier } = useContext(MyContext);
@@ -11,6 +14,9 @@ function Drag({ dreams, isOn }) {
   const [column1, setColumn1] = useState(dreams);
   const [column2, setColumn2] = useState([]);
   const [newReve, setNewReve] = useState([]);
+  const [filterDreams, setFilterDreams] = useState([]);
+  const [originalDreams, setOriginalDreams] = useState(column1);
+  const [filters, setFilters] = useState(FiltersTab);
   // console.log("mon CL est ICI", dreams)
   // console.log("mon CL est ICI", dreams)
   // console.log("ICI CL Colone 1")
@@ -72,6 +78,39 @@ function Drag({ dreams, isOn }) {
     setTotalReve(newTotal);
   }, [column2]);
 
+  const handleFilter = () => {
+    // on commence par réinitialiser filterDreams par la valeur initiale, c'est à dire "dreams" contenant tous les reves
+    setFilterDreams(originalDreams);
+    // on crée une variable intermédiaire filtered équivalent à un filtre de dreams avec seulement les dreams dont le filtre est actif
+    const activeFilters = filters
+      .filter((filtre) => filtre.active === true)
+      .map((filtre) => filtre.element);
+    // on cherche les filtres actifs et on renvoie le theme à conserver dans filtered
+    if (activeFilters.length !== 0) {
+      const filtered = originalDreams.filter((dream) =>
+        activeFilters.includes(dream.element)
+      );
+      setFilterDreams(filtered);
+    } else {
+      setFilterDreams(originalDreams);
+    }
+  };
+
+  // const handleReset = () => {
+  //   setFilterDreams(originalDreams);
+  // };
+
+  useEffect(() => {
+    setFilterDreams(column1);
+    setOriginalDreams(column1);
+    handleFilter();
+  }, [column1, filters]);
+
+  // ce second useEffect permet de conserver l'affichage des Cards lorsque la page est rafraichie
+  useEffect(() => {
+    setFilterDreams(originalDreams);
+  }, [originalDreams]);
+
   return (
     <main className="container">
       <section
@@ -80,7 +119,7 @@ function Drag({ dreams, isOn }) {
         onDragOver={handleDragOver}
         onDrop={(event) => handleDrop(event, "idColumn1")}
       >
-        {column1.map((dream) => {
+        {filterDreams.map((dream) => {
           if (
             dream.type === "custom" &&
             ((isOn && dream.mode === "dream") ||
@@ -127,96 +166,15 @@ function Drag({ dreams, isOn }) {
           </button>
         </div>
       </section>
+      <div>
+        <FiltersDrag
+          filters={filters}
+          setFilters={setFilters}
+          FiltersTab={FiltersTab}
+        />
+      </div>
     </main>
   );
 }
 
 export default Drag;
-
-// import React, { useState } from "react";
-// import "./Drag.scss";
-
-// function Drag() {
-//   const items = [
-//     { id: 1, text: "Item 1" },
-//     { id: 2, text: "Item 2" },
-//     { id: 3, text: "Item 3" },
-//   ];
-
-//   // const [items, setItems] = useState([
-//   //   { id: 1, text: "Item 1" },
-//   //   { id: 2, text: "Item 2" },
-//   //   { id: 3, text: "Item 3" },
-//   // ]);
-
-//   const [column1, setColumn1] = useState(items);
-//   const [column2, setColumn2] = useState([]);
-
-//   const handleDragStart = (event, item) => {
-//     event.dataTransfer.setData("text/plain", JSON.stringify(item));
-//   };
-
-//   const handleDragOver = (event) => {
-//     event.preventDefault();
-//   };
-
-//   const handleDrop = (event, targetColumn) => {
-//     event.preventDefault();
-//     const droppedItem = JSON.parse(event.dataTransfer.getData("text/plain"));
-
-//     if (
-//       targetColumn === "idcolumn1" &&
-//       column1.every((item) => item.id !== droppedItem.id)
-//     ) {
-//       setColumn1([...column1, droppedItem]);
-//       setColumn2(column2.filter((item) => item.id !== droppedItem.id));
-//     } else if (
-//       targetColumn === "column2" &&
-//       column2.every((item) => item.id !== droppedItem.id)
-//     ) {
-//       setColumn2([...column2, droppedItem]);
-//       setColumn1(column1.filter((item) => item.id !== droppedItem.id));
-//     }
-//   };
-
-//   return (
-//     <div className="container">
-//       <div
-//         className="column"
-//         id="idcolumn1"
-//         onDragOver={handleDragOver}
-//         onDrop={(event) => handleDrop(event, "idcolumn1")}
-//       >
-//         {column1.map((item) => (
-//           <div
-//             key={item.id}
-//             className="item"
-//             draggable
-//             onDragStart={(event) => handleDragStart(event, item)}
-//           >
-//             {item.text}
-//           </div>
-//         ))}
-//       </div>
-//       <div
-//         className="column"
-//         id="column2"
-//         onDragOver={handleDragOver}
-//         onDrop={(event) => handleDrop(event, "column2")}
-//       >
-//         {column2.map((item) => (
-//           <div
-//             key={item.id}
-//             className="item"
-//             draggable
-//             onDragStart={(event) => handleDragStart(event, item)}
-//           >
-//             {item.text}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Drag;
