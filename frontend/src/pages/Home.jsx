@@ -23,6 +23,10 @@ function Home({ dreams }) {
   const imgBottomReve = "src/assets/images/bottomGirl.png";
   const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { setUser, users } = useContext(MyContext);
+
   const { isOn } = useContext(MyContext);
   const [textCompo, setTextCompo] = useState("Voie orale.");
   const [textSwitch, setTextSwitch] = useState(
@@ -86,7 +90,26 @@ function Home({ dreams }) {
     handleActive();
   }, [isOn]);
 
-  // {`Reve ${isOn ? "Reve" : "Cauchemar"}`}
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const utilisateur = users.find((user) => user.pseudo === username);
+    if (utilisateur === undefined || utilisateur.mdp !== password) {
+      alert("wrong Pseudo or Password");
+      setPassword("");
+      setUsername("");
+    } else {
+      setUser(utilisateur);
+    }
+  };
+
   return (
     <>
       <div className="topPage">
@@ -174,6 +197,8 @@ function Home({ dreams }) {
                 id="emailInput"
                 name="email"
                 type="text"
+                value={username}
+                onChange={handleUsernameChange}
               />
             </div>
             <div className="Password">
@@ -182,10 +207,12 @@ function Home({ dreams }) {
                 id="passwordInput"
                 name="password"
                 type="text"
+                value={password}
+                onChange={handlePasswordChange}
               />
             </div>
           </div>
-          <button className="loginButton" type="button">
+          <button className="loginButton" type="button" onClick={handleSubmit}>
             Se connecter
           </button>
         </div>
