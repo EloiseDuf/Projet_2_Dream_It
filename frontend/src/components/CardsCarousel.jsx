@@ -1,32 +1,77 @@
 // import { useState } from "react";
-// import { useState } from "react";
+// import Cards from "./Cards";
+// import "./CardsCarousel.scss";
+
+// function CardsCarousel({ dreams, isOn }) {
+//   return (
+//     <>
+//       <img
+//         // ref={arrow1Ref}
+//         className="arrow1"
+//         src="https://svgsilh.com/svg/1217938.svg"
+//         alt="arrow"
+//       />
+//       <div className="carouselBox">
+//         {isOn
+//           ? dreams.map(
+//               (dream) =>
+//                 dream.mode === "dream" && (
+//                   <Cards className="cardCarous" dreams={dream} key={dream.id} />
+//                 )
+//             )
+//           : dreams.map(
+//               (dream) =>
+//                 dream.mode === "nightmare" && (
+//                   <Cards className="cardCarous" dreams={dream} key={dream.id} />
+//                 )
+//             )}
+//       </div>
+//       <img
+//         // ref={arrow2Ref}
+//         className="arrow2"
+//         src="https://svgsilh.com/svg/1217938.svg"
+//         alt="arrow"
+//       />
+//     </>
+//   );
+// }
+
+// export default CardsCarousel;
+
+import React, { useRef } from "react";
 import Cards from "./Cards";
 import "./CardsCarousel.scss";
 
 function CardsCarousel({ dreams, isOn }) {
+  const carouselBoxRef = useRef(null);
+
+  const scroll = (scrollOffset) => {
+    carouselBoxRef.current.scrollLeft += scrollOffset;
+  };
+
   return (
     <>
       <img
+        onClick={() => scroll(-500)} // Défiler vers la gauche
         className="arrow1"
         src="https://svgsilh.com/svg/1217938.svg"
         alt="arrow"
       />
-      <div className="carouselBox">
+      <div className="carouselBox" ref={carouselBoxRef}>
         {isOn
-          ? dreams.map(
-              (dream) =>
-                dream.mode === "dream" && (
-                  <Cards className="cardCarous" dreams={dream} key={dream.id} />
-                )
-            )
-          : dreams.map(
-              (dream) =>
-                dream.mode === "nightmare" && (
-                  <Cards className="cardCarous" dreams={dream} key={dream.id} />
-                )
-            )}
+          ? dreams
+              .filter((dream) => dream.mode === "dream")
+              .map((dream) => (
+                <Cards className="cardCarous" dreams={dream} key={dream.id} />
+              ))
+          : dreams
+              .filter((dream) => dream.mode === "nightmare")
+              .map((dream) => (
+                <Cards className="cardCarous" dreams={dream} key={dream.id} />
+              ))}
       </div>
       <img
+        onClick={() => scroll(500)} // Défiler vers la droite
         className="arrow2"
         src="https://svgsilh.com/svg/1217938.svg"
         alt="arrow"
