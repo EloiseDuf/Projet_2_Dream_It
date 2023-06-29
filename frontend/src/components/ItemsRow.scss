@@ -1,12 +1,16 @@
 .sectionItemsRow {
   width: calc(50vw - 24px);
-  border: 1px solid lightgray;
-  border-radius: 16px;
-  padding: 8px;
+  width: 100%;
+  border-radius: 12px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 30;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid grey;
 
   .cardAndDetails {
     width: 50%;
@@ -24,7 +28,6 @@
     justify-content: flex-start;
     align-items: center;
     gap: 24px;
-    overflow-x: auto;
     flex-wrap: wrap;
   }
 
@@ -51,22 +54,56 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    z-index: 5;
+    p {
+      font-size: 25px;
+    }
+    .less {
+      height: 30px;
+      width: 30px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color: none;
+      border: 2px solid rgb(188, 188, 188);
 
-    button {
-      padding: 0.5rem;
-      img {
-        width: 20px;
+      p {
+        color: rgb(0, 0, 0);
+        font-size: 30px;
       }
     }
-
-    .less,
     .more {
-      font-size: 2rem;
-      padding: 0.2rem;
-    }
+      height: 30px;
+      width: 30px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color: none;
+      border: 2px solid rgb(188, 188, 188);
 
-    p {
-      font-size: 2rem;
+      p {
+        color: rgb(0, 0, 0);
+        font-size: 30px;
+      }
+    }
+    .trash {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      background-color: rgb(237, 183, 183);
+      border: 2px solid rgb(188, 188, 188);
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 15px;
+        height: auto;
+      }
     }
   }
 
@@ -78,22 +115,33 @@
     align-items: center;
     padding-left: 16px;
     border-left: 2px solid lightgray;
-
-    button {
-      padding: 8px;
-      border-radius: 8px;
-      background-color: lightgray;
-      border: 3px outset lightgray;
-      color: white;
-      cursor: pointer;
+    margin-right: 20px;
+    .div-commande-price {
     }
 
-    button:hover {
-      border: 3px outset #c7cd6f;
+    .scrollItems {
+      width: 100%;
+      z-index: 32;
+      .cartesPanier {
+        border: 2px solid pink;
+        width: 100%;
+      }
     }
+    // button {
+    //   padding: 8px;
+    //   border-radius: 8px;
+    //   background-color: rgb(194, 49, 49);
+    //   border: 3px outset lightgray;
+    //   color: white;
+    //   cursor: pointer;
+    // }
 
-    button:active {
-      border: 3px inset #c7cd6f;
-    }
+    // button:hover {
+    //   border: 3px outset #c7cd6f;
+    // }
+
+    // button:active {
+    //   border: 3px inset #c7cd6f;
+    // }
   }
 }
