@@ -1,26 +1,24 @@
-.section-filters {
-  padding: 0 20px 0 20px;
-  margin: 30px 0 0 0;
+.dragSectionFilters {
+  padding: 50px 0 0 25vw;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
   align-items: center;
-  gap: 32px;
-  width: 15vw;
+  gap: 30px;
+  //   width: 100vw;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
   padding-bottom: 16px;
-  border-right: 2px solid black;
+  height: 30px;
 
-  .filtersBundleTitle {
+  .filtersDragTitle {
     p {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: black;
     }
   }
 
-  .filtersBundleFilters {
+  .filtersDragFilters {
     // background-color: red;
     width: auto;
     height: auto;
@@ -29,24 +27,6 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 8px;
-
-    #resetButtonFiltersBundle {
-      width: 6rem;
-      height: 3rem;
-      margin: 2rem 0 0 0;
-      font-size: 1.1rem;
-      border: 3px outset lightgrey;
-      background-color: lightgrey;
-      border-radius: 16px;
-    }
-
-    #resetButtonFiltersBundle:hover {
-      border: 3px outset #c7cd6f;
-    }
-
-    #resetButtonFiltersBundle:active {
-      border: 3px inset #c7cd6f;
-    }
 
     .div-filtre-theme,
     .div-filtre-aLaCarte {
@@ -82,6 +62,9 @@
       }
     }
   }
+  //   .SwitchButtonDrag {
+  //     height: 20px;
+  //   }
 }
 
 @media screen and (max-width: 820px) {

@@ -42,43 +42,49 @@ function FiltersDrag({ filters, setFilters, FiltersTab }) {
   };
 
   return (
-    <section className="section-filters">
-      <div className="filtersBundleTitle">
-        <p title="Clique sur le bouton pour modifier">
-          Sélectionnez les éléments de votre choix
-        </p>
-      </div>
-      <div className="filtersBundleFilters">
-        <div
-          className="div-filtre-theme"
-          style={{ borderBottom: "1px solid white", paddingBottom: "8px" }}
-        >
-          {filters.map(
-            (filter) =>
-              filter.id >= 13 && (
-                <img
-                  className={filter.classe}
-                  onClick={() =>
-                    handleClickFiltre(filter.image, filter.element)
-                  }
-                  src={filter.image}
-                  alt={`"filtre" ${filter.title}`}
-                  title={filter.title}
-                  key={filter.id}
-                />
-              )
-          )}
+    <main className="dragSectionFilters">
+      <section className="globalFiltersDrag">
+        <div className="filtersDragTitle">
+          <p title="Clique sur le bouton pour modifier">
+            Sélectionnez les éléments de votre choix
+          </p>
         </div>
-        <button
-          className="dragFilterReset"
-          type="button"
-          onClick={handleResetFiltre}
-        >
-          Réinitialiser les filtres
-        </button>
+        <div className="filtersDragFilters">
+          <div
+            className="div-filtre-theme"
+            style={{ borderBottom: "1px solid white", paddingBottom: "8px" }}
+          >
+            {filters.map(
+              (filter) =>
+                filter.id >= 13 && (
+                  <img
+                    className={filter.classe}
+                    onClick={() =>
+                      handleClickFiltre(filter.image, filter.element)
+                    }
+                    src={filter.image}
+                    alt={`"filtre" ${filter.title}`}
+                    title={filter.title}
+                    key={filter.id}
+                  />
+                )
+            )}
+          </div>
+          <button
+            className="dragFilterReset"
+            type="button"
+            onClick={handleResetFiltre}
+          >
+            Réinitialiser les filtres
+          </button>
+        </div>
+      </section>
+      <section className="SwitchButtonDrag">
+        <p>Mode rêve</p>
         <SwitchButton />
-      </div>
-    </section>
+        <p>Mode cauchemar</p>
+      </section>
+    </main>
   );
 }
 

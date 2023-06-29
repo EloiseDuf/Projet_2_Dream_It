@@ -79,9 +79,9 @@ function Drag({ dreams, isOn }) {
   }, [column2]);
 
   const handleFilter = () => {
-    // on commence par réinitialiser filterDreams par la valeur initiale, c'est à dire "dreams" contenant tous les reves
+    // on commence par réinitialiser filterDreams par la valeur initiale, c'est à dire "column1" contenant tous les reves, qui est l'état défini par les fonctions au dessus
     setFilterDreams(originalDreams);
-    // on crée une variable intermédiaire filtered équivalent à un filtre de dreams avec seulement les dreams dont le filtre est actif
+    // on crée une variable intermédiaire filtered équivalent à un filtre de column1 avec seulement les dreams dont le filtre est actif
     const activeFilters = filters
       .filter((filtre) => filtre.active === true)
       .map((filtre) => filtre.element);
@@ -113,60 +113,62 @@ function Drag({ dreams, isOn }) {
 
   return (
     <main className="container">
-      <section
-        className="column"
-        id="idColumn1"
-        onDragOver={handleDragOver}
-        onDrop={(event) => handleDrop(event, "idColumn1")}
-      >
-        {filterDreams.map((dream) => {
-          if (
-            dream.type === "custom" &&
-            ((isOn && dream.mode === "dream") ||
-              (!isOn && dream.mode === "nightmare"))
-          ) {
-            return (
+      <section className="dragColumnGlobal">
+        <section
+          className="column"
+          id="idColumn1"
+          onDragOver={handleDragOver}
+          onDrop={(event) => handleDrop(event, "idColumn1")}
+        >
+          {filterDreams.map((dream) => {
+            if (
+              dream.type === "custom" &&
+              ((isOn && dream.mode === "dream") ||
+                (!isOn && dream.mode === "nightmare"))
+            ) {
+              return (
+                <div
+                  key={dream.id}
+                  className="carte"
+                  draggable
+                  onDragStart={(event) => handleDragStart(event, dream)}
+                >
+                  <CardsDrag dreams={dream} key={dream.id} />
+                </div>
+              );
+            }
+            return null;
+          })}
+        </section>
+        <section
+          className="column2"
+          id="idColumn2"
+          onDragOver={handleDragOver}
+          onDrop={(event) => handleDrop(event, "idColumn2")}
+        >
+          <div className="divtoDragInColumn2">
+            {column2.map((dream) => (
               <div
                 key={dream.id}
                 className="carte"
                 draggable
                 onDragStart={(event) => handleDragStart(event, dream)}
               >
-                <CardsDrag dreams={dream} key={dream.id} />
+                <MiniCards dreams={dream} key={dream.id} />
               </div>
-            );
-          }
-          return null;
-        })}
-      </section>
-      <section
-        className="column2"
-        id="idColumn2"
-        onDragOver={handleDragOver}
-        onDrop={(event) => handleDrop(event, "idColumn2")}
-      >
-        <div className="divtoDragInColumn2">
-          {column2.map((dream) => (
-            <div
-              key={dream.id}
-              className="carte"
-              draggable
-              onDragStart={(event) => handleDragStart(event, dream)}
-            >
-              <MiniCards dreams={dream} key={dream.id} />
-            </div>
-          ))}
-        </div>
-        <div className="divSendToPanier">
-          <div className="totalReveAlaCarte">
-            <p>{`Total : ${totalReve} €`}</p>
+            ))}
           </div>
-          <button type="button" onClick={handleClickSendToPanier}>
-            Ajouter au panier
-          </button>
-        </div>
+          <div className="divSendToPanier">
+            <div className="totalReveAlaCarte">
+              <p>{`Total : ${totalReve} €`}</p>
+            </div>
+            <button type="button" onClick={handleClickSendToPanier}>
+              Ajouter au panier
+            </button>
+          </div>
+        </section>
       </section>
-      <div>
+      <div className="FiltersDrag">
         <FiltersDrag
           filters={filters}
           setFilters={setFilters}
