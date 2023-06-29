@@ -8,6 +8,7 @@ function Popup({ isOpen, onClose }) {
   const { setUser, users } = useContext(MyContext);
   const buttonRef = useRef(null);
   const popupRef = useRef(null);
+  const { isOn } = useContext(MyContext);
 
   const handleKeyPressEnter = (event) => {
     if (event.key === "Enter") {
@@ -55,8 +56,12 @@ function Popup({ isOpen, onClose }) {
 
   return (
     <div className="popup" ref={popupRef}>
-      <div className="popup-content">
-        <button id="closingCross" type="button" onClick={onClose}>
+      <div className={isOn ? "popup-content" : "popup-content-dark"}>
+        <button
+          id={isOn ? "closingCross" : "closingCrossDark"}
+          type="button"
+          onClick={onClose}
+        >
           X
         </button>
         <h2>Connexion</h2>

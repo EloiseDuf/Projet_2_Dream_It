@@ -1,7 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import MyContext from "../components/Context";
-
 import "./Home.scss";
 // import Filters from "../components/Filters";
 import SwitchButton from "../components/SwitchButton";
@@ -9,6 +8,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import CardsCarousel from "../components/CardsCarousel";
 import Drag from "../components/Drag";
+import Arrow from "../assets/images/Arrow.png";
 
 function Home({ dreams }) {
   // const [dreams, setDreams] = useState([]);
@@ -22,6 +22,10 @@ function Home({ dreams }) {
   const imgTopCauchemar = "src/assets/images/topDemon.png";
   const imgBottomReve = "src/assets/images/bottomGirl.png";
   const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { setUser, users } = useContext(MyContext);
 
   const { isOn } = useContext(MyContext);
   const [textCompo, setTextCompo] = useState("Voie orale.");
@@ -86,11 +90,31 @@ function Home({ dreams }) {
     handleActive();
   }, [isOn]);
 
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const utilisateur = users.find((user) => user.pseudo === username);
+    if (utilisateur === undefined || utilisateur.mdp !== password) {
+      alert("wrong Pseudo or Password");
+      setPassword("");
+      setUsername("");
+    } else {
+      setUser(utilisateur);
+    }
+  };
+
   return (
     <>
       <div className="topPage">
         <NavBar />
-        <div className={`Reve ${isOn ? "Reve" : "Cauchemar"}`}>
+        <div className="Reve">
           <img
             src={isOn ? imgTopReve : imgTopCauchemar}
             alt="docteur ou demon"
@@ -135,8 +159,15 @@ function Home({ dreams }) {
           <p>{textSwitch}</p>
         </div>
       </div>
+      <div className="vousNeRevezPas">
+        <h1>Non, vous ne rêvez pas !</h1>
+        <h2>Mais composez le vôtre dès maintenant</h2>
+      </div>
+      <div className="instructions">
+        <h3>Glissez-déposez votre sélection dans le panier</h3>
+        <img src={Arrow} alt="arrow" />
+      </div>
       <div className="makeIt">
-        espace de création à la carte
         <Drag dreams={dreams} isOn={isOn} />
       </div>
       <div className="sectionTitle2">
@@ -157,29 +188,31 @@ function Home({ dreams }) {
         <h1>{textBonheur}</h1>
       </div>
       <div className="bottomTotal">
-        <div className="sectionTitle3">
+        <div className={isOn ? "sectionTitle3" : "sectionTitle3Dark"}>
           <h1>Connectez-vous pour nous transmettre vos idées</h1>
           <div className="formText">
             <div className="Mail">
-              <label htmlFor="emailInput">Email</label>
               <input
+                placeholder="Pseudo"
                 id="emailInput"
                 name="email"
                 type="text"
-                placeholder="Email"
+                value={username}
+                onChange={handleUsernameChange}
               />
             </div>
             <div className="Password">
-              <label htmlFor="passwordInput">Mot de passe</label>
               <input
+                placeholder="Mot de Passe"
                 id="passwordInput"
                 name="password"
                 type="text"
-                placeholder="Mot de passe"
+                value={password}
+                onChange={handlePasswordChange}
               />
             </div>
           </div>
-          <button className="loginButton" type="button">
+          <button className="loginButton" type="button" onClick={handleSubmit}>
             Se connecter
           </button>
         </div>
