@@ -4,6 +4,7 @@ import "./Drag.scss";
 // import Cards from "./Cards";
 import CardsDrag from "./CardsDrag";
 import MiniCards from "./MiniCards";
+import imgPanier from "../assets/images/addPanier.png";
 
 function Drag({ dreams, isOn }) {
   const { panier, setPanier } = useContext(MyContext);
@@ -106,26 +107,33 @@ function Drag({ dreams, isOn }) {
         onDragOver={handleDragOver}
         onDrop={(event) => handleDrop(event, "idColumn2")}
       >
-        <div className="divtoDragInColumn2">
-          {column2.map((dream) => (
-            <div
-              key={dream.id}
-              className="carte"
-              draggable
-              onDragStart={(event) => handleDragStart(event, dream)}
-            >
-              <MiniCards dreams={dream} key={dream.id} />
-            </div>
-          ))}
-        </div>
-        <div className="divSendToPanier">
-          <div className="totalReveAlaCarte">
-            <p>{`Total : ${totalReve} €`}</p>
+        <div className="soustotCol">
+          <div className="divtoDragInColumn2">
+            {column2.map((dream) => (
+              <div
+                key={dream.id}
+                className="carte"
+                draggable
+                onDragStart={(event) => handleDragStart(event, dream)}
+              >
+                <MiniCards dreams={dream} key={dream.id} />
+              </div>
+            ))}
           </div>
-          <button type="button" onClick={handleClickSendToPanier}>
-            Ajouter au panier
-          </button>
+          <div className="divSendToPanier">
+            <div className="totalReveAlaCarte">
+              <p>Sous total =</p>
+              <p>{`${totalReve} €`}</p>
+            </div>
+          </div>
         </div>
+        <button
+          id="panierButton"
+          type="button"
+          onClick={handleClickSendToPanier}
+        >
+          <img src={imgPanier} alt="panier" />
+        </button>
       </section>
     </main>
   );

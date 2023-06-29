@@ -60,7 +60,7 @@ function App() {
   const [panier, setPanier] = useState([]);
 
   // variable pour le changement de mode reve / cauchemar
-  const [isOn, setIson] = useState(false);
+  const [isOn, setIson] = useState(true);
 
   // stockage de l'état initial de user, setUser et users via un useMemo
   const valeursFourniesDansMyContextProvider = useMemo(
