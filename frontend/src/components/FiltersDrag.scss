@@ -1,0 +1,98 @@
+.dragSectionFilters {
+  padding: 50px 0 0 25vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  //   width: 100vw;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  padding-bottom: 16px;
+  height: 30px;
+
+  .filtersDragTitle {
+    p {
+      margin: 0;
+      font-size: 1rem;
+      color: black;
+    }
+  }
+
+  .filtersDragFilters {
+    // background-color: red;
+    width: auto;
+    height: auto;
+    display: grid;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+
+    .div-filtre-theme,
+    .div-filtre-aLaCarte {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+
+      .image-filter {
+        display: block;
+        width: 40px;
+        height: 40px;
+        // filter: invert(1);
+        cursor: pointer;
+        border-radius: 10px;
+        transition: transform 0.25s;
+      }
+
+      .image-filter:hover {
+        transform: scale(1.2);
+      }
+
+      .filtreActif {
+        border: 1px solid var(--couleurFiltreActif);
+        background-color: var(--couleurFiltreActif);
+        filter: invert(1);
+      }
+
+      .image-filter.active {
+        background: rgba(14, 241, 14, 0.751);
+      }
+    }
+  }
+  //   .SwitchButtonDrag {
+  //     height: 20px;
+  //   }
+}
+
+@media screen and (max-width: 820px) {
+  .section-filters {
+    flex-wrap: wrap;
+
+    .filters {
+      flex-basis: 100%;
+      text-align: center;
+      order: 3;
+    }
+  }
+}
+
+// @media screen and (max-width: 600px) {
+//   .section-filters {
+//     .filter-barre-recherche {
+//       input {
+//         width: 130px;
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 520px) {
+//   .section-filters {
+//     .filter-barre-recherche {
+//       display: none;
+//     }
+//   }
+// }

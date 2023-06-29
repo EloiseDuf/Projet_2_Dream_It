@@ -1,6 +1,9 @@
-.container {
+.dragColumnGlobal {
   display: flex;
   margin-top: 70px;
+  .FiltersDrag {
+    margin-right: 100px;
+  }
 }
 
 .column {

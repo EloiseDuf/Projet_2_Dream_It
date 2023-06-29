@@ -11,7 +11,7 @@
   padding-left: 24px;
 
   .sectionCommandeProfil {
-    width: calc(50vw - 24px);
+    width: calc(50vw - 40px);
     border: 1px solid lightgray;
     border-radius: 16px;
     padding: 8px;
@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 
     .div-section-minicards {
       display: flex;
@@ -44,6 +45,12 @@
         border: 3px outset lightgray;
         color: white;
         cursor: pointer;
+        width: 130px;
+      }
+
+      .buttonRecommanderSimple {
+        color: var(--colorText);
+        background-color: var(--colorButton);
       }
 
       button:hover {
