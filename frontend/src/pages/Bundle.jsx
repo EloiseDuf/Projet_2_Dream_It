@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 
 import "./Bundle.scss";
 
+import FiltersTab from "../assets/FiltersTab";
+
 import Header from "../components/Header";
 import FiltersBundle from "../components/FiltersBundle";
 import Cards from "../components/Cards";
 import Footer from "../components/Footer";
-import FiltersTab from "../assets/FiltersTab";
 
 function Bundle({ dreams }) {
   const [filterDreams, setFilterDreams] = useState([]);
