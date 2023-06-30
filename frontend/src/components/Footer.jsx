@@ -1,13 +1,18 @@
 import "./Footer.scss";
-import imgFooter from "../assets/images/footer_arcenciel.png";
+import { useContext } from "react";
+import MyContext from "./Context";
+import imgFooterReve from "../assets/images/footer_arcenciel.png";
+import imgFooterCauchemar from "../assets/images/footerDark.png";
 import imgInstagram from "../assets/images/instagram.png";
 import imgFacebook from "../assets/images/facebook.png";
 import imgTwitter from "../assets/images/twitter.png";
 
 function Footer() {
+  const { isOn } = useContext(MyContext);
+
   return (
     <div className="divFooter">
-      <img src={imgFooter} alt="footer" />
+      <img src={isOn ? imgFooterReve : imgFooterCauchemar} alt="footer" />
       <div className="divVide" />
       <div className="divCredits">
         <p>Copyright - 2023</p>

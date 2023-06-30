@@ -12,6 +12,7 @@ function NavBar() {
   const [isDivVisible, setIsDivVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const { isOn } = useContext(MyContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -129,7 +130,11 @@ function NavBar() {
             </div>
             <div className="seConnecter">
               {user === null ? (
-                <button type="button" onClick={handleOpenPopup}>
+                <button
+                  id={isOn ? "reve" : "cauchemar"}
+                  type="button"
+                  onClick={handleOpenPopup}
+                >
                   Se Connecter
                 </button>
               ) : (
