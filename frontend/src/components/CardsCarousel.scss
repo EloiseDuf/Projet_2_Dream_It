@@ -1,22 +1,66 @@
-.carouselBox {
-  width: 100%;
-  height: 100%;
+// .carouselBox {
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+//   align-items: center;
+// }
+
+// .mapFlex {
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+// }
+
+// .nextButton,
+// .previousButton {
+//   border: none;
+//   background: none;
+// }
+
+.cardCarous {
+  scroll-snap-align: start;
+}
+
+.pickOne {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
 }
 
-.mapFlex {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.arrow1 {
+  transform: rotate(180deg);
+  width: 100px;
+  height: 100px;
+  margin-left: 200px;
 }
 
-.nextButton,
-.previousButton {
-  border: none;
-  background: none;
+.arrow2 {
+  /* Pas de rotation ici */
+  width: 100px;
+  height: 100px;
+  margin-right: 200px;
+}
+
+.arrow2:hover {
+  scroll-behavior: smooth;
+  scroll-margin-right: 200px;
+}
+
+.arrow1:hover {
+  scroll-behavior: smooth;
+  scroll-margin-left: 200px;
+}
+.carouselBox {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  /* padding: 1rem 0; */
+  /* scroll-snap-type: x mandatory; */
+  /* scroll-padding: 0 200px; */
+  scroll-behavior: smooth;
+  margin: 1em;
 }
