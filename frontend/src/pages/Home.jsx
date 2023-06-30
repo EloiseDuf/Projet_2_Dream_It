@@ -69,12 +69,14 @@ function Home({ dreams }) {
       setTextBonheur("Vous n'avez pas trouvé votre bonheur ?");
       setTextCompo("Voie orale.");
       setTextSwitch(
-        "Attention, ceci n'est pas un médicament. À consommer avec modération."
+        "Attention: risque d'addiction, à consommer avec modération."
       );
     } else {
       setTextBonheur("Vous n'avez pas trouvé votre malheur ?");
       setTextCompo("Voie anale.");
-      setTextSwitch("Attention, saignements rectaux fortement envisageable");
+      setTextSwitch(
+        "Attention: risque d'addiction, à consommer sans modération."
+      );
     }
   };
 
@@ -132,22 +134,25 @@ function Home({ dreams }) {
       </div>
       <div className="divText">
         <p>
-          DreamIt est une startup qui développe des solutions médicales pour
-          échapper à la réalité et vivre ses rêve sur demande.{" "}
+          DreamIt est une startup qui développe <br />
+          des solutions personnalisées pour échapper à la réalité <br />
+          et vivre ses rêves sur demande.{" "}
         </p>
         <p>
-          A travers nos pillule, vous trouverez une porte pour échapper à la
-          réalité, le temps d'une nuit.
+          Grâce à nos pillules, vous trouverez une porte pour échapper à la
+          réalité, <br /> le temps d'une nuit.
         </p>
         <p>"If you can't do it, at least you can DreamIT"</p>
       </div>
       <div className="sectionTitle1">
         <div className="sectionTextImg">
           <div className="textSection1">
-            <p>BEST-SELLER : la pillule magique</p>
+            <p>REVERA</p>
             <p>
-              Grâce à son principe actif breveté, notre pillule de rêve vous
-              fera voyager le temps d'une nuit.
+              Notre produit, au principe actif breveté, vous fera vivre une
+              expérience unique.
+              <br />
+              <br /> Préparez-vous au voyage, <br /> le temps d'une nuit.
             </p>
             <p>{textCompo}</p>
           </div>
@@ -161,7 +166,7 @@ function Home({ dreams }) {
       </div>
       <div className="vousNeRevezPas">
         <h1>Non, vous ne rêvez pas !</h1>
-        <h2>Mais composez le vôtre dès maintenant</h2>
+        <h2>Composez le vôtre dès maintenant</h2>
       </div>
       <div className="instructions">
         <h3>Glissez-déposez votre sélection dans le panier</h3>
