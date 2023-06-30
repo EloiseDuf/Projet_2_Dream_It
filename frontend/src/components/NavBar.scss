@@ -4,9 +4,8 @@
   justify-content: space-between;
   width: 100%;
   position: fixed;
-
   z-index: 90;
-  height: 100px;
+  height: 80px;
   top: 0;
   .homeRightDiv {
     display: flex;
@@ -15,10 +14,13 @@
     margin-left: 1rem;
     margin-top: 0.5em;
     gap: 3rem;
-
     color: white;
     img {
-      height: 5rem;
+      height: 70px;
+      width: auto;
+    }
+    p {
+      text-decoration: none;
     }
   }
 
@@ -52,53 +54,56 @@
     z-index: 3;
   }
 
-  #Account::after {
-    content: "Mon compte";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    visibility: hidden;
-    color: #fff;
-  }
-
-  #Account:hover::after {
-    visibility: visible;
-  }
-
   #userActive img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
   }
-
-  #Cart::after {
-    content: "Mon panier";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    visibility: hidden;
-    color: #fff;
-  }
-
-  #Cart:hover::after {
-    visibility: visible;
-  }
 }
+
+#Account::after {
+  content: "Mon compte";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  color: black;
+  font-size: 18px;
+}
+
+#Account:hover::after {
+  visibility: visible;
+}
+
+#Cart::after {
+  content: "Mon panier";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  color: black;
+  font-size: 18px;
+}
+
+#Cart:hover::after {
+  visibility: visible;
+}
+
 .change-bg {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   position: fixed;
-  background-color: rgba(62, 62, 62, 0.3);
+  background-color: rgba(62, 62, 62, 0.48);
   backdrop-filter: blur(10px);
   -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.52);
   box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.52);
   z-index: 90;
-  height: 100px;
+  height: 80px;
   top: 0;
   .homeRightDiv {
     display: flex;
@@ -110,7 +115,7 @@
 
     color: white;
     img {
-      height: 5rem;
+      height: 70px;
     }
   }
 
@@ -145,39 +150,11 @@
     cursor: pointer;
   }
 
-  #Account::after {
-    content: "Mon compte";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    visibility: hidden;
-    color: #fff;
-  }
-
-  #Account:hover::after {
-    visibility: visible;
-  }
-
   #userActive img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-  }
-
-  #Cart::after {
-    content: "Mon panier";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    visibility: hidden;
-    color: #fff;
-  }
-
-  #Cart:hover::after {
-    visibility: visible;
   }
 }
 // .seConnecter {
@@ -312,7 +289,7 @@
   }
 }
 
-#reve {
+.reve {
   width: 200px;
   font-size: 16px;
   font-weight: 600;
@@ -336,7 +313,7 @@
   border: 2px solid;
 }
 
-#reve:hover {
+.reve:hover {
   color: white;
   background-position: 100% 0;
   moz-transition: all 0.5s ease-in-out;
@@ -353,11 +330,11 @@
   box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
 }
 
-#reve:focus {
+.reve:focus {
   outline: none;
 }
 
-#cauchemar {
+.cauchemar {
   width: 200px;
   font-size: 16px;
   font-weight: 600;
@@ -374,7 +351,7 @@
   border: 2px solid;
 }
 
-#cauchemar:hover {
+.cauchemar:hover {
   color: white;
   background-position: 100% 0;
   moz-transition: all 0.5s ease-in-out;
@@ -390,6 +367,14 @@
   );
   box-shadow: 0 4px 15px 0 rgb(241, 57, 57);
 }
-#cauchemar:focus {
+.cauchemar:focus {
   outline: none;
+}
+
+.prefabrique {
+  text-decoration: none;
+  &:visited {
+    text-decoration: none;
+    color: white;
+  }
 }

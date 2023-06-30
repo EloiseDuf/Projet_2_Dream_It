@@ -4,7 +4,7 @@ import MyContext from "./Context";
 import "./NavBar.scss";
 import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 import logoAccount from "../assets/images/Account.png";
-import cartHome from "../assets/images/CartHome.png";
+import Cart from "../assets/images/panier-vide.png";
 import Popup from "./Popup";
 
 function NavBar() {
@@ -58,7 +58,9 @@ function NavBar() {
             <img src={logoDreamIt} alt="Logo" />
           </Link>
           <p>A la carte</p>
-          <Link to="/bundle">Préfabriqué</Link>
+          <Link className="prefabrique" to="/bundle">
+            Préfabriqué
+          </Link>
         </div>
         <Popup
           isOpen={isPopupOpen}
@@ -76,7 +78,7 @@ function NavBar() {
             </button>
             <Link to="/panier">
               <button id={user === null ? "Cart" : "activeUser"} type="button">
-                <img src={cartHome} alt="Cart" />
+                <img src={Cart} alt="Cart" />
                 <span className="item-count" />
               </button>
             </Link>
@@ -131,7 +133,7 @@ function NavBar() {
             <div className="seConnecter">
               {user === null ? (
                 <button
-                  id={isOn ? "reve" : "cauchemar"}
+                  className={isOn ? "reve" : "cauchemar"}
                   type="button"
                   onClick={handleOpenPopup}
                 >
@@ -139,7 +141,11 @@ function NavBar() {
                 </button>
               ) : (
                 <Link to="/" className="SeDeconnecter">
-                  <button type="button" onClick={handleClickLogout}>
+                  <button
+                    type="button"
+                    className={isOn ? "reve" : "cauchemar"}
+                    onClick={handleClickLogout}
+                  >
                     Se Deconnecter
                   </button>
                 </Link>
