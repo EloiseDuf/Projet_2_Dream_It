@@ -8,9 +8,10 @@ import panierRempliVert from "../assets/images/panier-rempli-vert.png";
 // import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
 function Cards({ dreams }) {
-  const { panier, setPanier } = useContext(MyContext);
+  const { panier, setPanier, isFavorite, setIsFavorite } =
+    useContext(MyContext);
 
-  const [isFavorite, setIsFavorite] = useState();
+  // const [isFavorite, setIsFavorite] = useState();
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
