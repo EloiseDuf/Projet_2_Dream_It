@@ -114,32 +114,41 @@ function Drag({ dreams, isOn }) {
   return (
     <main className="container">
       <section className="dragColumnGlobal">
-        <section
-          className="column"
-          id="idColumn1"
-          onDragOver={handleDragOver}
-          onDrop={(event) => handleDrop(event, "idColumn1")}
-        >
-          {filterDreams.map((dream) => {
-            if (
-              dream.type === "custom" &&
-              ((isOn && dream.mode === "dream") ||
-                (!isOn && dream.mode === "nightmare"))
-            ) {
-              return (
-                <div
-                  key={dream.id}
-                  className="carte"
-                  draggable
-                  onDragStart={(event) => handleDragStart(event, dream)}
-                >
-                  <CardsDrag dreams={dream} key={dream.id} />
-                </div>
-              );
-            }
-            return null;
-          })}
-        </section>
+        <div className="colAndFilters">
+          <section
+            className="column"
+            id="idColumn1"
+            onDragOver={handleDragOver}
+            onDrop={(event) => handleDrop(event, "idColumn1")}
+          >
+            {filterDreams.map((dream) => {
+              if (
+                dream.type === "custom" &&
+                ((isOn && dream.mode === "dream") ||
+                  (!isOn && dream.mode === "nightmare"))
+              ) {
+                return (
+                  <div
+                    key={dream.id}
+                    className="carte"
+                    draggable
+                    onDragStart={(event) => handleDragStart(event, dream)}
+                  >
+                    <CardsDrag dreams={dream} key={dream.id} />
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </section>
+          <div className="FiltersDrag">
+            <FiltersDrag
+              filters={filters}
+              setFilters={setFilters}
+              FiltersTab={FiltersTab}
+            />
+          </div>
+        </div>
         <section
           className="column2"
           id="idColumn2"
@@ -175,13 +184,6 @@ function Drag({ dreams, isOn }) {
           </button>
         </section>
       </section>
-      <div className="FiltersDrag">
-        <FiltersDrag
-          filters={filters}
-          setFilters={setFilters}
-          FiltersTab={FiltersTab}
-        />
-      </div>
     </main>
   );
 }
