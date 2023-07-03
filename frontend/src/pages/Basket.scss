@@ -3,8 +3,8 @@
 .basketContainer {
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: end;
 
   .divPanier {
     box-sizing: border-box;
@@ -21,6 +21,7 @@
         font-size: 40px;
       }
     }
+
     .mainBasketSection {
       padding: 5px;
       border-radius: 12px;
@@ -28,8 +29,7 @@
       display: flex;
       height: 90%;
       width: 100%;
-      border: 1px solid rgb(147, 147, 147);
-      background-color: white;
+      border: 1px solid #939393;
       .scrollItems {
         overflow: auto;
       }
@@ -37,25 +37,146 @@
         width: 100%;
         height: 100%;
       }
-      .totalContainer {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 70%;
+    }
+  }
+  .totalContainer {
+    display: flex;
+    flex-direction: column;
+    height: 62.5vh;
+    width: 30vw;
+    border: 1px solid rgb(147, 147, 147);
+    background-color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
 
-        .totalBox {
+    #recapTitle {
+      font-family: "Jost", sans-serif;
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 10px;
+      height: 10%;
+    }
+    .articlesLivraison {
+      height: 45%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 10px;
+      box-sizing: border-box;
+      .divArticles {
+        display: flex;
+        justify-content: space-between;
+        p {
+          font-family: "Jost", sans-serif;
+        }
+      }
+      .divLivraison {
+        display: flex;
+        justify-content: space-between;
+        p {
+          font-family: "Jost", sans-serif;
+        }
+        select {
+          z-index: 3;
+          width: auto;
+        }
+      }
+      .inputPromo {
+        display: flex;
+        justify-content: center;
+        input {
+          font-family: "Jost";
+          z-index: 1;
+          width: 50%;
+          height: 30px;
           display: flex;
-          flex-direction: row;
-          justify-content: center;
-          background-color: rgb(211, 211, 211);
-          width: 100%;
-          height: 25px;
+          text-align: center;
+          border-radius: 20px;
+          background-color: #ebebeb;
+          border: 1px solid rgb(173, 173, 173);
+        }
+        button {
+          border: none;
+          background-color: none;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .montantTotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ebebeb;
+        margin-left: 5px;
+        margin-right: 5px;
+        border-radius: 12px;
+        padding: 5px;
+        :nth-child(1) {
+          color: rgb(161, 1, 1);
+          font-family: "Jost", sans-serif;
+          font-weight: bold;
+        }
+        .montant {
           border-radius: 12px;
-          p {
-            margin: 0.2rem;
-          }
+          padding: 6px;
+          font-family: "Jost", sans-serif;
         }
       }
     }
+    #inputPayement {
+      box-sizing: border-box;
+      height: auto;
+      width: 100%;
+      height: 45%;
+      #nomNumero {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 300px;
+          height: 30px;
+          margin: 5px;
+          border: none;
+          background-color: #ebebeb;
+          font-family: "Jost";
+          border-radius: 5px;
+        }
+      }
+      #expCvv {
+        width: 100%;
+        height: auto;
+        display: flex;
+        input {
+          width: 150px;
+          height: 30px;
+          margin: 5px;
+          border: none;
+          background-color: #ebebeb;
+          font-family: "Jost";
+          border-radius: 5px;
+        }
+        #cvv {
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+#validerPayer {
+  background-color: #18cd18;
+  border: none;
+  cursor: pointer;
+  width: 300px;
+  height: 50px;
+  border-radius: 12px;
+  margin-top: 20px;
+  &:hover {
+    background-color: #36b936;
+  }
+  p {
+    color: white;
   }
 }
