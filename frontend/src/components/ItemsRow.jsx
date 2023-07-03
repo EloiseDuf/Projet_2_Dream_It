@@ -12,7 +12,7 @@ function ItemsRow({
 }) {
   const [count, setCount] = useState(1);
   const [sousTotalBasket, setSousTotalBasket] = useState(0);
-
+  // console.log(prixElement);
   const handleClickLess = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -29,11 +29,8 @@ function ItemsRow({
     setSousTotalBasket(sousTotal);
 
     // on crée une copie de prixElementPanier dans lequel on modifie le soustotal de l'élément
-    // ATTENTION en JS, une copie d'un tableau crée une copie de référence
-    // pour faire une copie des valeurs uniquement il faut convertir en JSON puis reconvertir en composant JS (voir ci dessous)
-    const newPrixElementsPanier = JSON.parse(
-      JSON.stringify(prixElementsPanier)
-    );
+    const newPrixElementsPanier = prixElementsPanier;
+
     newPrixElementsPanier.find(
       (element) => element.id === prixElement.id
     ).price = sousTotal;

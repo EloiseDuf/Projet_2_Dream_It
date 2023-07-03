@@ -12,13 +12,14 @@ function Basket() {
 
   const [totalPanier, setTotalPanier] = useState(0);
 
+  // le panier contient des tableaux, soit de 1 élément, soit de plusieurs éléments
+  // on commence par créer un tableau qui récupère le prix total de chaque array
+  const prixElementsPanierInitial = panier.map((elementPanier, index) => ({
+    id: index,
+    price: elementPanier.reduce((acc, element) => element.price + acc, 0),
+  }));
+
   useEffect(() => {
-    // le panier contient des tableaux, soit de 1 élément, soit de plusieurs éléments
-    // on commence par créer un tableau qui récupère le prix total de chaque array
-    const prixElementsPanierInitial = panier.map((elementPanier, index) => ({
-      id: index,
-      price: elementPanier.reduce((acc, element) => element.price + acc, 0),
-    }));
     setPrixElementsPanier(prixElementsPanierInitial);
 
     // on calcule maintenant le prix total du panier
@@ -48,8 +49,8 @@ function Basket() {
                       prixElementsPanier={prixElementsPanier}
                       setTotalPanier={setTotalPanier}
                       panierRow={panierRow}
-                      prixElement={prixElementsPanier[index]}
-                      key={prixElementsPanier[index]}
+                      prixElement={prixElementsPanierInitial[index]}
+                      key={prixElementsPanier[index].id}
                     />
                   ))}
               </div>
