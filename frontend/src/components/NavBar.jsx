@@ -26,7 +26,7 @@ function NavBar() {
     };
   }, []);
 
-  const shouldChangeBackground = scrollPosition > 100; // Changer l'arrière-plan après un défilement de 100 pixels
+  const shouldChangeBackground = scrollPosition > 80; // Changer l'arrière-plan après un défilement de 100 pixels
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
@@ -50,6 +50,11 @@ function NavBar() {
     setIsDivVisible(false);
   };
 
+  const handleClickScroll = () => {
+    const homeElement = document.getElementById("aLaCarte");
+    homeElement.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="toutesLesDivs">
       <div className={shouldChangeBackground ? "change-bg" : "NavBar"}>
@@ -57,7 +62,13 @@ function NavBar() {
           <Link to="/">
             <img src={logoDreamIt} alt="Logo" />
           </Link>
-          <p>A la carte</p>
+          <button
+            type="button"
+            className="aLaCarte"
+            onClick={handleClickScroll}
+          >
+            A la carte
+          </button>
           <Link className="prefabrique" to="/bundle">
             Préfabriqué
           </Link>

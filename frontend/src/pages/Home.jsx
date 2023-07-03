@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import MyContext from "../components/Context";
 import "./Home.scss";
@@ -168,7 +168,7 @@ function Home({ dreams }) {
         <h1>Non, vous ne rêvez pas !</h1>
         <h2>Composez le vôtre dès maintenant</h2>
       </div>
-      <div className="instructions">
+      <div className="instructions" id="aLaCarte">
         <h3>Glissez-déposez votre sélection dans le panier</h3>
         <img src={Arrow} alt="arrow" />
       </div>
@@ -185,6 +185,16 @@ function Home({ dreams }) {
             alt="Fille ou Sorcière"
           />
         </div>
+      </div>
+      <div className="displayAll">
+        <Link to="/bundle">
+          <button
+            className={isOn ? "displayAllButton" : "displayAllButtonDark"}
+            type="button"
+          >
+            Tout afficher
+          </button>
+        </Link>
       </div>
       <div className="pickOne">
         <CardsCarousel dreams={dreams} isOn={isOn} />

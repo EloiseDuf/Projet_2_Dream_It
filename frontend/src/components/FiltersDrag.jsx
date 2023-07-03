@@ -50,10 +50,7 @@ function FiltersDrag({ filters, setFilters, FiltersTab }) {
           </p>
         </div>
         <div className="filtersDragFilters">
-          <div
-            className="div-filtre-theme"
-            style={{ borderBottom: "1px solid white", paddingBottom: "8px" }}
-          >
+          <div className="div-filtre-theme">
             {filters.map(
               (filter) =>
                 filter.id >= 13 && (
