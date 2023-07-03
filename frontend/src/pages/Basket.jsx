@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ItemsRow from "../components/ItemsRow";
 import "./Basket.scss";
 import MyContext from "../components/Context";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import LogoCartes from "../assets/images/logoVisa.png";
 
 function Basket() {
   const { panier } = useContext(MyContext);
   const { count } = useContext(MyContext);
+  const { isOn } = useContext(MyContext);
 
   const sousTotalBasket = (panierRow, count) => {
     return panierRow.reduce((acc, element) => acc + element.price, 0) * count;
@@ -18,6 +20,15 @@ function Basket() {
       (acc, panierRow) => acc + sousTotalBasket(panierRow, count),
       0
     );
+  };
+
+  const [prixLivraison, setPrixLivraison] = useState("");
+
+  const handleChangePrice = (event) => {
+    const selectedOption = event.target.options[event.target.selectedIndex];
+    const price = selectedOption.getAttribute("data-price");
+
+    setPrixLivraison(price);
   };
 
   return (
@@ -53,7 +64,10 @@ function Basket() {
             </div>
             <div className="divLivraison">
               <p>LIVRAISON</p>
-              <select>
+              <select onChange={handleChangePrice}>
+                <option value="" disabled hidden>
+                  Sélectionnez une option de livraison
+                </option>
                 <option value="standard" data-price="5">
                   Livraison standard - 5€
                 </option>
@@ -64,7 +78,7 @@ function Basket() {
                   Livraison premium - 15€
                 </option>
               </select>
-              <p>Prix livraison</p>
+              <p>{prixLivraison} €</p>
             </div>
             <div className="inputPromo">
               {/* <form action="SubmitCodePromo" method="POST"> */}
@@ -79,12 +93,13 @@ function Basket() {
               </button>
               {/* </form> */}
             </div>
-            <div className="montantTotal">
+            <div className={isOn ? "montantTotal" : "montantTotalDark"}>
               <h2>MONTANT TOTAL</h2>
               <h2 className="montant">800 €</h2>
             </div>
           </div>
           <div id="inputPayement">
+            <img src={LogoCartes} alt="logo cartes" />
             <div id="nomNumero">
               <input
                 id="nomCarte"
@@ -106,7 +121,7 @@ function Basket() {
               <input
                 id="dateExp"
                 type="text"
-                placeholder="DATE D'EXPIRATION *"
+                placeholder="DD/MM/YYYY *"
                 required
               />
               <input
