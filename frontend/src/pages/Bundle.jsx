@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import MyContext from "../components/Context";
 
 import "./Bundle.scss";
 
@@ -9,6 +10,7 @@ import Cards from "../components/Cards";
 import Footer from "../components/Footer";
 
 function Bundle({ dreams }) {
+  const { isOn } = useContext(MyContext);
   const [filterDreams, setFilterDreams] = useState([]);
   const [originalDreams, setOriginalDreams] = useState(dreams);
   const [filters, setFilters] = useState(FiltersTab);
@@ -31,10 +33,6 @@ function Bundle({ dreams }) {
     }
   };
 
-  // const handleReset = () => {
-  //   setFilterDreams(originalDreams);
-  // };
-
   useEffect(() => {
     setFilterDreams(dreams);
     setOriginalDreams(dreams);
@@ -55,12 +53,16 @@ function Bundle({ dreams }) {
           <FiltersBundle filters={filters} setFilters={setFilters} />
         </div>
         <div className="bundleCards">
-          {filterDreams.map(
-            (dream) =>
-              dream.type === "ready-to-use" && (
-                <Cards dreams={dream} key={dream.id} />
-              )
-          )}
+          {filterDreams.map((dream) => {
+            if (
+              dream.type === "ready-to-use" &&
+              ((isOn && dream.mode === "dream") ||
+                (!isOn && dream.mode === "nightmare"))
+            ) {
+              return <Cards dreams={dream} key={dream.id} />;
+            }
+            return null;
+          })}
         </div>
       </div>
       <Footer />
