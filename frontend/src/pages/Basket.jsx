@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ItemsRow from "../components/ItemsRow";
 import "./Basket.scss";
 import MyContext from "../components/Context";
@@ -8,19 +8,31 @@ import LogoCartes from "../assets/images/logoVisa.png";
 
 function Basket() {
   const { panier } = useContext(MyContext);
-  const { count } = useContext(MyContext);
+  const [prixElementsPanier, setPrixElementsPanier] = useState([]);
+  // const { count } = useContext(MyContext);
   const { isOn } = useContext(MyContext);
 
-  const sousTotalBasket = (panierRow, count) => {
-    return panierRow.reduce((acc, element) => acc + element.price, 0) * count;
-  };
+  const [totalPanier, setTotalPanier] = useState(0);
 
-  const totalBasket = (panier) => {
-    return panier.reduce(
-      (acc, panierRow) => acc + sousTotalBasket(panierRow, count),
+  // le panier contient des tableaux, soit de 1 élément, soit de plusieurs éléments
+  // on commence par créer un tableau qui récupère le prix total de chaque array
+  const prixElementsPanierInitial = panier.map((elementPanier, index) => ({
+    id: index,
+    price: elementPanier.reduce((acc, element) => element.price + acc, 0),
+  }));
+
+  useEffect(() => {
+    setPrixElementsPanier(prixElementsPanierInitial);
+
+    // on calcule maintenant le prix total du panier
+    const prixTotalPanier = prixElementsPanierInitial.reduce(
+      (acc, element) => acc + element.price,
       0
     );
-  };
+
+    // puis on définis totalPanier
+    setTotalPanier(prixTotalPanier);
+  }, []);
 
   const [prixLivraison, setPrixLivraison] = useState("");
 
@@ -42,15 +54,16 @@ function Basket() {
           <div className="mainBasketSection">
             <div className="scrollItems">
               <div className="cartesPanier">
-                {panier.map((panierRow) => (
-                  <ItemsRow
-                    panier={panier}
-                    totalBasket={totalBasket}
-                    sousTotalBasket={sousTotalBasket}
-                    panierRow={panierRow}
-                    key={panierRow}
-                  />
-                ))}
+                {prixElementsPanier.length > 0 &&
+                  panier.map((panierRow, index) => (
+                    <ItemsRow
+                      prixElementsPanier={prixElementsPanier}
+                      setTotalPanier={setTotalPanier}
+                      panierRow={panierRow}
+                      prixElement={prixElementsPanierInitial[index]}
+                      key={prixElementsPanier[index].id}
+                    />
+                  ))}
               </div>
             </div>
           </div>
@@ -60,7 +73,7 @@ function Basket() {
           <div className="articlesLivraison">
             <div className="divArticles">
               <p>ARTICLES</p>
-              <p>{`${totalBasket(panier)} €`}</p>
+              <p>{`${totalPanier} €`}</p>
             </div>
             <div className="divLivraison">
               <p>LIVRAISON</p>
