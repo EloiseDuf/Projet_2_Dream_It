@@ -14,7 +14,6 @@ function Drag({ dreams, isOn }) {
   const [column2, setColumn2] = useState([]);
   const [newReve, setNewReve] = useState([]);
   const [filterDreams, setFilterDreams] = useState([]);
-  const [originalDreams, setOriginalDreams] = useState(column1);
   const [filters, setFilters] = useState(FiltersTab);
 
   const handleDragStart = (event, dream) => {
@@ -58,32 +57,31 @@ function Drag({ dreams, isOn }) {
 
   const handleFilter = () => {
     // on commence par réinitialiser filterDreams par la valeur initiale, c'est à dire "column1" contenant tous les reves, qui est l'état défini par les fonctions au dessus
-    setFilterDreams(originalDreams);
+    setFilterDreams(column1);
     // on crée une variable intermédiaire filtered équivalent à un filtre de column1 avec seulement les dreams dont le filtre est actif
     const activeFilters = filters
       .filter((filtre) => filtre.active === true)
       .map((filtre) => filtre.element);
     // on cherche les filtres actifs et on renvoie le theme à conserver dans filtered
     if (activeFilters.length !== 0) {
-      const filtered = originalDreams.filter((dream) =>
+      const filtered = column1.filter((dream) =>
         activeFilters.includes(dream.element)
       );
       setFilterDreams(filtered);
     } else {
-      setFilterDreams(originalDreams);
+      setFilterDreams(column1);
     }
   };
 
   useEffect(() => {
     setFilterDreams(column1);
-    setOriginalDreams(column1);
     handleFilter();
   }, [column1, filters]);
 
   // ce second useEffect permet de conserver l'affichage des Cards lorsque la page est rafraichie
-  useEffect(() => {
-    setFilterDreams(originalDreams);
-  }, [originalDreams]);
+  // useEffect(() => {
+  //   setFilterDreams(column1);
+  // }, [column1]);
 
   // useEffect utilisé car problème d'affichage. La page initialement n'affiche pas les cards. il faut passer par un useEfect pour envoyer les données
   // le .filter est la pour indiquer que nous souhaitons ce qui est different de column2
