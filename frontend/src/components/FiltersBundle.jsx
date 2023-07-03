@@ -1,4 +1,5 @@
 import "./FiltersBundle.scss";
+import SwitchButton from "./SwitchButton";
 
 function FiltersBundle({ filters, setFilters }) {
   const handleClickFiltre = (image) => {
@@ -32,10 +33,7 @@ function FiltersBundle({ filters, setFilters }) {
         </p>
       </div>
       <div className="filtersBundleFilters">
-        <div
-          className="div-filtre-theme"
-          style={{ borderBottom: "1px solid white", paddingBottom: "8px" }}
-        >
+        <div className="div-filtre-theme">
           {filters.map(
             (filter) =>
               filter.id <= 12 && (
@@ -51,6 +49,7 @@ function FiltersBundle({ filters, setFilters }) {
           )}
         </div>
       </div>
+      <SwitchButton />
     </section>
   );
 }
