@@ -56,23 +56,6 @@ function Drag({ dreams, isOn }) {
     }
   };
 
-  // useEffect utiliser car problème d'affichage. La page initialement n'affiche pas les cards. il faut passer par un useEfect pour envoyer les données
-  // le .filter est la pour indiquer que nous souhaitons ce qui est different de colone2
-  useEffect(() => {
-    setColumn1(
-      dreams.filter(
-        (dream) => !column2.some((dream2) => dream2.id === dream.id)
-      )
-    );
-  }, [dreams, column2]);
-
-  useEffect(() => {
-    const globalReve = column2;
-    setNewReve([globalReve]);
-    const newTotal = globalReve.reduce((acc, reve) => acc + reve.price, 0);
-    setTotalReve(newTotal);
-  }, [column2]);
-
   const handleFilter = () => {
     // on commence par réinitialiser filterDreams par la valeur initiale, c'est à dire "column1" contenant tous les reves, qui est l'état défini par les fonctions au dessus
     setFilterDreams(originalDreams);
@@ -101,6 +84,23 @@ function Drag({ dreams, isOn }) {
   useEffect(() => {
     setFilterDreams(originalDreams);
   }, [originalDreams]);
+
+  // useEffect utilisé car problème d'affichage. La page initialement n'affiche pas les cards. il faut passer par un useEfect pour envoyer les données
+  // le .filter est la pour indiquer que nous souhaitons ce qui est different de column2
+  useEffect(() => {
+    setColumn1(
+      dreams.filter(
+        (dream) => !column2.some((dream2) => dream2.id === dream.id)
+      )
+    );
+  }, [dreams, column2]);
+
+  useEffect(() => {
+    const globalReve = column2;
+    setNewReve([globalReve]);
+    const newTotal = globalReve.reduce((acc, reve) => acc + reve.price, 0);
+    setTotalReve(newTotal);
+  }, [column2]);
 
   return (
     <main className="container">
@@ -237,23 +237,6 @@ export default Drag;
 //     }
 //   };
 
-//   // useEffect utiliser car problème d'affichage. La page initialement n'affiche pas les cards. il faut passer par un useEfect pour envoyer les données
-//   // le .filter est la pour indiquer que nous souhaitons ce qui est different de colone2
-//   useEffect(() => {
-//     setColumn1(
-//       dreams.filter(
-//         (dream) => !column2.some((dream2) => dream2.id === dream.id)
-//       )
-//     );
-//   }, [dreams, column2]);
-
-//   useEffect(() => {
-//     const globalReve = column2;
-//     setNewReve([globalReve]);
-//     const newTotal = globalReve.reduce((acc, reve) => acc + reve.price, 0);
-//     setTotalReve(newTotal);
-//   }, [column2]);
-
 //   const handleFilter = () => {
 //     // on commence par réinitialiser filterDreams par la valeur initiale, c'est à dire "column1" contenant tous les reves, qui est l'état défini par les fonctions au dessus
 //     setFilterDreams(originalDreams);
@@ -282,6 +265,23 @@ export default Drag;
 //   useEffect(() => {
 //     setFilterDreams(originalDreams);
 //   }, [originalDreams]);
+
+//   // useEffect utilisé car problème d'affichage. La page initialement n'affiche pas les cards. il faut passer par un useEfect pour envoyer les données
+//   // le .filter est la pour indiquer que nous souhaitons ce qui est different de column2
+//   useEffect(() => {
+//     setColumn1(
+//       dreams.filter(
+//         (dream) => !column2.some((dream2) => dream2.id === dream.id)
+//       )
+//     );
+//   }, [dreams, column2]);
+
+//   useEffect(() => {
+//     const globalReve = column2;
+//     setNewReve([globalReve]);
+//     const newTotal = globalReve.reduce((acc, reve) => acc + reve.price, 0);
+//     setTotalReve(newTotal);
+//   }, [column2]);
 
 //   return (
 //     <main className="container">
