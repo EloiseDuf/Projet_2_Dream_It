@@ -25,34 +25,36 @@
   scroll-snap-align: start;
 }
 
-.pickOne {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .arrow1 {
-  transform: rotate(180deg);
   width: 100px;
   height: 100px;
   margin-left: 200px;
+  opacity: 40%;
 }
 
+
 .arrow2 {
-  /* Pas de rotation ici */
+  transform: rotate(180deg);
   width: 100px;
   height: 100px;
   margin-right: 200px;
+  opacity: 40%;
 }
 
 .arrow2:hover {
   scroll-behavior: smooth;
   scroll-margin-right: 200px;
+  scale: (1.2);
+  cursor: pointer;
+  opacity: 90%;
 }
 
 .arrow1:hover {
   scroll-behavior: smooth;
   scroll-margin-left: 200px;
+  scale: (1.2);
+  cursor: pointer;
+  opacity: 90%;
 }
 .carouselBox {
   display: flex;
@@ -63,4 +65,36 @@
   /* scroll-padding: 0 200px; */
   scroll-behavior: smooth;
   margin: 1em;
+}
+
+.carouselBox::-webkit-scrollbar {
+  height: 10px;
+}
+
+.carouselBox::-webkit-scrollbar-thumb {
+  background-color: rgb(136, 198, 219);
+}
+.carouselBox::-webkit-scrollbar-track {
+  background-color: rgb(160, 71, 219);
+}
+
+.carouselDark {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  /* padding: 1rem 0; */
+  /* scroll-snap-type: x mandatory; */
+  /* scroll-padding: 0 200px; */
+  scroll-behavior: smooth;
+  margin: 1em;
+}
+
+.carouselDark::-webkit-scrollbar-thumb {
+  background-color: red;
+}
+.carouselDark::-webkit-scrollbar-track {
+  background-color: black;
+}
+.carouselDark::-webkit-scrollbar {
+  height: 10px;
 }

@@ -213,10 +213,10 @@
   }
 }
 
-.pikcOne {
-  height: 10px;
+.pickOne {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
 }
 
 .bottomText {
@@ -409,5 +409,82 @@
   font-size: 15px;
   img {
     width: 3em;
+  }
+}
+.displayAll {
+  display: flex;
+  flex-direction: row-reverse;
+  .displayAllButton {
+    width: 200px;
+    margin-right: 5em;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(143, 143, 143);
+    cursor: pointer;
+    height: 55px;
+    text-align: center;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border: 2px solid;
+  }
+  .displayAllButton:hover {
+    color: white;
+    background-position: 100% 0;
+    moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background-image: linear-gradient(
+      90deg,
+      rgba(167, 170, 121, 1) 1%,
+      rgba(211, 131, 101, 1) 38%,
+      rgba(157, 137, 211, 1) 73%,
+      rgba(109, 182, 223, 1) 100%
+    );
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+  }
+  .displayAllButton:focus {
+    outline: none;
+  }
+
+  .displayAllButtonDark {
+    width: 200px;
+    margin-right: 5em;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(143, 143, 143);
+    cursor: pointer;
+    height: 55px;
+    text-align: center;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border: 2px solid;
+  }
+  .displayAllButtonDark:hover {
+    color: white;
+    background-position: 100% 0;
+    moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background-image: linear-gradient(
+      90deg,
+      rgb(255, 0, 0) 1%,
+      rgb(177, 1, 1) 38%,
+      rgb(139, 0, 0) 73%,
+      rgb(0, 0, 0) 100%
+    );
+    box-shadow: 0 4px 15px 0 rgb(241, 57, 57);
+  }
+  .displayAllButtonDark:focus {
+    outline: none;
   }
 }
