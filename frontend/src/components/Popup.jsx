@@ -5,7 +5,7 @@ import MyContext from "./Context";
 function Popup({ isOpen, onClose }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { setUser, users, dreams, setIsFavorite } = useContext(MyContext);
+  const { setUser, users } = useContext(MyContext);
   const buttonRef = useRef(null);
   const popupRef = useRef(null);
   const { isOn } = useContext(MyContext);
@@ -47,12 +47,6 @@ function Popup({ isOpen, onClose }) {
     } else {
       setUser(utilisateur);
       onClose();
-    } &&
-
-    if (users.favoris.map((e) => e.all[1].id === dreams[1].id)) {
-      setIsFavorite(true);
-    } else {
-      setIsFavorite(false);
     }
   };
 
