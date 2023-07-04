@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
+import Typewriter from "typewriter-effect";
 import MyContext from "../components/Context";
 import "./Home.scss";
 // import Filters from "../components/Filters";
@@ -124,8 +125,24 @@ function Home({ dreams }) {
         </div>
         <div className="topSwitchGlobal">
           <div className="topSwitchText">
-            <h1>Composez votre rêve</h1>
-            <h1>...ou votre cauchemar</h1>
+            <h1>
+              Composez votre
+              <Typewriter
+                options={{
+                  loop: true,
+                  delay: 200,
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(" rêve")
+                    .pauseFor(2000)
+                    .deleteAll()
+                    .typeString(" cauchemar")
+                    .pauseFor(2000)
+                    .start();
+                }}
+              />
+            </h1>
           </div>
           <div className="topSwitchButton">
             <SwitchButton Active={handleActive} />
