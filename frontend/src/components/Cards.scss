@@ -12,28 +12,23 @@
   flex-direction: column;
   width: 200px;
   height: 300px;
-  // background-image: url("https://th.bing.com/th/id/OIG.PZr5jFSU3njNRl0zZLLw?pid=ImgGn");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  //   border: 2px solid red;
-  //   -webkit-text-stroke: 2px white;
   border-radius: 10px;
   overflow: hidden;
   margin: 30px;
-  // margin-left: 300px;
 
   .cardContents {
     width: 200px;
     height: 300px;
     position: relative;
     top: 71%;
-    // scroll-behavior: initial;
     transition: top 0.5s;
     background: rgba(255, 255, 255, 0.17);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.7px);
-    -webkit-backdrop-filter: blur(6.7px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     .desc {
       text-align: justify;
@@ -60,20 +55,22 @@
     }
   }
 
-  h1 {
-    color: white;
-    text-align: left;
-    line-height: 100%;
-    font-size: 25px;
-    padding: 0 0 5px 10px;
-    margin: 0 0 0 0;
-    text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
-      0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
-    //  0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
-    //  0 0 2px black;
+  .cardTitle {
+    white-space: nowrap;
+
+    h1 {
+      font-size: 18px;
+      color: white;
+      text-align: right;
+      margin: 0 0 0 0;
+      text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
+        0 0 2px black;
+    }
   }
 
-  p {
+  .desc,
+  .price {
     text-align: right;
     color: white;
     text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
@@ -81,15 +78,6 @@
       0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black,
       0 0 2px black;
     font-weight: bold;
-
-    // p.desc {
-    //   position: top;
-    //   bottom: 0;
-    // }
-  }
-
-  .price {
-    margin: 0 5px 0 0;
   }
 }
 
@@ -105,7 +93,6 @@
 .isFavorite {
   width: 25px;
   height: 25px;
-  // background-image: url("../assets/images/etoile-pleine.png");
   background-size: 100%;
   align-self: flex-start;
 }
@@ -113,7 +100,6 @@
 .notFavorite {
   width: 25px;
   height: 25px;
-  // background-image: url("../assets/images/etoile-vide.png");
   background-size: 100%;
   align-self: flex-start;
 }
@@ -121,7 +107,6 @@
 .isEmpty {
   width: 25px;
   height: 25px;
-  // background-image: url("../assets/images/panier-plein.png");
   background-size: 100%;
   align-self: flex-start;
 }
@@ -129,7 +114,107 @@
 .notEmpty {
   width: 25px;
   height: 25px;
-  // background-image: url("../assets/images/panier-vide.png");
   background-size: 100%;
   align-self: flex-start;
+}
+
+@media screen and (max-width: 428px) {
+  .globalCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+
+    .cardContents {
+      width: 150px;
+      height: 200px;
+      position: relative;
+      top: 71%;
+      transition: top 0.5s;
+      background: rgba(255, 255, 255, 0.17);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(6.7px);
+      -webkit-backdrop-filter: blur(6.7px);
+
+      .desc {
+        text-align: center;
+        padding: 0 15px 0 10px;
+        margin-top: 10px;
+        font-weight: 0px;
+        font-size: 11px;
+      }
+
+      .price {
+        text-align: right;
+        color: white;
+        text-shadow: none;
+        font-weight: normal;
+      }
+
+      .price {
+        margin: 0 5px 0 0;
+      }
+    }
+
+    .icons {
+      margin: 5px 10px 0 10px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    .cartFavorite {
+      display: flex;
+      flex-direction: row;
+
+      #buttonFavorite,
+      #buttonCart {
+        background-color: transparent;
+        border: none;
+      }
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      line-height: 100%;
+      font-size: 10px !important;
+      padding: 0 0 5px 10px;
+      margin: 0 0 0 0;
+    }
+    .isFavorite {
+      width: 15px;
+      height: 15px;
+      background-size: 100%;
+      align-self: flex-start;
+    }
+
+    .notFavorite {
+      width: 15px;
+      height: 15px;
+      background-size: 100%;
+      align-self: flex-start;
+    }
+
+    .isEmpty {
+      width: 15px;
+      height: 15px;
+      background-size: 100%;
+      align-self: flex-start;
+    }
+
+    .notEmpty {
+      width: 15px;
+      height: 15px;
+      background-size: 100%;
+      align-self: flex-start;
+    }
+  }
 }

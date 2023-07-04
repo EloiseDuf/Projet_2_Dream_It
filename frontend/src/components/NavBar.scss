@@ -38,6 +38,7 @@
       border: none;
       width: 60px;
       height: 50px;
+      transition: transform 0.3s ease;
     }
     button:hover {
       transform: scale(1.2);
@@ -231,6 +232,7 @@
     padding: 8px;
     box-sizing: border-box;
     z-index: 4;
+    transition: transform 0.3s ease;
   }
 
   .linkProfilElementNavbar:hover {
@@ -373,6 +375,7 @@
 
 .prefabrique {
   text-decoration: none;
+  transition: transform 0.3s ease;
   &:visited {
     text-decoration: none;
     color: white;
@@ -380,7 +383,7 @@
 }
 
 .prefabrique:hover {
-  scale: (1.2);
+  transform: scale(1.2);
 }
 
 .aLaCarte {
@@ -388,8 +391,9 @@
   background: none;
   color: white;
   font-size: 16px;
+  transition: transform 0.3s ease;
 }
 .aLaCarte:hover {
-  scale: (1.2);
+  transform: scale(1.2);
   cursor: pointer;
 }
