@@ -36,7 +36,7 @@
 
 .topSwitchGlobal {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -44,15 +44,23 @@
   margin-top: 10em;
   position: absolute;
   z-index: 0;
-}
-
-.topSwitchText {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: white;
-  font-size: 30px;
-  gap: 2rem;
+  .topSwitchText {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    gap: 1rem;
+    .writer {
+      width: 250px;
+      color: white;
+      font-size: 4rem;
+      display: flex;
+      justify-content: flex-start;
+      font-family: "Capriola", sans-serif;
+    }
+  }
 }
 
 .divText {
