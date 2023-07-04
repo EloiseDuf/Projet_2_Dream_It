@@ -8,10 +8,21 @@ import panierRempliVert from "../assets/images/panier-rempli-vert.png";
 // import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
 function Cards({ dreams }) {
-  const { panier, setPanier, isFavorite, setIsFavorite } =
-    useContext(MyContext);
+  const { panier, setPanier, user } = useContext(MyContext);
 
-  // const [isFavorite, setIsFavorite] = useState();
+  const [isFavorite, setIsFavorite] = useState();
+
+  const isFavoriteUser = () => {
+    if (user && user.favoris) {
+      for (let i = 0; i < user.favoris.length; i += 1) {
+        if (user.favoris[i].id === dreams.id) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
@@ -19,20 +30,16 @@ function Cards({ dreams }) {
   const [isEmpty, setIsEmpty] = useState(true);
 
   const handleClickEmpty = () => {
-    // fonction au click sur bouton panier)
     let newPanier;
 
     setIsEmpty(!isEmpty);
     if (isEmpty) {
       const panierItem = [[dreams]];
       newPanier = panier.concat(panierItem);
-      // setPanier([...panier,dreams]);
       setPanier(newPanier);
-      // console.log(newPanier);
     } else {
       newPanier = panier.filter((element) => element[0].id !== dreams.id);
       setPanier(newPanier);
-      // console.log(newPanier);
     }
   };
 
@@ -48,7 +55,11 @@ function Cards({ dreams }) {
             <p className="price">{dreams?.price} €</p>
             <div className="cartFavorite">
               <img
-                src={isFavorite === true ? etoilePleine : etoileVide}
+                src={
+                  isFavoriteUser() || isFavorite === true
+                    ? etoilePleine
+                    : etoileVide
+                }
                 className={isFavorite === true ? "isFavorite" : "notFavorite"}
                 onClick={handleClickFavorite}
                 id="buttonFavorite"

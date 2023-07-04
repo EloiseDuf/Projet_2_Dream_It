@@ -64,9 +64,6 @@ function App() {
 
   const [count, setCount] = useState(1);
 
-  // variable pour le changement de l'état de favori
-  const [isFavorite, setIsFavorite] = useState();
-
   // stockage de l'état initial de user, setUser et users via un useMemo
   const valeursFourniesDansMyContextProvider = useMemo(
     () => ({
@@ -81,8 +78,6 @@ function App() {
       setCount,
       dreams,
       setDreams,
-      isFavorite,
-      setIsFavorite,
     }),
     [
       user,
@@ -96,8 +91,6 @@ function App() {
       setCount,
       dreams,
       setDreams,
-      isFavorite,
-      setIsFavorite,
     ]
   );
 
