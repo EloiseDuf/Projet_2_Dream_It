@@ -1,13 +1,23 @@
 :root {
-  --my-color: #7661a3;
-  --colorButton: rgb(46, 213, 46);
+  --myColor: #7662a3;
+  --myColorHover: #604f88;
+  --colorButton: #18cd18;
+  --colorButtonHover: #36b936;
   --colorBoutonFiltre: rgb(255, 100, 100);
   --couleurFiltreActif: rgb(100, 255, 255);
-  --colorBoutonMenuProfil: rgb(200, 190, 250);
+  --colorBoutonMenuProfil: #c8befa;
+  --dreamButtonArcEnCiel: linear-gradient(
+    90deg,
+    rgba(167, 170, 121, 1) 1%,
+    rgba(211, 131, 101, 1) 38%,
+    rgba(157, 137, 211, 1) 73%,
+    rgba(109, 182, 223, 1) 100%
+  );
   --my-url-background: url("src/assets/images/backgroundPurple.svg");
   --dimensionImageHome: 70vh;
   --colorText: rgb(0, 0, 0);
   --fontSizeP: 1.2rem;
   --fontSizeH1: 2rem;
-  --fontSizeH2: 1.4rem;
+  --sectionTitle-background: url("src/assets/images/sectionTitle.png");
+  --top-page-background: url("src/assets/images/topPage.png");
 }

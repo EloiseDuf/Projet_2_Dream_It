@@ -101,7 +101,7 @@ function CommandeElement({ commandeItem }) {
                 value={index}
                 onClick={handleClickRecommanderSeul}
               >
-                Recommander seul
+                Ajouter au panier
               </button>
             </div>
           </section>
@@ -138,7 +138,7 @@ function CommandeElement({ commandeItem }) {
             className="buttonRecommanderMultiple"
             onClick={handleClickRecommanderTout}
           >
-            Repasser toute la commande
+            Commander à nouveau
           </button>
         </div>
       </section>
