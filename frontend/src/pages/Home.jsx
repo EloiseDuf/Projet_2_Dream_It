@@ -216,9 +216,15 @@ function Home({ dreams }) {
       <div className="pickOne">
         <CardsCarousel dreams={dreams} isOn={isOn} />
       </div>
+      <div className="arrow">
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="bottomText">
         <h1>{textBonheur}</h1>
       </div>
+
       <div className="bottomTotal">
         <div className={isOn ? "sectionTitle3" : "sectionTitle3Dark"}>
           <h1>Connectez-vous pour nous transmettre vos idées</h1>
