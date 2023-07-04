@@ -125,8 +125,8 @@ function Home({ dreams }) {
         </div>
         <div className="topSwitchGlobal">
           <div className="topSwitchText">
-            <h1>
-              Composez votre
+            <h1>Composez votre</h1>
+            <div className="writer">
               <Typewriter
                 options={{
                   loop: true,
@@ -142,7 +142,7 @@ function Home({ dreams }) {
                     .start();
                 }}
               />
-            </h1>
+            </div>
           </div>
           <div className="topSwitchButton">
             <SwitchButton Active={handleActive} />
