@@ -4,9 +4,15 @@ import "./ItemsRow.scss";
 import poubelle from "../assets/images/poubelle.png";
 import MiniCards from "./MiniCards";
 
-function ItemsRow({ panierRow, sousTotalBasket, totalBasket, panier }) {
+function ItemsRow({
+  panierRow,
+  prixElementsPanier,
+  setTotalPanier,
+  prixElement,
+}) {
   const [count, setCount] = useState(1);
-
+  const [sousTotalBasket, setSousTotalBasket] = useState(0);
+  // console.log(prixElement);
   const handleClickLess = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -18,13 +24,26 @@ function ItemsRow({ panierRow, sousTotalBasket, totalBasket, panier }) {
   };
 
   useEffect(() => {
-    sousTotalBasket(panier, count);
-    totalBasket(panier);
-  }, [count]);
+    // on recalcule le sousTotal de l'élément de panier
+    const sousTotal = count * prixElement.price;
+    setSousTotalBasket(sousTotal);
 
-  // const handleOnDelete = () => {
-  //   onDelete(panierRow[0]);
-  // };
+    // on crée une copie de prixElementPanier dans lequel on modifie le soustotal de l'élément
+    const newPrixElementsPanier = prixElementsPanier;
+
+    newPrixElementsPanier.find(
+      (element) => element.id === prixElement.id
+    ).price = sousTotal;
+
+    // on recalcule prixTotalPanier en fonction de newPrixElementPanier
+    const prixTotalPanier = newPrixElementsPanier.reduce(
+      (acc, element) => acc + element.price,
+      0
+    );
+
+    // puis on définis totalPanier
+    setTotalPanier(prixTotalPanier);
+  }, [count]);
 
   return (
     <section className="sectionItemsRow">
@@ -67,10 +86,7 @@ function ItemsRow({ panierRow, sousTotalBasket, totalBasket, panier }) {
       </div>
       <div className="total-commande">
         <p>Total</p>
-        <div className="div-commande-price">{`${sousTotalBasket(
-          panierRow,
-          count
-        )} €`}</div>
+        <div className="div-commande-price">{`${sousTotalBasket} €`}</div>
       </div>
     </section>
   );

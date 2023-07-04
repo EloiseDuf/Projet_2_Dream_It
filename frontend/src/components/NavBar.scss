@@ -378,3 +378,18 @@
     color: white;
   }
 }
+
+.prefabrique:hover {
+  scale: (1.2);
+}
+
+.aLaCarte {
+  border: none;
+  background: none;
+  color: white;
+  font-size: 16px;
+}
+.aLaCarte:hover {
+  scale: (1.2);
+  cursor: pointer;
+}
