@@ -24,9 +24,14 @@ function Switch() {
 
   return (
     <div className="GlobalSwitch">
-      <label>
-        <input type="checkbox" checked={!isOn} onChange={handleSwitch} />
-        <span id="SpanButton" />
+      <label className="switch">
+        <input
+          type="checkbox"
+          className="input__check"
+          checked={!isOn}
+          onChange={handleSwitch}
+        />
+        <span className="slider" id="SpanButton" />
       </label>
     </div>
   );
