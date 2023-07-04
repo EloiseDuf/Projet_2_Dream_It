@@ -6,13 +6,6 @@
   font-family: "Capriola", sans-serif;
 }
 
-:root {
-  --my-color: #ffffff;
-  --text-color: #000000;
-  --sectionTitle-background: url("src/assets/images/sectionTitle.png");
-  --top-page-background: url("src/assets/images/topPage.png");
-}
-
 .Reve {
   width: 30rem;
   display: flex;
@@ -71,7 +64,6 @@
   font-size: 2rem;
   height: 60vh;
   width: 100%;
-  color: var(--text-color);
   display: flex;
   align-items: center;
   :nth-child(1) {
