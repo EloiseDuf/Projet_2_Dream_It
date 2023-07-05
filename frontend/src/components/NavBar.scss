@@ -1,3 +1,6 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap");
+
 .NavBar {
   display: flex;
   flex-direction: row;
@@ -7,33 +10,40 @@
   z-index: 90;
   height: 80px;
   top: 0;
-  transition: background-color 0.2s ease;
+  transition: 0.5s ease;
   .homeRightDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 1rem;
-    margin-top: 0.5em;
+    justify-content: center;
     gap: 3rem;
     color: white;
-    img {
-      height: 70px;
-      width: auto;
+    width: 100%;
+    .aLaCarte, .prefabrique {
+      font-family: "Jost", sans-serif;
+      font-size: 20px;
     }
-    p {
-      text-decoration: none;
+  }
+
+  .centreDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      height: 60px;
+      width: auto;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
     }
   }
 
   .homeLeftDiv {
     display: flex;
     position: relative;
-    flex-direction: column;
     align-items: center;
-    justify-content: end;
-    margin-right: 3em;
-    margin-bottom: 10px;
-
+    justify-content: center;
+    width: 100%;
     button {
       background: none;
       border: none;
@@ -46,8 +56,8 @@
       cursor: pointer;
     }
     img {
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
     }
   }
   button {
@@ -61,6 +71,8 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    padding: 2px;
+    border: 1px solid lightgray;
   }
 }
 
@@ -100,49 +112,70 @@
   justify-content: space-between;
   width: 100%;
   position: fixed;
-  background-color: rgba(89, 89, 89, 0.805);
+  background-image: linear-gradient(
+    90deg,
+    rgba(167, 170, 121, 0.8) 1%,
+    rgba(211, 131, 101, 0.8) 38%,
+    rgba(157, 137, 211, 0.8) 73%,
+    rgba(109, 182, 223, 0.8) 100%
+  );
   backdrop-filter: blur(10px);
-  -webkit-box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.52);
-  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(107, 107, 107, 0.52);
+  box-shadow: 0px 0px 15px 5px rgba(88, 88, 88, 0.52);
   z-index: 90;
   height: 80px;
   top: 0;
   border-bottom-left-radius: 40% 1.25rem;
   border-bottom-right-radius: 40% 1.25rem;
-  transition: background-color 1s ease;
-
+  transition: 1s ease;
   .homeRightDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 14px;
+    justify-content: center;
     gap: 3rem;
     color: white;
-    margin-bottom: -7px;
-    img {
-      height: 70px;
+    width: 100%;
+  }
+
+  .centreDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 2s ease;
+    img{
+      height: 60px;
+      width: auto;
+      opacity: 1;
+      transition: 1s ease;
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.5s ease;
+      }
+
     }
   }
 
   .homeLeftDiv {
     display: flex;
     position: relative;
-    flex-direction: column;
     align-items: center;
-    justify-content: end;
-    margin-right: 3em;
-    margin-bottom: 10px;
-
+    justify-content: center;
+    width: 100%;
     button {
       background: none;
       border: none;
       width: 60px;
       height: 50px;
     }
+    button:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
     img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 0px;
+      width: 30px;
+      height: 30px;
     }
   }
   button {
@@ -161,6 +194,8 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    padding: 2px;
+    border: 1px solid lightgray;
   }
 }
 // .seConnecter {
@@ -174,10 +209,9 @@
 }
 
 .menuProfilNavbar {
-  width: 15%;
-  height: 30%;
+  width: 230px;
+  height: 250px;
   top: 0;
-  position: fixed;
   margin-right: 3em;
   margin-top: 100px;
   display: flex;
@@ -187,17 +221,36 @@
   background-color: #e3e3e3;
   border-radius: 12px;
   -webkit-box-shadow: 0px 0px 24px 0px #000000;
-  box-shadow: 0px 0px 24px 0px #000000ab;
+  box-shadow: 0px 0px 14px 0px #000000ab;
   z-index: 40;
-
+  position: fixed;
+  right: -100%; /* Commence à l'extérieur de l'écran à droite */
+  animation: slide-in 1s forwards;
+  .profilPopupNav {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    div {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  .SeDeconnecter {
+    height: fit-content;
+    
+  }
   .imageUser {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    margin-bottom: 15px;
-    padding: 5px;
-    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    h2 {
+      width:200px;
+      text-decoration: underline;
+    }
   }
 
   img {
@@ -208,7 +261,6 @@
   }
 
   button {
-    margin-top: 30px;
     width: 150px;
     height: 20px;
     border-radius: 20px;
@@ -229,20 +281,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 22%;
     width: 100%;
-    font-size: 18px;
     text-decoration: none;
     color: black;
-    padding: 8px;
     box-sizing: border-box;
     z-index: 4;
-    transition: transform 0.3s ease;
+    transition: 0.2s ease;
+    
+    p {
+      font-family: "Jost";
+      font-size: 20px;
+    }
   }
 
   .linkProfilElementNavbar:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
+  
 }
 .toutesLesDivs {
   width: 100%;
@@ -380,6 +436,9 @@
 
 .prefabrique {
   text-decoration: none;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+    
   transition: transform 0.3s ease;
   &:visited {
     text-decoration: none;
@@ -392,13 +451,114 @@
 }
 
 .aLaCarte {
+  text-decoration: none;
   border: none;
   background: none;
   color: white;
-  font-size: 16px;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  z-index: 0;
+    
   transition: transform 0.3s ease;
 }
 .aLaCarte:hover {
   transform: scale(1.2);
   cursor: pointer;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+}
+
+
+.change-bg-dark {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  background-image: linear-gradient(
+    90deg,
+    rgba(148, 17, 17, 0.8) 1%,
+    rgba(57, 19, 19, 0.8) 38%,
+    rgba(174, 11, 11, 0.8) 73%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(107, 107, 107, 0.52);
+  box-shadow: 0px 0px 15px 5px rgba(88, 88, 88, 0.52);
+  z-index: 90;
+  height: 80px;
+  top: 0;
+  border-bottom-left-radius: 40% 1.25rem;
+  border-bottom-right-radius: 40% 1.25rem;
+  transition: 1s ease;
+  .homeRightDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    color: white;
+    width: 100%;
+    .aLaCarte, .prefabrique {
+      font-family: "Jost", sans-serif;
+      font-size: 20px;
+    }
+  }
+
+  .centreDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    img{
+      height: 60px;
+      width: auto;
+      opacity: 1;
+      transition: 1s ease;
+    }
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.5s ease;
+    }
+  }
+
+  .homeLeftDiv {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    button {
+      background: none;
+      border: none;
+      width: 60px;
+      height: 50px;
+    }
+    button:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  #userActive img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 2px;
+    border: 1px solid lightgray;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
 }

@@ -93,11 +93,18 @@ function NavBar() {
 
   return (
     <div className="toutesLesDivs">
-      <div className={shouldChangeBackground ? "change-bg" : "NavBar"}>
+      <div
+        className={
+          isOn
+            ? shouldChangeBackground
+              ? "change-bg"
+              : "NavBar"
+            : shouldChangeBackground
+            ? "change-bg-dark"
+            : "NavBar"
+        }
+      >
         <div className="homeRightDiv">
-          <Link to="/">
-            <img src={logoDreamIt} alt="Logo" />
-          </Link>
           <button
             type="button"
             className="aLaCarte"
@@ -107,6 +114,11 @@ function NavBar() {
           </button>
           <Link className="prefabrique" to="/bundle">
             Préfabriqué
+          </Link>
+        </div>
+        <div className="centreDiv">
+          <Link to="/">
+            <img src={logoDreamIt} alt="Logo" />
           </Link>
         </div>
         {possessionCompte === true ? (
@@ -154,7 +166,7 @@ function NavBar() {
         onMouseLeave={handleMouseLeave}
       >
         {isDivVisible && (
-          <div>
+          <div className="profilPopupNav">
             <div>
               {user !== null && (
                 <>
