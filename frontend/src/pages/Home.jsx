@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import CardsCarousel from "../components/CardsCarousel";
 import Drag from "../components/Drag";
 import Arrow from "../assets/images/Arrow.png";
+import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 
 function Home({ dreams }) {
   // const [dreams, setDreams] = useState([]);
@@ -124,6 +125,7 @@ function Home({ dreams }) {
           />
         </div>
         <div className="topSwitchGlobal">
+          <img src={logoDreamIt} alt="logo dreamIt" />
           <div className="topSwitchText">
             <h1>Composez votre</h1>
             <div className="writer">
@@ -161,6 +163,11 @@ function Home({ dreams }) {
         </p>
         <p>"If you can't do it, at least you can DreamIT"</p>
       </div>
+      <div className="arrow">
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="sectionTitle1">
         <div className="sectionTextImg">
           <div className="textSection1">
@@ -192,6 +199,11 @@ function Home({ dreams }) {
       <div className="makeIt">
         <Drag dreams={dreams} isOn={isOn} />
       </div>
+      <div className="arrow">
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="sectionTitle2">
         <div className="textSection2">
           <h1>En panne d'inspiration ?</h1>
@@ -216,9 +228,15 @@ function Home({ dreams }) {
       <div className="pickOne">
         <CardsCarousel dreams={dreams} isOn={isOn} />
       </div>
+      <div className="arrow">
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="bottomText">
         <h1>{textBonheur}</h1>
       </div>
+
       <div className="bottomTotal">
         <div className={isOn ? "sectionTitle3" : "sectionTitle3Dark"}>
           <h1>Connectez-vous pour nous transmettre vos idées</h1>
