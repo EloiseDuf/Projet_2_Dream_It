@@ -50,10 +50,9 @@ function FiltersBundle({ filters, setFilters }) {
         </div>
       </div>
       <div className="SwitchButtonDrag">
-        <p>Mode rêve</p>
-        <SwitchButton />
-        <p>Mode cauchemar</p>
+        <p>Changer le mode</p>
       </div>
+      <SwitchButton />
     </section>
   );
 }
