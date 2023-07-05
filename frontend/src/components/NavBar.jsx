@@ -28,7 +28,7 @@ function NavBar() {
     };
   }, []);
 
-  const shouldChangeBackground = scrollPosition > 20; // Changer l'arrière-plan après un défilement de 100 pixels
+  const shouldChangeBackground = scrollPosition > 10; // Changer l'arrière-plan après un défilement de 20 pixels
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
