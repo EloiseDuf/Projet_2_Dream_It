@@ -1,29 +1,27 @@
 .mainProfilSection {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-start;
-  height: 65vh;
-
+  height: fit-content;
   h1 {
     margin-bottom: 40px;
     color: var(--colorText);
     margin-left: 24px;
     font-size: var(--fontSizeH1);
+    font-family: "Jost", sans-serif;
   }
 
   div {
-    border-left: 3px solid lightgray;
     padding-left: 24px;
-
     section {
-      margin-bottom: 36px;
+      margin: 30px 0 30px 0;
 
       p {
         text-align: left;
-        margin-bottom: 8px;
         color: var(--colorText);
         font-size: var(--fontSizeP);
+        font-weight: thin;
 
         span {
           // color: #c3bef6;

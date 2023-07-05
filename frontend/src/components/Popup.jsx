@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import "./Popup.scss";
 import MyContext from "./Context";
 
@@ -41,7 +41,7 @@ function Popup({ isOpen, onClose, setPossessionCompte }) {
     event.preventDefault();
     const utilisateur = users.find((user) => user.pseudo === username);
     if (utilisateur === undefined || utilisateur.mdp !== password) {
-      alert("wrong Pseudo or Password");
+      alert("Mauvais pseudo ou mot de passe");
       setPassword("");
       setUsername("");
     } else {

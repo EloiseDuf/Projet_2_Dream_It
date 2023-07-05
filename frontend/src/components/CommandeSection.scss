@@ -4,15 +4,16 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  height: 65vh;
+  height: fit-content;
   width: 50vw;
   overflow-y: auto;
-  border-left: 3px solid lightgray;
-  padding-left: 24px;
-
+  top: 0;
+  h2 {
+    font-size: var(--fontSizeH1);
+    font-family: "Jost", sans-serif;
+  }
   .sectionCommandeProfil {
     width: calc(50vw - 40px);
-    border: 1px solid lightgray;
     border-radius: 16px;
     padding: 8px;
     display: flex;
@@ -41,24 +42,14 @@
       button {
         padding: 8px;
         border-radius: 8px;
-        background-color: lightgray;
-        border: 3px outset lightgray;
+        background-color: #7662a3;
         color: white;
         cursor: pointer;
         width: 130px;
+        border: none;
       }
-
-      .buttonRecommanderSimple {
-        color: var(--colorText);
-        background-color: var(--colorButton);
-      }
-
       button:hover {
-        border: 3px outset #c7cd6f;
-      }
-
-      button:active {
-        border: 3px inset #c7cd6f;
+        background-color: var(--myColorHover);
       }
     }
   }

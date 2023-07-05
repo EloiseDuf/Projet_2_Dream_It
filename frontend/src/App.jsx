@@ -82,6 +82,8 @@ function App() {
       setIson,
       count,
       setCount,
+      dreams,
+      setDreams,
     }),
     [
       user,
@@ -94,6 +96,8 @@ function App() {
       setIson,
       count,
       setCount,
+      dreams,
+      setDreams,
     ]
   );
 
@@ -117,20 +121,6 @@ function App() {
           <Route path="/panier" element={<Basket dreams={dreams} />} />
         </Routes>
       </MyContext.Provider>
-
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profil/:utilisateur" element={<Profil />}>
-          <Route index element={<ProfilSection />} />
-          <Route path="commandesection" element={<CommandeSection />} />
-          <Route path="favorissection" element={<FavorisSection />} />
-          <Route
-            path="demandeparticuliere"
-            element={<DemandeParticuliereSection />}
-          />
-        </Route>
-        <Route render={() => <h1>404: page not found</h1>} />
-      </Routes> */}
     </div>
   );
 }

@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 function Profil() {
   const { user } = useContext(MyContext);
   // console.log(user);
-
+  const { isOn } = useContext(MyContext);
   const { image } = user;
 
   return (
@@ -17,31 +17,25 @@ function Profil() {
       <main className="mainProfil">
         <section className="profilMenu">
           {/* <img src={user.image} alt="profil" /> */}
-          <img src={image} alt="profil" />
+          <img id="photoProfil" src={image} alt="profil" />
 
           <NavLink
             to="/profil/"
-            className={({ isActive }) =>
-              isActive ? "linkProfil active" : "linkProfil"
-            }
+            className={isOn ? "linkProfil" : "linkProfilDark"}
           >
             <h2>Profil</h2>
             <img src="../src/assets/images/Account.png" alt="icone profil" />
           </NavLink>
           <NavLink
             to="/profil/commandesection"
-            className={({ isActive }) =>
-              isActive ? "linkProfil active" : "linkProfil"
-            }
+            className={isOn ? "linkProfil" : "linkProfilDark"}
           >
             <h2>Commandes</h2>
             <img src="../src/assets/images/commande.png" alt="icone commande" />
           </NavLink>
           <NavLink
             to="/profil/favorissection"
-            className={({ isActive }) =>
-              isActive ? "linkProfil active" : "linkProfil"
-            }
+            className={isOn ? "linkProfil" : "linkProfilDark"}
           >
             <h2>Favoris</h2>
             <img
@@ -51,9 +45,7 @@ function Profil() {
           </NavLink>
           <NavLink
             to="/profil/demandeparticuliere"
-            className={({ isActive }) =>
-              isActive ? "linkProfil active" : "linkProfil"
-            }
+            className={isOn ? "linkProfil" : "linkProfilDark"}
           >
             <h2>Demandes particulières</h2>
             <img

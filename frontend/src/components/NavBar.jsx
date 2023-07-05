@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MyContext from "./Context";
 import "./NavBar.scss";
 import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
@@ -28,7 +28,7 @@ function NavBar() {
     };
   }, []);
 
-  const shouldChangeBackground = scrollPosition > 80; // Changer l'arrière-plan après un défilement de 100 pixels
+  const shouldChangeBackground = scrollPosition > 20; // Changer l'arrière-plan après un défilement de 100 pixels
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
@@ -53,10 +53,43 @@ function NavBar() {
     setIsDivVisible(false);
   };
 
-  const handleClickScroll = () => {
-    const homeElement = document.getElementById("aLaCarte");
-    homeElement.scrollIntoView({ behavior: "smooth" });
+  const navigate = useNavigate();
+
+  const handleClickScroll = (event) => {
+    event.preventDefault();
+    const targetElementId = "aLaCarte"; // ID de l'élément cible
+
+    // Enregistre l'ID de l'élément cible dans localStorage
+    localStorage.setItem("scrollTarget", targetElementId);
+    if (window.location.pathname === "/") {
+      const targetElement = document.getElementById(targetElementId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      navigate("/");
+    }
   };
+
+  useEffect(() => {
+    const scrollTarget = localStorage.getItem("scrollTarget");
+
+    if (scrollTarget) {
+      const targetElement = document.getElementById(scrollTarget);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: "smooth",
+        });
+
+        localStorage.removeItem("scrollTarget");
+      }
+    }
+  }, []);
 
   return (
     <div className="toutesLesDivs">
