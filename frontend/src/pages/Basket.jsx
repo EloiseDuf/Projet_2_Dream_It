@@ -7,12 +7,11 @@ import Footer from "../components/Footer";
 import LogoCartes from "../assets/images/logoVisa.png";
 
 function Basket() {
-  const { panier } = useContext(MyContext);
+  const { panier, setPanier, isOn, user, setUser } = useContext(MyContext);
   const [prixElementsPanier, setPrixElementsPanier] = useState([]);
-  // const { count } = useContext(MyContext);
-  const { isOn } = useContext(MyContext);
-
   const [totalPanier, setTotalPanier] = useState(0);
+  const [prixLivraison, setPrixLivraison] = useState(5);
+  const [totalCommande, setTotalCommande] = useState(totalPanier);
 
   // le panier contient des tableaux, soit de 1 élément, soit de plusieurs éléments
   // on commence par créer un tableau qui récupère le prix total de chaque array
@@ -34,14 +33,59 @@ function Basket() {
     setTotalPanier(prixTotalPanier);
   }, []);
 
-  const [prixLivraison, setPrixLivraison] = useState("");
-
   const handleChangePrice = (event) => {
     const selectedOption = event.target.options[event.target.selectedIndex];
     const price = selectedOption.getAttribute("data-price");
 
     setPrixLivraison(price);
   };
+
+  const handleClickValiderCommande = () => {
+    let bodyContent = [];
+    if (panier.length === 1 && panier[0].length === 1) {
+      bodyContent.push(panier[0][0]);
+    } else if (panier.length === 1 && panier[0].length > 1) {
+      const [panier0] = panier;
+      // bodyContent = panier[0];
+      bodyContent = panier0;
+    } else if (panier.length > 1) {
+      bodyContent = panier;
+    }
+
+    if (panier.length === 0) {
+      alert(
+        "Veuillez ajouter des éléments au panier avant de passer commande !"
+      );
+    } else if (user === null) {
+      alert("Veuillez vous connecter pour passer commande !");
+    } else {
+      fetch(`http://localhost:4242/api/users/${user.pseudo}/commandes`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bodyContent),
+      })
+        .then((response) => response.json())
+        .then(
+          fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+            .then((res) => res.json())
+            .then((res) => {
+              const majUser = res;
+              setUser(majUser);
+            })
+        )
+        .then(() => {
+          const newPanier = [];
+          setPanier(newPanier);
+          alert("Votre commande vient d'être validée");
+        });
+    }
+  };
+
+  useEffect(() => {
+    setTotalCommande(totalPanier + parseInt(prixLivraison, 10));
+  }, [prixLivraison, totalPanier]);
 
   return (
     <>
@@ -108,7 +152,7 @@ function Basket() {
             </div>
             <div className={isOn ? "montantTotal" : "montantTotalDark"}>
               <h2>MONTANT TOTAL</h2>
-              <h2 className="montant">800 €</h2>
+              <h2 className="montant">{`${totalCommande} €`}</h2>
             </div>
           </div>
           <div id="inputPayement">
@@ -150,7 +194,11 @@ function Basket() {
           </div>
         </div>
       </div>
-      <button id="validerPayer" type="button">
+      <button
+        id="validerPayer"
+        type="button"
+        onClick={handleClickValiderCommande}
+      >
         {" "}
         <p>VALIDER ET PAYER</p>
       </button>
