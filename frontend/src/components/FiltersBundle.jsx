@@ -2,6 +2,17 @@ import "./FiltersBundle.scss";
 import SwitchButton from "./SwitchButton";
 
 function FiltersBundle({ filters, setFilters }) {
+  window.addEventListener("scroll", function () {
+    const element = document.getElementById("transition");
+    const start = 125;
+
+    if (window.scrollY > start) {
+      element.style.paddingTop = "70px";
+    } else {
+      element.style.paddingTop = "0";
+    }
+  });
+
   const handleClickFiltre = (image) => {
     const ancienneClasse = filters.find(
       (filtre) => filtre.image === image
@@ -27,10 +38,8 @@ function FiltersBundle({ filters, setFilters }) {
 
   return (
     <section className="section-filters">
-      <div className="filtersBundleTitle">
-        <p title="Clique sur le bouton pour modifier">
-          Sélectionnez un ou plusieurs thèmes
-        </p>
+      <div className="filtersBundleTitle" id="transition">
+        <p>Sélectionnez un ou plusieurs thèmes</p>
       </div>
       <div className="filtersBundleFilters">
         <div className="div-filtre-theme">

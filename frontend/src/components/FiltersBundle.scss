@@ -31,24 +31,6 @@
     align-items: flex-start;
     gap: 8px;
 
-    #resetButtonFiltersBundle {
-      width: 6rem;
-      height: 3rem;
-      margin: 2rem 0 0 0;
-      font-size: 1.1rem;
-      border: 3px outset lightgrey;
-      background-color: lightgrey;
-      border-radius: 16px;
-    }
-
-    #resetButtonFiltersBundle:hover {
-      border: 3px outset #c7cd6f;
-    }
-
-    #resetButtonFiltersBundle:active {
-      border: 3px inset #c7cd6f;
-    }
-
     .div-filtre-theme,
     .div-filtre-aLaCarte {
       display: flex;
@@ -84,33 +66,27 @@
     }
   }
 }
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 428px) {
   .section-filters {
     width: 9rem;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
 
-    .filters {
-      flex-basis: 100%;
-      text-align: center;
-      order: 3;
+    .filtersBundleFilters {
+      .div-filtre-theme {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .filtersBundleTitle {
+      p {
+        // padding-top:40px;
+        font-size: 1.5rem;
+        color: black;
+        justify-content: center;
+      }
     }
   }
 }
-
-// @media screen and (max-width: 600px) {
-//   .section-filters {
-//     .filter-barre-recherche {
-//       input {
-//         width: 130px;
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 520px) {
-//   .section-filters {
-//     .filter-barre-recherche {
-//       display: none;
-//     }
-//   }
-// }
