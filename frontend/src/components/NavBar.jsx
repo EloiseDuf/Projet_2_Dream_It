@@ -6,12 +6,14 @@ import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 import logoAccount from "../assets/images/Account.png";
 import Cart from "../assets/images/panier-vide.png";
 import Popup from "./Popup";
+import NouvelUtilisateur from "./NouvelUtilisateur";
 
 function NavBar() {
   const { user, setUser } = useContext(MyContext);
   const [isDivVisible, setIsDivVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [possessionCompte, setPossessionCompte] = useState(true);
   const { isOn } = useContext(MyContext);
 
   useEffect(() => {
@@ -34,6 +36,7 @@ function NavBar() {
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
+    setPossessionCompte(true);
   };
 
   const handleClickLogout = () => {
@@ -106,11 +109,20 @@ function NavBar() {
             Préfabriqué
           </Link>
         </div>
-        <Popup
-          isOpen={isPopupOpen}
-          onClose={handleClosePopup}
-          // onSubmit={handleSubmitPopup}
-        />
+        {possessionCompte === true ? (
+          <Popup
+            isOpen={isPopupOpen}
+            onClose={handleClosePopup}
+            setPossessionCompte={setPossessionCompte}
+            // onSubmit={handleSubmitPopup}
+          />
+        ) : (
+          <NouvelUtilisateur
+            isOpen={isPopupOpen}
+            onClose={handleClosePopup}
+            // setPossessionCompte={setPossessionCompte}
+          />
+        )}
         <div className="homeLeftDiv">
           <div className="test">
             <button id={user === null ? "Account" : "userActive"} type="button">
