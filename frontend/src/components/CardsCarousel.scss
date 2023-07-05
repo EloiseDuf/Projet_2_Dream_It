@@ -20,23 +20,28 @@
 //   border: none;
 //   background: none;
 // }
-
+.carouselMain {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .cardCarous {
   scroll-snap-align: start;
 }
 
 .arrow1 {
-  width: 100px;
-  height: 100px;
-  margin-left: 200px;
+  width: 50px;
+  height: 50px;
+  margin-left: 50px;
   opacity: 40%;
 }
 
 .arrow2 {
   transform: rotate(180deg);
-  width: 100px;
-  height: 100px;
-  margin-right: 200px;
+  width: 50px;
+  height: 50px;
+  margin-right: 50px;
   opacity: 40%;
 }
 
@@ -63,7 +68,8 @@
   /* scroll-snap-type: x mandatory; */
   /* scroll-padding: 0 200px; */
   scroll-behavior: smooth;
-  margin: 1em;
+  height: 67vh;
+  width: 100% ;
 }
 
 .carouselBox::-webkit-scrollbar {
@@ -71,10 +77,13 @@
 }
 
 .carouselBox::-webkit-scrollbar-thumb {
-  background-color: rgb(136, 198, 219);
+  background-color: rgb(242, 188, 255);
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid #9c98f3; /* creates padding around scroll thumb */
 }
 .carouselBox::-webkit-scrollbar-track {
-  background-color: rgb(160, 71, 219);
+  background-color: #9c98f3;
+  border-radius: 20px;
 }
 
 .carouselDark {
@@ -90,6 +99,8 @@
 
 .carouselDark::-webkit-scrollbar-thumb {
   background-color: red;
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid black; /* creates padding around scroll thumb */
 }
 .carouselDark::-webkit-scrollbar-track {
   background-color: black;
@@ -97,3 +108,4 @@
 .carouselDark::-webkit-scrollbar {
   height: 10px;
 }
+
