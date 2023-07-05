@@ -49,6 +49,7 @@
       border: none;
       width: 60px;
       height: 50px;
+      transition: transform 0.3s ease;
     }
     button:hover {
       transform: scale(1.2);
@@ -438,6 +439,7 @@
   font-family: "Jost", sans-serif;
   font-size: 20px;
     
+  transition: transform 0.3s ease;
   &:visited {
     text-decoration: none;
     color: white;
@@ -445,7 +447,7 @@
 }
 
 .prefabrique:hover {
-  scale: (1.2);
+  transform: scale(1.2);
 }
 
 .aLaCarte {
@@ -457,9 +459,10 @@
   font-size: 20px;
   z-index: 0;
     
+  transition: transform 0.3s ease;
 }
 .aLaCarte:hover {
-  scale: (1.2);
+  transform: scale(1.2);
   cursor: pointer;
   font-family: "Jost", sans-serif;
   font-size: 20px;

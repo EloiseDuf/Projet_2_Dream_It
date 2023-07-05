@@ -43,6 +43,86 @@ function Cards({ dreams }) {
     }
   };
 
+  // const fontSize = dreams.name.length > 19 ? '15px' : '17px'
+  const screenWidth = window.innerWidth;
+
+  let fontSize;
+  if (dreams.name.length > 33 && screenWidth >= 429) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 29 && screenWidth >= 429) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 25 && screenWidth >= 429) {
+    fontSize = "13px";
+  } else if (dreams.name.length > 24 && screenWidth >= 429) {
+    fontSize = "14px";
+  } else if (dreams.name.length > 23 && screenWidth >= 429) {
+    fontSize = "14px";
+  } else if (dreams.name.length > 22 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 21 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 20 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 19 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 18 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 17 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 16 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 15 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 14 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 13 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 12 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 11 && screenWidth >= 429) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 8 && screenWidth >= 429) {
+    fontSize = "15px";
+  }
+
+  if (dreams.name.length > 33 && screenWidth <= 428) {
+    fontSize = "8px";
+  } else if (dreams.name.length > 29 && screenWidth <= 428) {
+    fontSize = "9px";
+  } else if (dreams.name.length > 25 && screenWidth <= 428) {
+    fontSize = "10px";
+  } else if (dreams.name.length > 24 && screenWidth <= 428) {
+    fontSize = "10px";
+  } else if (dreams.name.length > 23 && screenWidth <= 428) {
+    fontSize = "10px";
+  } else if (dreams.name.length > 22 && screenWidth <= 428) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 21 && screenWidth <= 428) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 20 && screenWidth <= 428) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 19 && screenWidth <= 428) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 18 && screenWidth <= 428) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 17 && screenWidth <= 428) {
+    fontSize = "12px";
+  } else if (dreams.name.length > 16 && screenWidth <= 428) {
+    fontSize = "13px";
+  } else if (dreams.name.length > 15 && screenWidth <= 428) {
+    fontSize = "14px";
+  } else if (dreams.name.length > 14 && screenWidth <= 428) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 13 && screenWidth <= 428) {
+    fontSize = "16px";
+  } else if (dreams.name.length > 12 && screenWidth <= 428) {
+    fontSize = "17px";
+  } else if (dreams.name.length > 11 && screenWidth <= 428) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 8 && screenWidth <= 428) {
+    fontSize = "15px";
+  }
+
   return (
     <div className="cards">
       <div
@@ -50,7 +130,9 @@ function Cards({ dreams }) {
         style={{ backgroundImage: `url("${dreams?.image}")` }}
       >
         <div className="cardContents">
-          <h1>{dreams?.name}</h1>
+          <div className="cardTitle">
+            <h1 style={{ fontSize, textAlign: "center" }}>{dreams?.name}</h1>
+          </div>
           <div className="icons">
             <p className="price">{dreams?.price} €</p>
             <div className="cartFavorite">
