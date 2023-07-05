@@ -10,6 +10,27 @@ function Cards({ dreams }) {
     setIsFavorite(!isFavorite);
   };
 
+  let fontSize;
+  if (dreams.name.length > 33) {
+    fontSize = "11px";
+  } else if (dreams.name.length > 29) {
+    fontSize = "12px";
+  } else if (dreams.name.length > 25) {
+    fontSize = "13px";
+  } else if (dreams.name.length > 24) {
+    fontSize = "13px";
+  } else if (dreams.name.length > 22) {
+    fontSize = "14px";
+  } else if (dreams.name.length > 19) {
+    fontSize = "15px";
+  } else if (dreams.name.length > 15) {
+    fontSize = "16px";
+  } else if (dreams.name.length > 10) {
+    fontSize = "17px";
+  } else {
+    fontSize = "18px";
+  }
+
   return (
     <div className="cards">
       <div
@@ -17,7 +38,9 @@ function Cards({ dreams }) {
         style={{ backgroundImage: `url("${dreams?.image}")` }}
       >
         <div className="cardContents">
-          <h1>{dreams?.name}</h1>
+          <div className="cardTitle">
+            <h1 style={{ fontSize, textAlign: "center" }}>{dreams?.name}</h1>
+          </div>
           <div className="icons">
             <p className="price">{dreams?.price} €</p>
             <div className="cartFavorite">

@@ -45,7 +45,7 @@ function Bundle({ dreams }) {
   }, [originalDreams]);
 
   return (
-    <main>
+    <>
       <Header />
       <h1 className="bundleH1">Choisissez parmi nos différents bundle</h1>
       <div className="bundleCardsFilters">
@@ -66,7 +66,7 @@ function Bundle({ dreams }) {
         </div>
       </div>
       <Footer />
-    </main>
+    </>
   );
 }
 
