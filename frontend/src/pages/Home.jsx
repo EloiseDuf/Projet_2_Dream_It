@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import CardsCarousel from "../components/CardsCarousel";
 import Drag from "../components/Drag";
 import Arrow from "../assets/images/Arrow.png";
+import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 
 function Home({ dreams }) {
   // const [dreams, setDreams] = useState([]);
@@ -124,6 +125,7 @@ function Home({ dreams }) {
           />
         </div>
         <div className="topSwitchGlobal">
+          <img src={logoDreamIt} alt="logo dreamIt" />
           <div className="topSwitchText">
             <h1>Composez votre</h1>
             <div className="writer">
