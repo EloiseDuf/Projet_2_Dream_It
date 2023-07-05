@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState, useMemo } from "react";
 import MyContext from "./components/Context";
-import users from "./assets/Variables";
+// import users from "./assets/Variables";
 import Home from "./pages/Home";
 import Bundle from "./pages/Bundle";
 import ProfilSection from "./components/ProfilSection";
@@ -15,10 +15,15 @@ import Profil from "./pages/Profil";
 
 function App() {
   const [dreams, setDreams] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     fetch("http://localhost:4242/api/all")
       .then((res) => res.json())
       .then((res) => setDreams(res));
+
+    fetch("http://localhost:4242/api/users")
+      .then((res) => res.json())
+      .then((res) => setUsers(res));
   }, []);
   // récupération de la largeur et la hauteur de la fenêntre du navigateur
   let largeurWindow = window.innerWidth;
@@ -70,14 +75,30 @@ function App() {
       user,
       setUser,
       users,
+      setUsers,
       panier,
       setPanier,
       isOn,
       setIson,
       count,
       setCount,
+      dreams,
+      setDreams,
     }),
-    [user, setUser, users, panier, setPanier, isOn, setIson, count, setCount]
+    [
+      user,
+      setUser,
+      users,
+      setUsers,
+      panier,
+      setPanier,
+      isOn,
+      setIson,
+      count,
+      setCount,
+      dreams,
+      setDreams,
+    ]
   );
 
   return (
@@ -100,20 +121,6 @@ function App() {
           <Route path="/panier" element={<Basket dreams={dreams} />} />
         </Routes>
       </MyContext.Provider>
-
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profil/:utilisateur" element={<Profil />}>
-          <Route index element={<ProfilSection />} />
-          <Route path="commandesection" element={<CommandeSection />} />
-          <Route path="favorissection" element={<FavorisSection />} />
-          <Route
-            path="demandeparticuliere"
-            element={<DemandeParticuliereSection />}
-          />
-        </Route>
-        <Route render={() => <h1>404: page not found</h1>} />
-      </Routes> */}
     </div>
   );
 }

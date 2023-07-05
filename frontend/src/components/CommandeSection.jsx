@@ -11,6 +11,7 @@ function CommandeSection() {
 
   return (
     <main className="mainCommandeSection">
+      <h2 className="mesCommandes">Mes Commandes</h2>
       {commandes.map((commandeItem) => (
         <CommandeElement
           commandeItem={commandeItem}

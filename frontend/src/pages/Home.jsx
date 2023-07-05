@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
+import Typewriter from "typewriter-effect";
 import MyContext from "../components/Context";
 import "./Home.scss";
 // import Filters from "../components/Filters";
@@ -9,6 +10,7 @@ import Footer from "../components/Footer";
 import CardsCarousel from "../components/CardsCarousel";
 import Drag from "../components/Drag";
 import Arrow from "../assets/images/Arrow.png";
+import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 
 function Home({ dreams }) {
   // const [dreams, setDreams] = useState([]);
@@ -123,9 +125,26 @@ function Home({ dreams }) {
           />
         </div>
         <div className="topSwitchGlobal">
+          <img src={logoDreamIt} alt="logo dreamIt" />
           <div className="topSwitchText">
-            <h1>Composez votre rêve</h1>
-            <h1>...ou votre cauchemar</h1>
+            <h1>Composez votre</h1>
+            <div className="writer">
+              <Typewriter
+                options={{
+                  loop: true,
+                  delay: 200,
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(" rêve")
+                    .pauseFor(2000)
+                    .deleteAll()
+                    .typeString(" cauchemar")
+                    .pauseFor(2000)
+                    .start();
+                }}
+              />
+            </div>
           </div>
           <div className="topSwitchButton">
             <SwitchButton Active={handleActive} />
@@ -143,6 +162,11 @@ function Home({ dreams }) {
           réalité, <br /> le temps d'une nuit.
         </p>
         <p>"If you can't do it, at least you can DreamIT"</p>
+      </div>
+      <div className="arrow">
+        <span />
+        <span />
+        <span />
       </div>
       <div className="sectionTitle1">
         <div className="sectionTextImg">
@@ -175,6 +199,11 @@ function Home({ dreams }) {
       <div className="makeIt">
         <Drag dreams={dreams} isOn={isOn} />
       </div>
+      <div className="arrow">
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="sectionTitle2">
         <div className="textSection2">
           <h1>En panne d'inspiration ?</h1>
@@ -199,9 +228,15 @@ function Home({ dreams }) {
       <div className="pickOne">
         <CardsCarousel dreams={dreams} isOn={isOn} />
       </div>
+      <div className="arrow">
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="bottomText">
         <h1>{textBonheur}</h1>
       </div>
+
       <div className="bottomTotal">
         <div className={isOn ? "sectionTitle3" : "sectionTitle3Dark"}>
           <h1>Connectez-vous pour nous transmettre vos idées</h1>

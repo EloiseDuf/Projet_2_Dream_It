@@ -13,6 +13,7 @@ function FavorisSection() {
 
   return (
     <main className="mainFavorisSection">
+      <h2 className="mesFavoris">Mes Favoris</h2>
       <section className="mainVide" />
       <section className="main-favoris-container">
         <div className="div-vide-left" />
