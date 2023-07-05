@@ -1,8 +1,8 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import "./Popup.scss";
 import MyContext from "./Context";
 
-function Popup({ isOpen, onClose }) {
+function Popup({ isOpen, onClose, setPossessionCompte }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setUser, users } = useContext(MyContext);
@@ -41,7 +41,7 @@ function Popup({ isOpen, onClose }) {
     event.preventDefault();
     const utilisateur = users.find((user) => user.pseudo === username);
     if (utilisateur === undefined || utilisateur.mdp !== password) {
-      alert("wrong Pseudo or Password");
+      alert("Mauvais pseudo ou mot de passe");
       setPassword("");
       setUsername("");
     } else {
@@ -53,6 +53,10 @@ function Popup({ isOpen, onClose }) {
   if (!isOpen) {
     return null;
   }
+
+  const handleClickPasDeCompte = () => {
+    setPossessionCompte(false);
+  };
 
   return (
     <div className="popup" ref={popupRef}>
@@ -90,6 +94,11 @@ function Popup({ isOpen, onClose }) {
               </div>
             </div>
           </form>
+          <div className="pasDeCompte">
+            <p onClick={handleClickPasDeCompte}>
+              Cliquez ici pour créer un compte
+            </p>
+          </div>
           <div className="buttonsConnexion">
             <button ref={buttonRef} type="submit" onClick={handleSubmitPopup}>
               Se connecter

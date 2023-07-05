@@ -1,21 +1,19 @@
 .commandeComposee {
   padding: 8px;
-  border: 1px solid black;
-  background-color: lightgray;
   box-sizing: border-box;
   max-width: 100%;
-  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-
+  border-bottom: 2px solid lightgray;
+  padding: 40px 0 30px 0;
   .recapitulatifCommandeComposee {
     width: 80%;
     margin-top: 8px;
     background-color: white;
     padding: 8px;
-    border-radius: 16px;
+    border-radius: 12px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,31 +28,33 @@
         background-color: var(--colorButton);
         padding: 8px;
         border-radius: 8px;
-        border: 3px outset lightgray;
         cursor: pointer;
         max-width: 200px;
+        border: none;
       }
 
       .buttonRecommanderMultiple:hover {
-        border: 3px outset #c7cd6f;
+        background-color: var(--colorButtonHover);
       }
 
       .buttonRecommanderMultiple:active {
-        border: 3px inset #c7cd6f;
       }
     }
 
     .recapCommandeMultipleDivGauche {
-      border-right: 3px solid lightgray;
+      border-right: 2px solid lightgray;
     }
   }
 }
 
 .commandeArticleUnique {
   padding: 8px;
-  border: 1px solid black;
-  background-color: lightgray;
   box-sizing: border-box;
   max-width: 100%;
-  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 2px solid lightgray;
+  padding: 40px 0 30px 0;
 }
