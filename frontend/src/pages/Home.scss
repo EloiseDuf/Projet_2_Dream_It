@@ -33,7 +33,6 @@
     gap: 1rem;
     width: 100%;
     margin-top: 4em;
-    padding-left: 7em;
     position: absolute;
     z-index: 0;
     img {
@@ -67,22 +66,20 @@
   justify-content: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2rem;
-  height: 50vh;
+  height: 40vh;
   width: 100%;
   display: flex;
   align-items: center;
   :nth-child(1) {
     color: #a2a2a2;
-    width: 60vw;
   }
   :nth-child(2) {
     color: #a2a2a2;
-    width: 70vw;
     margin-top: 30px;
   }
   :nth-child(3) {
     color: #414141;
-    margin-top: 60px;
+    margin-top: 50px;
   }
 }
 
@@ -553,8 +550,115 @@
     transform: rotate(45deg) translate(20px, 20px);
   }
 }
-@media screen and (max-width: 1500px) {
-  .topSwitchGlobal {
-    border: red 2px solid;
+
+@media screen and (max-width: 1562px) {
+  .Reve {
+    img {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .divText {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .topPage {
+    .topSwitchGlobal {
+      margin-top: 5em;
+    }
+  }
+
+  .divText {
+    font-size: 1.8rem;
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 833px) {
+  .topPage {
+    .topSwitchGlobal {
+      margin-top: 5em;
+      img {
+        width: 220px;
+      }
+      .topSwitchText {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+        .writer {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          font-size: 2.6rem;
+        }
+      }
+    }
+  }
+
+  .divText {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .divText {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .topPage {
+    .topSwitchGlobal {
+      margin-top: 5em;
+      img {
+        width: 200px;
+      }
+      .topSwitchText {
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        .writer {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          font-size: 2.4rem;
+        }
+      }
+    }
+  }
+
+  .divText {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .topPage {
+    .topSwitchGlobal {
+      margin-top: 5em;
+      img {
+        width: 180px;
+      }
+      .topSwitchText {
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        .writer {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          font-size: 2.1rem;
+        }
+      }
+    }
+  }
+
+  .divText {
+    margin-top: 16px;
+    font-size: 1.2rem;
   }
 }

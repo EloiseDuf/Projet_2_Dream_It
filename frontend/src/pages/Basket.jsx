@@ -41,6 +41,17 @@ function Basket() {
   };
 
   const handleClickValiderCommande = () => {
+    let bodyContent = [];
+    if (panier.length === 1 && panier[0].length === 1) {
+      bodyContent.push(panier[0][0]);
+    } else if (panier.length === 1 && panier[0].length > 1) {
+      const [panier0] = panier;
+      // bodyContent = panier[0];
+      bodyContent = panier0;
+    } else if (panier.length > 1) {
+      bodyContent = panier;
+    }
+
     if (panier.length === 0) {
       alert(
         "Veuillez ajouter des éléments au panier avant de passer commande !"
@@ -53,7 +64,7 @@ function Basket() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(panier),
+        body: JSON.stringify(bodyContent),
       })
         .then((response) => response.json())
         .then(

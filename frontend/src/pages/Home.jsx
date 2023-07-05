@@ -153,13 +153,13 @@ function Home({ dreams }) {
       </div>
       <div className="divText">
         <p>
-          DreamIt est une startup qui développe <br />
-          des solutions personnalisées pour échapper à la réalité <br />
-          et vivre ses rêves sur demande.{" "}
+          DreamIt est une startup qui développe des solutions <br />
+          pour créer vos <span>propres rêves</span>.
         </p>
         <p>
           Grâce à nos pillules, vous trouverez une porte pour échapper à la
-          réalité, <br /> le temps d'une nuit.
+          réalité, <br />
+          le temps d'une nuit.
         </p>
         <p>"If you can't do it, at least you can DreamIT"</p>
       </div>
