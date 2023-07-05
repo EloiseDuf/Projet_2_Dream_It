@@ -76,7 +76,6 @@
 }
 
 #Account::after {
-  content: "Mon compte";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -91,7 +90,6 @@
 }
 
 #Cart::after {
-  content: "Mon panier";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -135,6 +133,10 @@
     gap: 3rem;
     color: white;
     width: 100%;
+    .aLaCarte, .prefabrique {
+      font-family: "Jost", sans-serif;
+      font-size: 20px;
+    }
   }
 
   .centreDiv {
@@ -210,8 +212,7 @@
 .menuProfilNavbar {
   width: 230px;
   height: 250px;
-  top: 0;
-  margin-right: 3em;
+  margin-right: 9em;
   margin-top: 100px;
   display: flex;
   flex-direction: column;
@@ -223,8 +224,9 @@
   box-shadow: 0px 0px 14px 0px #000000ab;
   z-index: 40;
   position: fixed;
-  right: -100%; /* Commence à l'extérieur de l'écran à droite */
-  animation: slide-in 1s forwards;
+  transition: .2s ease-in-out;
+  top:0;
+  right: 0;
   .profilPopupNav {
     height: 100%;
     width: 100%;
@@ -322,28 +324,29 @@
   height: fit-content;
   top: 0;
   position: fixed;
-  margin-right: 2.5em;
-  margin-top: 150px;
+  margin-right: 9rem;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   background-color: #e3e3e3;
-  z-index: 40;
+  z-index: 42;
   transform: translateX(200%);
   opacity: 0;
-  animation: slide-in-anim 1s ease-out forwards;
+  animation: slide-in-anim .5s ease-out forwards;
+ 
 }
 @keyframes slide-in-anim {
   20% {
     opacity: 0;
   }
   60% {
-    transform: translateX(-10%);
+    transform: translateX(-30%);
   }
   75% {
-    transform: translateX(-30%);
+    transform: translateX(-10%);
   }
   100% {
     opacity: 1;
@@ -373,6 +376,7 @@
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   border: 2px solid;
+  z-index: 400;
 }
 
 .reve:hover {
@@ -435,8 +439,12 @@
 
 .prefabrique {
   text-decoration: none;
+  border: none;
+  background: none;
+  color: white;
   font-family: "Jost", sans-serif;
   font-size: 20px;
+  z-index: 0;
     
   &:visited {
     text-decoration: none;
@@ -507,16 +515,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s ease;
+    transition: 2s ease;
     img{
       height: 60px;
       width: auto;
       opacity: 1;
       transition: 1s ease;
-    }
-    &:hover {
-      transform: scale(1.1);
-      transition: 0.5s ease;
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.5s ease;
+      }
+
     }
   }
 
