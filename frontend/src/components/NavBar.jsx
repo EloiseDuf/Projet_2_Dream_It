@@ -110,7 +110,7 @@ function NavBar() {
             className="aLaCarte"
             onClick={handleClickScroll}
           >
-            A la carte
+            À la carte
           </button>
           <Link className="prefabrique" to="/bundle">
             Préfabriqué

@@ -564,3 +564,55 @@
   }
 }
 
+@media screen and (max-width: 650px) {
+  .NavBar {
+    .homeRightDiv {
+      flex-direction: column;
+      gap: 0;
+      .aLaCarte,
+      .prefabrique {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .change-bg {
+    .homeRightDiv {
+      flex-direction: column;
+      gap: 0;
+      .aLaCarte,
+      .prefabrique {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .change-bg-dark {
+    .homeRightDiv {
+      flex-direction: column;
+      gap: 0;
+      .aLaCarte,
+      .prefabrique {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .reve {
+    width: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    height: 30px;
+  }
+
+  .cauchemar {
+    width: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    height: 30px;
+  }
+
+  .menuProfilNavbarSmall {
+    margin-right: 7%;
+  }
+}
