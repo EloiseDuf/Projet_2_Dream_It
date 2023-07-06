@@ -158,8 +158,7 @@ function Home({ dreams }) {
         </p>
         <p>
           Grâce à nos pillules, vous trouverez une porte pour échapper à la
-          réalité, <br />
-          le temps d'une nuit.
+          réalité, <br />d le temps d'une nuit.
         </p>
         <p>"If you can't do it, at least you can DreamIT"</p>
       </div>
@@ -176,7 +175,7 @@ function Home({ dreams }) {
               Notre produit, au principe actif breveté, vous fera vivre une
               expérience unique.
               <br />
-              <br /> Préparez-vous au voyage, <br /> le temps d'une nuit.
+              Préparez-vous au voyage, le temps d'une nuit.
             </p>
             <p>{textCompo}</p>
           </div>
