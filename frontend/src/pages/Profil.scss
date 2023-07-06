@@ -21,7 +21,7 @@
     align-items: center;
     padding: 50px;
     border-right: 2px solid lightgray;
-    position: sticky;
+    // position: sticky;
     top: 20vh;
     #photoProfil {
       border: 2px solid rgb(174, 174, 174);
@@ -151,5 +151,11 @@
 
   .sectionAffichagePageProfil {
     width: 60vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .mainProfil {
+    flex-direction: column;
   }
 }
