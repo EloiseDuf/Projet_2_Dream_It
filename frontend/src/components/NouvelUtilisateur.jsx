@@ -165,131 +165,141 @@ function NouvelUtilisateur({ isOpen, onClose }) {
     <main className="mainNouvelUtilisateur" ref={popupRef}>
       <div className={isOn ? "popup-content" : "popup-content-dark"}>
         <button
-          id={isOn ? "closingCross" : "closingCrossDark"}
+          id={isOn ? "closingCross2" : "closingCrossDark2"}
           type="button"
           onClick={onClose}
         >
           X
         </button>
-        <h2>Création de compte</h2>
+        <h2>Créer un compte</h2>
         <div className="contentDiv">
           <form>
-            <div className="inputConnection">
-              <div className="nameInput">
-                <input
-                  placeholder="Nom"
-                  type="text"
-                  id="lastname"
-                  value={lastname}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeLastname}
-                />
+            <div className="inputConnection2">
+              <div className="nomPrenomAgeEmail">
+                <div className="nameInput">
+                  <input
+                    placeholder="Nom"
+                    type="text"
+                    id="lastname"
+                    value={lastname}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeLastname}
+                  />
+                </div>
+                <div className="firstnameInput">
+                  <input
+                    placeholder="Prénom"
+                    type="text"
+                    id="firstname"
+                    value={firstname}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeFirstname}
+                  />
+                </div>
+                <div className="ageInput">
+                  <input
+                    placeholder="Âge"
+                    type="text"
+                    id="age"
+                    value={age}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeAge}
+                  />
+                </div>
+                <div className="emailInput">
+                  <input
+                    placeholder="Email"
+                    type="text"
+                    id="email"
+                    value={email}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeEmail}
+                  />
+                </div>
               </div>
-              <div className="firstnameInput">
-                <input
-                  placeholder="Prénom"
-                  type="text"
-                  id="firstname"
-                  value={firstname}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeFirstname}
-                />
+              <h3 className="adresseTitle">Adresse</h3>
+              <div className="adresseInputDiv">
+                <div className="adresseInput">
+                  <input
+                    placeholder="N° et rue"
+                    type="text"
+                    id="adresse"
+                    value={address}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeAddress}
+                  />
+                </div>
               </div>
-              <div className="pseudoInput">
-                <input
-                  placeholder="Pseudo"
-                  type="text"
-                  id="username"
-                  value={username}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleUsernameChange}
-                />
+              <div className="codeVillePaysTel">
+                <div className="codePostalInput">
+                  <input
+                    placeholder="Code postal"
+                    type="text"
+                    id="codePostal"
+                    value={postalCode}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangePostalCode}
+                  />
+                </div>
+                <div className="cityInput">
+                  <input
+                    placeholder="Ville"
+                    type="text"
+                    id="ville"
+                    value={city}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeCity}
+                  />
+                </div>
+                <div className="countryInput">
+                  <input
+                    placeholder="Pays"
+                    type="text"
+                    id="pays"
+                    value={country}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeCountry}
+                  />
+                </div>
+                <div className="telephoneInput">
+                  <input
+                    placeholder="Téléphone"
+                    type="text"
+                    id="telephone"
+                    value={telephone}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleChangeTelephone}
+                  />
+                </div>
               </div>
-              <div className="passwordInput">
-                <input
-                  placeholder="Mot de Passe"
-                  type="password"
-                  id="password"
-                  value={password}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handlePasswordChange}
-                />
-              </div>
-              <div className="ageInput">
-                <input
-                  placeholder="Votre age"
-                  type="text"
-                  id="age"
-                  value={age}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeAge}
-                />
-              </div>
-              <div className="adresseInput">
-                <input
-                  placeholder="N° et nom de rue"
-                  type="text"
-                  id="adresse"
-                  value={address}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeAddress}
-                />
-              </div>
-              <div className="codePostalInput">
-                <input
-                  placeholder="Code postal"
-                  type="text"
-                  id="codePostal"
-                  value={postalCode}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangePostalCode}
-                />
-              </div>
-              <div className="cityInput">
-                <input
-                  placeholder="Ville"
-                  type="text"
-                  id="ville"
-                  value={city}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeCity}
-                />
-              </div>
-              <div className="countryInput">
-                <input
-                  placeholder="Pays"
-                  type="text"
-                  id="pays"
-                  value={country}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeCountry}
-                />
-              </div>
-              <div className="emailInput">
-                <input
-                  placeholder="Email"
-                  type="text"
-                  id="email"
-                  value={email}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeEmail}
-                />
-              </div>
-              <div className="telephoneInput">
-                <input
-                  placeholder="Téléphone"
-                  type="text"
-                  id="telephone"
-                  value={telephone}
-                  onKeyDown={handleKeyPressEnter}
-                  onChange={handleChangeTelephone}
-                />
+              <h3 className="identifiantsTitle">Identifiants</h3>
+              <div className="pseudoMdp">
+                <div className="pseudoInput">
+                  <input
+                    placeholder="Pseudo"
+                    type="text"
+                    id="username"
+                    value={username}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handleUsernameChange}
+                  />
+                </div>
+                <div className="passwordInput">
+                  <input
+                    placeholder="Mot de passe"
+                    type="password"
+                    id="password"
+                    value={password}
+                    onKeyDown={handleKeyPressEnter}
+                    onChange={handlePasswordChange}
+                  />
+                </div>
               </div>
             </div>
           </form>
           <div className="buttonsConnexion">
             <button ref={buttonRef} type="submit" onClick={handleSubmitPopup}>
-              Se connecter
+              Créer un compte
             </button>
           </div>
         </div>
