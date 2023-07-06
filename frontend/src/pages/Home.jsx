@@ -190,10 +190,10 @@ function Home({ dreams }) {
       <div className="vousNeRevezPas">
         <h1>Non, vous ne rêvez pas !</h1>
         <h2>Composez le vôtre dès maintenant</h2>
-      </div>
-      <div className="instructions" id="aLaCarte">
-        <h3>Glissez-déposez votre sélection dans le panier</h3>
-        <img src={Arrow} alt="arrow" />
+        <div className="instructions" id="aLaCarte">
+          <h3>Glissez-déposez votre sélection dans le panier</h3>
+          <img src={Arrow} alt="arrow" />
+        </div>
       </div>
       <div className="makeIt">
         <Drag dreams={dreams} isOn={isOn} />
