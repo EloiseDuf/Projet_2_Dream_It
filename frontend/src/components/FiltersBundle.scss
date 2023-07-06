@@ -66,12 +66,13 @@
     }
   }
 }
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 600px) {
   .section-filters {
     width: 9rem;
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    border-right: 0px;
 
     .filtersBundleFilters {
       .div-filtre-theme {
