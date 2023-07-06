@@ -1,23 +1,16 @@
-import "./Cards.scss";
+import "./BigCards.scss";
 import { useState, useContext } from "react";
 import MyContext from "./Context";
 import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
 import panierVide from "../assets/images/panier-vide.png";
 import panierRempliVert from "../assets/images/panier-rempli-vert.png";
-import Arrow2 from "../assets/images/arrowRound2.png";
 // import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
-function Cards({ dreams }) {
+function BigCards({ dreams }) {
   const { panier, setPanier, user } = useContext(MyContext);
 
   const [isFavorite, setIsFavorite] = useState();
-
-  const [isArrowClicked, setIsArrowClicked] = useState(false);
-
-  const handleArrowClick = () => {
-    setIsArrowClicked(!isArrowClicked);
-  };
 
   const isFavoriteUser = () => {
     if (user && user.favoris) {
@@ -131,49 +124,43 @@ function Cards({ dreams }) {
   }
 
   return (
-    <div className="cards">
+    <div className="cards2">
       <div
-        className={isArrowClicked ? "globalCardScrolled" : "globalCard"}
+        className="globalCard2"
         style={{ backgroundImage: `url("${dreams?.image}")` }}
       >
-        <div className="cardContents">
-          <div className="cardTitle">
+        <div className="cardContents2">
+          <div className="cardTitle2">
             <h1 style={{ fontSize, textAlign: "center" }}>{dreams?.name}</h1>
           </div>
-          <div className="icons">
-            <p className="price">{dreams?.price} €</p>
-            <img
-              id="arrowCard"
-              src={Arrow2}
-              alt="arrow"
-              onClick={handleArrowClick}
-            />
-            <div className="cartFavorite">
+          <div className="icons2">
+            <p className="price2">{dreams?.price} €</p>
+            <div className="cartFavorite2">
               <img
                 src={
                   isFavoriteUser() || isFavorite === true
                     ? etoilePleine
                     : etoileVide
                 }
-                className={isFavorite === true ? "isFavorite" : "notFavorite"}
+                className={isFavorite === true ? "isFavorite2" : "notFavorite2"}
                 onClick={handleClickFavorite}
-                id="buttonFavorite"
+                id="buttonFavorite2"
                 alt="Etoile favori"
               />
               <img
                 src={isEmpty === true ? panierVide : panierRempliVert}
-                className={isEmpty === true ? "isEmpty" : "notEmpty"}
+                className={isEmpty === true ? "isEmpty2" : "notEmpty2"}
                 onClick={handleClickEmpty}
-                id="buttonCart"
+                id="buttonCart2"
                 alt="icone panier"
               />
             </div>
           </div>
-          <p className="desc">{dreams?.description}</p>
+          <p className="desc2">{dreams?.description}</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Cards;
+export default BigCards;

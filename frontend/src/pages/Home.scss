@@ -221,6 +221,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .bottomText {
@@ -376,6 +378,7 @@
     }
     input:focus {
       outline: none;
+      box-shadow: none;
     }
     .pseudoInput {
       padding: 0;
@@ -434,6 +437,7 @@
 .displayAll {
   display: flex;
   flex-direction: row-reverse;
+  margin-top: 50px;
   .displayAllButton {
     width: 200px;
     margin-right: 5em;
@@ -518,6 +522,9 @@
   width: 50%;
   padding-top: 50px;
   padding-bottom: 100px;
+  &:hover {
+    cursor: default;
+  }
 }
 
 .arrow span {
