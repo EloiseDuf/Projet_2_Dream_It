@@ -168,6 +168,20 @@
     align-items: center;
     flex-wrap: wrap;
   }
+
+  .column2 .totalReveAlaCarte {
+    background-color: #d0d0d0;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    p {
+      font-size: 20px;
+    }
+  }
 }
 
 @media screen and (max-width: 996px) {
@@ -175,23 +189,6 @@
     width: 500px;
     // display: none;
   }
-
-  // attention dragSectionFilters est dans un autre composent
-  // .dragSectionFilters{
-  //   padding-top: 40px;
-  //     padding-bottom: 30px;
-  //     padding-left: 0px;
-  //     padding-right: 30px;
-  //     display: flex;
-  //     flex-direction: column;
-  //     gap: 30px;
-  //     backdrop-filter: blur(50px);
-  //     -webkit-backdrop-filter: blur(50px);
-  //     height: 30px;
-  //     justify-content: center;
-  //     flex-wrap: wrap;
-  //     align-content: flex-end;
-  // }
 
   #idColumn2 {
     margin-right: 0px;
@@ -230,5 +227,10 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+  }
+  .divSendToPanier {
+    width: 100%;
+    background-color: #d0d0d0;
+    height: 30%;
   }
 }
