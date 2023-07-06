@@ -5,12 +5,19 @@ import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
 import panierVide from "../assets/images/panier-vide.png";
 import panierRempliVert from "../assets/images/panier-rempli-vert.png";
+import Arrow2 from "../assets/images/arrowRound2.png";
 // import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
 function Cards({ dreams }) {
   const { panier, setPanier, user } = useContext(MyContext);
 
   const [isFavorite, setIsFavorite] = useState();
+
+  const [isArrowClicked, setIsArrowClicked] = useState(false);
+
+  const handleArrowClick = () => {
+    setIsArrowClicked(!isArrowClicked);
+  };
 
   const isFavoriteUser = () => {
     if (user && user.favoris) {
@@ -126,7 +133,7 @@ function Cards({ dreams }) {
   return (
     <div className="cards">
       <div
-        className="globalCard"
+        className={isArrowClicked ? "globalCardScrolled" : "globalCard"}
         style={{ backgroundImage: `url("${dreams?.image}")` }}
       >
         <div className="cardContents">
@@ -135,6 +142,12 @@ function Cards({ dreams }) {
           </div>
           <div className="icons">
             <p className="price">{dreams?.price} €</p>
+            <img
+              id="arrowCard"
+              src={Arrow2}
+              alt="arrow"
+              onClick={handleArrowClick}
+            />
             <div className="cartFavorite">
               <img
                 src={
