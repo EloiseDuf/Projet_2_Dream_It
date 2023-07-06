@@ -1,11 +1,24 @@
 import "./Cards.scss";
-import { useState } from "react";
-
+import { useState, useContext } from "react";
+import MyContext from "./Context";
 import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
 
 function Cards({ dreams }) {
-  const [isFavorite, setIsFavorite] = useState();
+  const { user } = useContext(MyContext);
+
+  const defineIsFavoriteUser = () => {
+    if (user && user.favoris) {
+      for (let i = 0; i < user.favoris.length; i += 1) {
+        if (user.favoris[i].id === dreams.id) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  const [isFavorite, setIsFavorite] = useState(defineIsFavoriteUser());
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };

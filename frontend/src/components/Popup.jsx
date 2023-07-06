@@ -46,6 +46,9 @@ function Popup({ isOpen, onClose, setPossessionCompte }) {
       setUsername("");
     } else {
       setUser(utilisateur);
+      fetch(`http://localhost:4242/api/users/${utilisateur.pseudo}`)
+        .then((res) => res.json())
+        .then((res) => setUser(res));
       onClose();
     }
   };

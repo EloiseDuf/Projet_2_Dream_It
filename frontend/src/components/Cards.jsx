@@ -1,5 +1,5 @@
 import "./Cards.scss";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import MyContext from "./Context";
 import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
@@ -8,11 +8,10 @@ import panierRempliVert from "../assets/images/panier-rempli-vert.png";
 // import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
 function Cards({ dreams }) {
-  const { panier, setPanier, user } = useContext(MyContext);
+  const { panier, setPanier, user, setUser } = useContext(MyContext);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const [isFavorite, setIsFavorite] = useState();
-
-  const isFavoriteUser = () => {
+  const defineIsFavoriteUser = () => {
     if (user && user.favoris) {
       for (let i = 0; i < user.favoris.length; i += 1) {
         if (user.favoris[i].id === dreams.id) {
@@ -22,6 +21,8 @@ function Cards({ dreams }) {
     }
     return false;
   };
+
+  const [isFavorite, setIsFavorite] = useState(defineIsFavoriteUser());
 
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
@@ -43,7 +44,7 @@ function Cards({ dreams }) {
     }
   };
 
-  // const fontSize = dreams.name.length > 19 ? '15px' : '17px'
+  // Modification de la taille des textes en fonction de la taille de l'écran
   const screenWidth = window.innerWidth;
 
   let fontSize;
@@ -123,6 +124,52 @@ function Cards({ dreams }) {
     fontSize = "15px";
   }
 
+  // quand l'user change, on réapplique l'état true à isFavorite pour les cartes favoris du user
+  useEffect(() => {
+    if (user !== null) {
+      const newStateFavorite = defineIsFavoriteUser();
+      setIsFavorite(newStateFavorite);
+    }
+  }, [user]);
+
+  // quand on change l'état de isFavorite, on transfere les données à l'API pour modifier l'état des favoris
+  useEffect(() => {
+    if (isMounted) {
+      const newStateFavorite = isFavorite;
+
+      if (user !== null) {
+        if (newStateFavorite === true) {
+          fetch(`http://localhost:4242/api/users/${user.pseudo}/favoris`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dreams),
+          })
+            .then((response) => response.json())
+            .then(() => {
+              fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+                .then((res) => res.json())
+                .then((res) => setUser(res));
+            });
+        } else {
+          fetch(
+            `http://localhost:4242/api/users/${user.pseudo}/favoris/${dreams.id}`,
+            {
+              method: "DELETE",
+            }
+          ).then(() => {
+            fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+              .then((res) => res.json())
+              .then((res) => setUser(res));
+          });
+        }
+      }
+    } else {
+      setIsMounted(true);
+    }
+  }, [isFavorite]);
+
   return (
     <div className="cards">
       <div
@@ -137,11 +184,12 @@ function Cards({ dreams }) {
             <p className="price">{dreams?.price} €</p>
             <div className="cartFavorite">
               <img
-                src={
-                  isFavoriteUser() || isFavorite === true
-                    ? etoilePleine
-                    : etoileVide
-                }
+                // src={
+                //   isFavoriteUser() || isFavorite === true
+                //     ? etoilePleine
+                //     : etoileVide
+                // }
+                src={isFavorite === true ? etoilePleine : etoileVide}
                 className={isFavorite === true ? "isFavorite" : "notFavorite"}
                 onClick={handleClickFavorite}
                 id="buttonFavorite"
