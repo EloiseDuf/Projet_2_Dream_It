@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap");
 
-
 .mainNouvelUtilisateur {
   display: flex;
   justify-content: center;
@@ -40,16 +39,16 @@
       z-index: 3;
       top: 0;
       border: none;
-      right:0;
+      right: 0;
       margin: 15px;
       position: absolute;
       width: fit-content;
-    height: fit-content;
-    margin: 5px;
+      height: fit-content;
+      margin: 5px;
     }
     h2 {
       position: absolute;
-      top:0;
+      top: 0;
       margin-top: 20px;
       color: white;
       font-size: 40px;
@@ -63,12 +62,11 @@
       margin-bottom: 6px;
       display: flex;
       flex-direction: column;
-      justify-content:center;
+      justify-content: center;
       .inputConnection {
         display: flex;
         flex-direction: column;
       }
-      
     }
 
     form {
@@ -154,16 +152,16 @@
       z-index: 3;
       top: 0;
       border: none;
-      right:0;
+      right: 0;
       margin: 10px;
       position: absolute;
       width: fit-content;
-    height: fit-content;
-    margin: 5px;
+      height: fit-content;
+      margin: 5px;
     }
     h2 {
       position: absolute;
-      top:0;
+      top: 0;
       margin-top: 20px;
       color: white;
       font-size: 40px;
@@ -176,7 +174,7 @@
       margin-bottom: 6px;
       display: flex;
       flex-direction: column;
-      justify-content:center;
+      justify-content: center;
       .inputConnection {
         display: flex;
         flex-direction: column;
@@ -214,12 +212,12 @@
         border: 2px solid;
       }
 
-    h3 {
-      position: absolute;
-      margin-bottom: 52.5vh;
-      color: white;
-      font-size: 40px;
-    }
+      h3 {
+        position: absolute;
+        margin-bottom: 52.5vh;
+        color: white;
+        font-size: 40px;
+      }
 
       button:hover {
         color: white;
@@ -253,7 +251,16 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    .nameInput, .firstnameInput, .ageInput, .emailInput, .codePostalInput, .cityInput, .countryInput, .telephoneInput, .pseudoInput, .passwordInput {
+    .nameInput,
+    .firstnameInput,
+    .ageInput,
+    .emailInput,
+    .codePostalInput,
+    .cityInput,
+    .countryInput,
+    .telephoneInput,
+    .pseudoInput,
+    .passwordInput {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -272,18 +279,17 @@
       margin-bottom: -10px;
     }
     .adresseInputDiv {
-      width:89%;
-    .adresseInput {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      
+      width: 89%;
+      .adresseInput {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+      }
     }
-  }
     .codeVillePaysTel {
       width: 100%;
       display: flex;
@@ -292,7 +298,6 @@
       justify-content: center;
       align-items: center;
       gap: 24px;
-      
     }
     .identifiantsTitle {
       font-family: "Jost", sans-serif;
@@ -326,5 +331,3 @@
     }
   }
 }
-
-  

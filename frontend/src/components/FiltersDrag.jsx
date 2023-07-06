@@ -45,7 +45,7 @@ function FiltersDrag({ filters, setFilters, FiltersTab }) {
     <main className="dragSectionFilters">
       <section className="globalFiltersDrag">
         <div className="filtersDragTitle">
-          <p title="Clique sur le bouton pour modifier">
+          <p className="titreBouton" title="Clique sur le bouton pour modifier">
             Sélectionnez les éléments de votre choix
           </p>
         </div>
@@ -77,9 +77,8 @@ function FiltersDrag({ filters, setFilters, FiltersTab }) {
         </div>
       </section>
       <section className="SwitchButtonDrag">
-        <p>Mode rêve</p>
         <SwitchButton />
-        <p>Mode cauchemar</p>
+        <p>Changer le mode</p>
       </section>
     </main>
   );
