@@ -38,7 +38,11 @@
     align-items: center;
 
     .main-favoris-container {
-      width: 90%;
+      width: 100%;
+
+      .div-favoris-container {
+        justify-content: center;
+      }
     }
   }
 }
