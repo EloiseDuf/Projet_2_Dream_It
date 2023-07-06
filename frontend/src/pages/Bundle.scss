@@ -8,6 +8,7 @@
 
 .bundleH1 {
   margin: 30px 0 10px 0;
+  position: sticky;
 }
 
 .bundleCardsFilters {
@@ -28,6 +29,26 @@
   .bundleFilters {
     height: 40vh;
     position: sticky;
-    top: 10vh;
+    top: 0px;
   }
+}
+
+@media screen and (max-width: 428px) {
+  .bundleCardsFilters {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .bundleFilters {
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    top: 0vh;
+    z-index: 30;
+    background-color: #ebebeb;
+  }
+}
+.bundleH1 {
+  margin: 10px 0 0 0;
+  font-size: 20px;
 }

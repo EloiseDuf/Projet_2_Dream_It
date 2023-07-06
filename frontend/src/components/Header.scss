@@ -6,4 +6,16 @@
     width: 100%;
     height: 10vh;
   }
+  .logoDreamIt {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 60px;
+      width: auto;
+    }
+  }
 }

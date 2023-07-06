@@ -6,12 +6,12 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.globalCard {
+.globalCard2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 300px;
+  width: 350px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,9 +19,9 @@
   overflow: hidden;
   margin: 30px;
 
-  .cardContents {
-    width: 200px;
-    height: 300px;
+  .cardContents2 {
+    width: 350px;
+    height: 500px;
     position: relative;
     top: 81%;
     transition: top 0.5s;
@@ -30,19 +30,19 @@
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
 
-    .desc {
+    .desc2 {
       text-align: justify;
       padding: 0 15px 0 10px;
       margin-top: 10px;
     }
   }
 
-  .icons {
+  .icons2 {
     margin: 5px 10px 0 10px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    #arrowCard {
+    #arrowCard2 {
       transition: rotate 0.5s;
       width: 25px;
       height: 25px;
@@ -50,19 +50,19 @@
     }
   }
 
-  .cartFavorite {
+  .cartFavorite2 {
     display: flex;
     flex-direction: row;
 
-    #buttonFavorite,
-    #buttonCart {
+    #buttonFavorite2,
+    #buttonCart2 {
       background-color: transparent;
       border: none;
       cursor: pointer;
     }
   }
 
-  .cardTitle {
+  .cardTitle2 {
     white-space: nowrap;
     height: 20px;
 
@@ -75,19 +75,19 @@
     }
   }
 
-  .desc,
-  .price {
+  .desc2,
+  .price2 {
     text-align: right;
     color: white;
   }
 }
 
-.globalCardScrolled {
+.globalCardScrolled2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 300px;
+  width: 350px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -97,8 +97,8 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
 
-  .cardContents {
-    width: 200px;
+  .cardContents2 {
+    width: 350px;
     height: 1000px;
     position: relative;
     top: 0%;
@@ -108,19 +108,20 @@
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
 
-    .desc {
+    .desc2 {
       text-align: justify;
       padding: 0 15px 0 10px;
       margin-top: 10px;
+      color: white;
     }
   }
 
-  .icons {
+  .icons2 {
     margin: 5px 10px 0 10px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    #arrowCard {
+    #arrowCard2 {
       transition: rotate 0.5s;
       rotate: 180deg;
       width: 25px;
@@ -129,18 +130,18 @@
     }
   }
 
-  .cartFavorite {
+  .cartFavorite2 {
     display: flex;
     flex-direction: row;
 
-    #buttonFavorite,
-    #buttonCart {
+    #buttonFavorite2,
+    #buttonCart2 {
       background-color: transparent;
       border: none;
     }
   }
 
-  .cardTitle {
+  .cardTitle2 {
     white-space: nowrap;
     height: 20px;
 
@@ -153,35 +154,35 @@
     }
   }
 
-  .desc,
-  .price {
+  .desc2,
+  .price2 {
     text-align: right;
     color: white;
   }
 }
 
-.isFavorite {
+.isFavorite2 {
   width: 25px;
   height: 25px;
   background-size: 100%;
   align-self: flex-start;
 }
 
-.notFavorite {
+.notFavorite2 {
   width: 25px;
   height: 25px;
   background-size: 100%;
   align-self: flex-start;
 }
 
-.isEmpty {
+.isEmpty2 {
   width: 25px;
   height: 25px;
   background-size: 100%;
   align-self: flex-start;
 }
 
-.notEmpty {
+.notEmpty2 {
   width: 25px;
   height: 25px;
   background-size: 100%;
@@ -189,7 +190,7 @@
 }
 
 @media screen and (max-width: 428px) {
-  .globalCard {
+  .globalCard2 {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -202,7 +203,7 @@
     overflow: hidden;
     margin: 10px;
 
-    .cardContents {
+    .cardContents2 {
       width: 150px;
       height: 200px;
       position: relative;
@@ -229,30 +230,30 @@
       }
     }
 
-    .icons {
+    .icons2 {
       margin: 2px 10px 0 10px;
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: center;
 
-      #arrowCard {
+      #arrowCard2 {
         width: 15px;
         height: 15px;
       }
     }
 
-    .cartFavorite {
+    .cartFavorite2 {
       display: flex;
       flex-direction: row;
 
-      #buttonFavorite,
-      #buttonCart {
+      #buttonFavorite2,
+      #buttonCart2 {
         background-color: transparent;
         border: none;
       }
     }
-    .cardTitle {
+    .cardTitle2 {
       height: 10px;
       h1 {
         color: white;
@@ -262,28 +263,28 @@
       }
     }
 
-    .isFavorite {
+    .isFavorite2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
       align-self: flex-start;
     }
 
-    .notFavorite {
+    .notFavorite2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
       align-self: flex-start;
     }
 
-    .isEmpty {
+    .isEmpty2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
       align-self: flex-start;
     }
 
-    .notEmpty {
+    .notEmpty2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
@@ -291,7 +292,7 @@
     }
   }
 
-  .globalCardScrolled {
+  .globalCardScrolled2 {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -306,7 +307,7 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
 
-    .cardContents {
+    .cardContents2 {
       width: 150px;
       height: 1000px;
       position: relative;
@@ -317,7 +318,7 @@
       backdrop-filter: blur(6.7px);
       -webkit-backdrop-filter: blur(6.7px);
 
-      .desc {
+      .desc2 {
         text-align: center;
         padding: 0 15px 0 10px;
         margin-top: 10px;
@@ -325,37 +326,37 @@
         font-size: 11px;
       }
     }
-    .price {
+    .price2 {
       text-align: right;
       color: white;
       text-shadow: none;
       font-weight: normal;
     }
 
-    .icons {
+    .icons2 {
       margin: 2px 10px 0 10px;
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: center;
 
-      #arrowCard {
+      #arrowCard2 {
         width: 15px;
         height: 15px;
       }
     }
 
-    .cartFavorite {
+    .cartFavorite2 {
       display: flex;
       flex-direction: row;
 
-      #buttonFavorite,
-      #buttonCart {
+      #buttonFavorite2,
+      #buttonCart2 {
         background-color: transparent;
         border: none;
       }
     }
-    .cardTitle {
+    .cardTitle2 {
       height: 10px;
       h1 {
         color: white;
@@ -365,28 +366,28 @@
       }
     }
 
-    .isFavorite {
+    .isFavorite2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
       align-self: flex-start;
     }
 
-    .notFavorite {
+    .notFavorite2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
       align-self: flex-start;
     }
 
-    .isEmpty {
+    .isEmpty2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
       align-self: flex-start;
     }
 
-    .notEmpty {
+    .notEmpty2 {
       width: 15px;
       height: 15px;
       background-size: 100%;
@@ -396,8 +397,8 @@
 }
 
 @media screen and (max-width: 820px) {
-  .globalCard {
-    .cardContents {
+  .globalCard2 {
+    .cardContents2 {
       top: 81%;
     }
   }
