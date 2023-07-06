@@ -91,6 +91,13 @@ function NavBar() {
     }
   }, []);
 
+  const handleClickTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="toutesLesDivs">
       <div
@@ -118,7 +125,7 @@ function NavBar() {
         </div>
         <div className="centreDiv">
           <Link to="/">
-            <img src={logoDreamIt} alt="Logo" />
+            <img src={logoDreamIt} alt="Logo" onClick={handleClickTop} />
           </Link>
         </div>
         {possessionCompte === true ? (
