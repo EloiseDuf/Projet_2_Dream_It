@@ -2,6 +2,7 @@ import "./ProfilSection.scss";
 // import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import MyContext from "./Context";
+import CardIDImg from "../assets/images/Account-Avatar-Profile-PNG-File.png";
 
 // const MyContext = createContext(null);
 
@@ -19,6 +20,7 @@ function ProfilSection() {
     <main className="mainProfilSection">
       <h1>Mon Profil</h1>
       <div>
+        <img src={CardIDImg} alt="account" />
         <section>
           <p>
             <span>Nom : </span>

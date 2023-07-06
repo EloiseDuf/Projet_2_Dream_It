@@ -600,10 +600,18 @@
 
   .sectionTitle2 {
     .textSection2 {
-      justify-content: center;
       margin-top: 3em;
       :nth-child(1) {
         font-size: 4rem;
+      }
+    }
+  }
+
+  .bottomTotal {
+    .sectionTitle3,
+    .sectionTitle3Dark {
+      .formText {
+        gap: 50px;
       }
     }
   }
@@ -634,6 +642,24 @@
       margin-top: 3em;
       :nth-child(1) {
         font-size: 3rem;
+      }
+    }
+  }
+
+  .bottomTotal {
+    .sectionTitle3,
+    .sectionTitle3Dark {
+      width: 70vw;
+      height: 60vh;
+      justify-content: flex-start;
+      h1 {
+        padding-top: 1rem;
+        font-size: 28px;
+      }
+      .formText {
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 30px;
       }
     }
   }
@@ -746,6 +772,25 @@
       }
     }
   }
+
+  .bottomText {
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 80px;
+  }
+
+  .bottomTotal {
+    .sectionTitle3,
+    .sectionTitle3Dark {
+      width: 70vw;
+      height: 70vh;
+      justify-content: flex-start;
+      h1 {
+        padding-top: 1rem;
+        font-size: 28px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -804,6 +849,24 @@
       font-size: 0.8rem;
       img {
         width: 40px;
+      }
+    }
+  }
+
+  .bottomText {
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  .bottomTotal {
+    .sectionTitle3,
+    .sectionTitle3Dark {
+      width: 80vw;
+      height: 75vh;
+      justify-content: flex-start;
+      h1 {
+        padding-top: 1rem;
+        font-size: 28px;
       }
     }
   }
@@ -887,6 +950,29 @@
         transform: scalex(-1);
         width: auto;
         height: 60vh;
+      }
+    }
+  }
+
+  .bottomText {
+    font-size: 0.8rem;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  .bottomTotal {
+    .sectionTitle3,
+    .sectionTitle3Dark {
+      width: 90vw;
+      height: 70vh;
+      justify-content: flex-start;
+      h1 {
+        padding-top: 0.3rem;
+        font-size: 28px;
+      }
+      input {
+        width: 15em;
+        height: 2em;
       }
     }
   }

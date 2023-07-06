@@ -49,11 +49,12 @@
       border: none;
       width: 60px;
       height: 50px;
-      transition: transform 0.3s ease;
+      transition: 0.2s ease;
     }
     button:hover {
       transform: scale(1.2);
       cursor: pointer;
+      transition: 0.2s ease;
     }
     img {
       width: 30px;
@@ -165,10 +166,13 @@
       border: none;
       width: 60px;
       height: 50px;
+      transition: 0.2s ease;
+      
     }
     button:hover {
       transform: scale(1.2);
       cursor: pointer;
+      transition: 0.2s ease;
     }
     img {
       width: 30px;
@@ -260,7 +264,6 @@
     width: 150px;
     height: 20px;
     border-radius: 20px;
-    border: none;
     background-color: rgb(178, 72, 72);
     color: white;
   }
@@ -439,7 +442,7 @@
   font-size: 20px;
   z-index: 0;
 
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   &:visited {
     text-decoration: none;
     color: white;
@@ -459,7 +462,7 @@
   font-size: 20px;
   z-index: 0;
 
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 .aLaCarte:hover {
   transform: scale(1.2);

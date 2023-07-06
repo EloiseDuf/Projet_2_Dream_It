@@ -233,3 +233,19 @@
     text-shadow: 1px 1px 0 #000000;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .basketContainer {
+    flex-direction: column;
+    align-items: center;
+
+    .divPanier {
+      width: 100%;
+      height: 70vh;
+    }
+    .totalContainer {
+      height: 80vh;
+      width: 100%;
+    }
+  }
+}
