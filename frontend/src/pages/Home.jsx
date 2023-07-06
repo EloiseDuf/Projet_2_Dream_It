@@ -261,9 +261,15 @@ function Home({ dreams }) {
               />
             </div>
           </div>
-          <button className="loginButton" type="button" onClick={handleSubmit}>
-            Se connecter
-          </button>
+          <div>
+            <button
+              className="loginButton"
+              type="button"
+              onClick={handleSubmit}
+            >
+              Se connecter
+            </button>
+          </div>
         </div>
       </div>
       <Footer />
