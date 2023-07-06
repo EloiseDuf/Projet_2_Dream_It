@@ -1,11 +1,12 @@
 import "./Cards.scss";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import MyContext from "./Context";
 import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
 
 function Cards({ dreams }) {
-  const { user } = useContext(MyContext);
+  const { user, setUser } = useContext(MyContext);
+  const [isMounted, setIsMounted] = useState(false);
 
   const defineIsFavoriteUser = () => {
     if (user && user.favoris) {
@@ -19,6 +20,7 @@ function Cards({ dreams }) {
   };
 
   const [isFavorite, setIsFavorite] = useState(defineIsFavoriteUser());
+
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
@@ -43,6 +45,52 @@ function Cards({ dreams }) {
   } else {
     fontSize = "18px";
   }
+
+  // quand l'user change, on réapplique l'état true à isFavorite pour les cartes favoris du user
+  useEffect(() => {
+    if (user !== null) {
+      const newStateFavorite = defineIsFavoriteUser();
+      setIsFavorite(newStateFavorite);
+    }
+  }, [user]);
+
+  // quand on change l'état de isFavorite, on transfere les données à l'API pour modifier l'état des favoris
+  useEffect(() => {
+    if (isMounted) {
+      const newStateFavorite = isFavorite;
+
+      if (user !== null) {
+        if (newStateFavorite === true) {
+          fetch(`http://localhost:4242/api/users/${user.pseudo}/favoris`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dreams),
+          })
+            .then((response) => response.json())
+            .then(() => {
+              fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+                .then((res) => res.json())
+                .then((res) => setUser(res));
+            });
+        } else {
+          fetch(
+            `http://localhost:4242/api/users/${user.pseudo}/favoris/${dreams.id}`,
+            {
+              method: "DELETE",
+            }
+          ).then(() => {
+            fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+              .then((res) => res.json())
+              .then((res) => setUser(res));
+          });
+        }
+      }
+    } else {
+      setIsMounted(true);
+    }
+  }, [isFavorite]);
 
   return (
     <div className="cards">
