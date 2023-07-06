@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap");
 
-
 .popup {
   display: flex;
   justify-content: center;
@@ -10,7 +9,6 @@
   position: absolute;
   z-index: 90;
   background-color: rgba(0, 0, 0, 0.708);
-  
 }
 
 .popup-content {
@@ -32,7 +30,7 @@
     rgba(157, 137, 211, 1) 73%,
     rgba(109, 182, 223, 1) 100%
   );
-  
+
   #closingCross {
     display: block;
     background: none;
@@ -43,7 +41,7 @@
     z-index: 3;
     top: 0;
     border: none;
-    right:0;
+    right: 0;
     position: absolute;
     width: fit-content;
     height: fit-content;
@@ -70,8 +68,7 @@
       padding-top: 5em;
       justify-content: center;
       align-items: center;
-    
-    
+
       input {
         box-sizing: border-box;
         padding: 5px;
@@ -106,8 +103,6 @@
         align-items: center;
         width: 100%;
       }
-     
-     
     }
   }
 
@@ -208,7 +203,7 @@
     z-index: 3;
     top: 0;
     border: none;
-    right:0;
+    right: 0;
     margin: 10px;
     position: absolute;
     width: fit-content;
@@ -237,8 +232,7 @@
       padding-top: 5em;
       justify-content: center;
       align-items: center;
-    
-    
+
       input {
         box-sizing: border-box;
         padding: 5px;
@@ -273,11 +267,8 @@
         align-items: center;
         width: 100%;
       }
-     
-     
     }
   }
-  
 
   form {
     box-sizing: border-box;
@@ -346,9 +337,6 @@
     }
   }
 }
-
-
-
 
 .pasDeCompte {
   box-sizing: border-box;

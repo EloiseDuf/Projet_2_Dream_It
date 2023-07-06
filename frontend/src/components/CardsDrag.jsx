@@ -3,10 +3,17 @@ import { useState, useContext, useEffect } from "react";
 import MyContext from "./Context";
 import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
+import Arrow2 from "../assets/images/arrowRound2.png";
 
 function Cards({ dreams }) {
   const { user, setUser } = useContext(MyContext);
   const [isMounted, setIsMounted] = useState(false);
+
+  const [isArrowClicked, setIsArrowClicked] = useState(false);
+
+  const handleArrowClick = () => {
+    setIsArrowClicked(!isArrowClicked);
+  };
 
   const defineIsFavoriteUser = () => {
     if (user && user.favoris) {
@@ -95,7 +102,7 @@ function Cards({ dreams }) {
   return (
     <div className="cards">
       <div
-        className="globalCard"
+        className={isArrowClicked ? "globalCardScrolled" : "globalCard"}
         style={{ backgroundImage: `url("${dreams?.image}")` }}
       >
         <div className="cardContents">
@@ -104,6 +111,12 @@ function Cards({ dreams }) {
           </div>
           <div className="icons">
             <p className="price">{dreams?.price} €</p>
+            <img
+              id="arrowCard"
+              src={Arrow2}
+              alt="arrow"
+              onClick={handleArrowClick}
+            />
             <div className="cartFavorite">
               <img
                 src={isFavorite === true ? etoilePleine : etoileVide}
