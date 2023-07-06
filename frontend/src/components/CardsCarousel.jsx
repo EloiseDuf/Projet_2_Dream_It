@@ -24,7 +24,10 @@ function CardsCarousel({ dreams, isOn }) {
       >
         {isOn
           ? dreams
-              .filter((dream) => dream.mode === "dream")
+              .filter(
+                (dream) =>
+                  dream.mode === "dream" && dream.type === "ready-to-use"
+              )
               .map((dream) => (
                 <BigCards
                   className="cardCarous"
@@ -33,7 +36,10 @@ function CardsCarousel({ dreams, isOn }) {
                 />
               ))
           : dreams
-              .filter((dream) => dream.mode === "nightmare")
+              .filter(
+                (dream) =>
+                  dream.mode === "nightmare" && dream.type === "ready-to-use"
+              )
               .map((dream) => (
                 <BigCards
                   className="cardCarous"

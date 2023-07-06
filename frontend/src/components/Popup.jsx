@@ -61,6 +61,7 @@ function Popup({ isOpen, onClose, setPossessionCompte }) {
   return (
     <div className="popup" ref={popupRef}>
       <div className={isOn ? "popup-content" : "popup-content-dark"}>
+        <h2>Connexion</h2>
         <button
           id={isOn ? "closingCross" : "closingCrossDark"}
           type="button"
@@ -68,7 +69,6 @@ function Popup({ isOpen, onClose, setPossessionCompte }) {
         >
           X
         </button>
-        <h2>Connexion</h2>
         <div className="contentDiv">
           <form>
             <div className="inputConnection">
@@ -94,15 +94,13 @@ function Popup({ isOpen, onClose, setPossessionCompte }) {
               </div>
             </div>
           </form>
-          <div className="pasDeCompte">
-            <p onClick={handleClickPasDeCompte}>
-              Cliquez ici pour créer un compte
-            </p>
-          </div>
           <div className="buttonsConnexion">
             <button ref={buttonRef} type="submit" onClick={handleSubmitPopup}>
               Se connecter
             </button>
+          </div>
+          <div className="pasDeCompte">
+            <p onClick={handleClickPasDeCompte}>Créer un compte</p>
           </div>
         </div>
       </div>
