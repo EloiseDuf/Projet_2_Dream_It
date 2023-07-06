@@ -51,6 +51,7 @@ function Cards({ dreams }) {
   };
 
   // const fontSize = dreams.name.length > 19 ? '15px' : '17px'
+
   const screenWidth = window.innerWidth;
 
   let fontSize;

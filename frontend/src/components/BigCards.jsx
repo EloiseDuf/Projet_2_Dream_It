@@ -5,6 +5,7 @@ import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
 import panierVide from "../assets/images/panier-vide.png";
 import panierRempliVert from "../assets/images/panier-rempli-vert.png";
+import Arrow2 from "../assets/images/arrowRound2.png";
 // import panierRempliRouge from "../assets/images/panier-rempli-rouge.png"
 
 function BigCards({ dreams }) {
@@ -28,6 +29,12 @@ function BigCards({ dreams }) {
   };
 
   const [isEmpty, setIsEmpty] = useState(true);
+
+  const [isArrowClicked, setIsArrowClicked] = useState(false);
+
+  const handleArrowClick = () => {
+    setIsArrowClicked(!isArrowClicked);
+  };
 
   const handleClickEmpty = () => {
     let newPanier;
@@ -126,7 +133,7 @@ function BigCards({ dreams }) {
   return (
     <div className="cards2">
       <div
-        className="globalCard2"
+        className={isArrowClicked ? "globalCardScrolled2" : "globalCard2"}
         style={{ backgroundImage: `url("${dreams?.image}")` }}
       >
         <div className="cardContents2">
@@ -135,6 +142,12 @@ function BigCards({ dreams }) {
           </div>
           <div className="icons2">
             <p className="price2">{dreams?.price} €</p>
+            <img
+              id="arrowCard2"
+              src={Arrow2}
+              alt="arrow"
+              onClick={handleArrowClick}
+            />
             <div className="cartFavorite2">
               <img
                 src={
