@@ -95,12 +95,11 @@
 
   .sectionTextImg {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.4rem;
     color: white;
-    height: auto;
     width: 100%;
     height: 95%;
 
@@ -113,7 +112,7 @@
 
       :nth-child(1) {
         font-size: 3rem;
-        margin-bottom: 60px;
+        margin-bottom: 50px;
         margin-left: 2rem;
         color: #ffffff;
         text-shadow: 0 0 10px #ffffff;
@@ -124,7 +123,7 @@
       }
       :nth-child(3) {
         font-size: 2rem;
-        margin-top: 100px;
+        margin-top: 60px;
         margin-left: 2em;
         color: grey;
       }
@@ -141,18 +140,18 @@
       }
     }
   }
-}
 
-.sectionDisclaimer {
-  margin-bottom: 0;
-  margin-top: auto;
-  height: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  :nth-child(1) {
-    color: #ffffff;
-    font-size: 15px;
+  .sectionDisclaimer {
+    margin-bottom: 0;
+    margin-top: auto;
+    height: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    :nth-child(1) {
+      color: #ffffff;
+      font-size: 15px;
+    }
   }
 }
 
@@ -180,7 +179,7 @@
     position: absolute;
     margin-top: 5em;
     :nth-child(1) {
-      font-size: 70px;
+      font-size: 4.5rem;
     }
   }
   .Girl {
@@ -409,31 +408,35 @@
 }
 
 .vousNeRevezPas {
-  width: 100%;
-  height: 20vh;
+  width: 100vw;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: rgb(152, 150, 150);
   h1 {
-    font-size: 60px;
+    font-size: 5rem;
+    margin-bottom: 5px;
   }
   h2 {
-    font-size: 50px;
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: black;
+    font-size: 1rem;
+    img {
+      width: 40px;
+    }
   }
 }
 
-.instructions {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  font-size: 15px;
-  img {
-    width: 3em;
-  }
-}
 .displayAll {
   display: flex;
   flex-direction: row-reverse;
@@ -564,7 +567,18 @@
   .sectionTitle1 {
     .sectionTextImg {
       .textSection1 {
-        width: 50%;
+        width: 60%;
+      }
+    }
+  }
+
+  .sectionTitle2 {
+    font-size: 1.4rem;
+    .textSection2 {
+      justify-content: center;
+      margin-top: 3em;
+      :nth-child(1) {
+        font-size: 4.5rem;
       }
     }
   }
@@ -576,14 +590,6 @@
       display: none;
     }
   }
-
-  .sectionTitle1 {
-    .sectionTextImg {
-      .textSection1 {
-        width: 40%;
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 1350px) {
@@ -591,27 +597,44 @@
     font-size: 1.8rem;
   }
 
-  .sectionTitle1 {
-    .sectionTextImg {
-      .textSection1 {
-        width: 35%;
-        :nth-child(1) {
-          font-size: 2rem;
-          margin-bottom: 60px;
-          margin-left: 2rem;
-          color: #ffffff;
-          text-shadow: 0 0 10px #ffffff;
-        }
-        :nth-child(2) {
-          font-size: 1.5rem;
-          margin-left: 1em;
-        }
-        :nth-child(3) {
-          font-size: 1.5rem;
-          margin-top: 100px;
-          margin-left: 2em;
-          color: grey;
-        }
+  .sectionTitle2 {
+    font-size: 1.4rem;
+    .textSection2 {
+      justify-content: center;
+      margin-top: 3em;
+      :nth-child(1) {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .vousNeRevezPas {
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .instructions {
+      font-size: 1rem;
+      img {
+        width: 40px;
+      }
+    }
+  }
+
+  .sectionTitle2 {
+    font-size: 1.4rem;
+    .textSection2 {
+      justify-content: center;
+      margin-top: 3em;
+      :nth-child(1) {
+        font-size: 3rem;
       }
     }
   }
@@ -632,34 +655,54 @@
   .sectionTitle1 {
     .sectionTextImg {
       flex-direction: column;
+      height: 95%;
+
       .textSection1 {
         width: 100%;
         :nth-child(1) {
-          font-size: 2rem;
+          font-size: 1.6rem;
           margin-top: 16px;
-          margin-bottom: 15px;
+          margin-bottom: 5px;
           margin-left: 0em;
-          color: #ffffff;
-          text-shadow: 0 0 10px #ffffff;
         }
         :nth-child(2) {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
           margin-left: 0em;
           padding: 16px;
         }
         :nth-child(3) {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           margin-top: 10px;
           margin-left: 0em;
-          color: grey;
+        }
+        :nth-child(4) {
+          align-items: center;
         }
       }
       .imgSection1 {
-        width: 80%;
+        width: 35%;
         justify-content: center;
         img {
-          width: 75%;
+          width: 100%;
         }
+      }
+    }
+  }
+
+  .vousNeRevezPas {
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .instructions {
+      font-size: 0.8rem;
+      img {
+        width: 40px;
       }
     }
   }
@@ -689,11 +732,82 @@
   .divText {
     font-size: 1.6rem;
   }
+
+  .sectionTitle2 {
+    font-size: 1.4rem;
+    .textSection2 {
+      :nth-child(1) {
+        padding-right: 1.5rem;
+      }
+    }
+    .Girl {
+      img {
+        transform: scalex(-1);
+        width: auto;
+        height: 60vh;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
   .divText {
     font-size: 1.4rem;
+  }
+
+  .sectionTitle1 {
+    .sectionTextImg {
+      flex-direction: column;
+      height: 95%;
+
+      .textSection1 {
+        width: 100%;
+        :nth-child(1) {
+          font-size: 1.6rem;
+          margin-top: 16px;
+          margin-bottom: 5px;
+          margin-left: 0em;
+        }
+        :nth-child(2) {
+          font-size: 1.3rem;
+          margin-left: 0em;
+          padding: 16px;
+        }
+        :nth-child(3) {
+          font-size: 1.2rem;
+          margin-top: 10px;
+          margin-left: 0em;
+        }
+        :nth-child(4) {
+          align-items: center;
+        }
+      }
+      .imgSection1 {
+        width: 35%;
+        justify-content: center;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .vousNeRevezPas {
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .instructions {
+      font-size: 0.8rem;
+      img {
+        width: 40px;
+      }
+    }
   }
 }
 
@@ -721,6 +835,64 @@
   .divText {
     font-size: 1.4rem;
   }
+
+  .sectionTitle1 {
+    .sectionTextImg {
+      flex-direction: column;
+      height: 95%;
+
+      .textSection1 {
+        width: 100%;
+        :nth-child(1) {
+          font-size: 1.4rem;
+        }
+        :nth-child(2) {
+          font-size: 1.1rem;
+        }
+        :nth-child(3) {
+          font-size: 1rem;
+        }
+      }
+      .imgSection1 {
+        width: 65%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .sectionDisclaimer {
+      margin-bottom: 0;
+      margin-top: auto;
+      height: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      :nth-child(1) {
+        color: #ffffff;
+        font-size: 10px;
+      }
+    }
+  }
+
+  .sectionTitle2 {
+    font-size: 1.4rem;
+    height: 65vh;
+    .textSection2 {
+      justify-content: center;
+      margin-top: 3em;
+      :nth-child(1) {
+        font-size: 1.8rem;
+        padding-right: 3rem;
+      }
+    }
+    .Girl {
+      img {
+        transform: scalex(-1);
+        width: auto;
+        height: 60vh;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 250px) {
@@ -747,5 +919,23 @@
   .divText {
     margin-top: 16px;
     font-size: 1.2rem;
+  }
+
+  .sectionTitle2 {
+    .textSection2 {
+      justify-content: center;
+      margin-top: 3em;
+      :nth-child(1) {
+        font-size: 1.2rem;
+        padding-right: 3rem;
+      }
+    }
+    .Girl {
+      img {
+        transform: scalex(-1);
+        width: auto;
+        height: 60vh;
+      }
+    }
   }
 }
