@@ -123,7 +123,12 @@ function Drag({ dreams, isOn }) {
                     draggable
                     onDragStart={(event) => handleDragStart(event, dream)}
                   >
-                    <CardsDrag dreams={dream} key={dream.id} />
+                    <CardsDrag
+                      dreams={dream}
+                      column2={column2}
+                      setColumn2={setColumn2}
+                      key={dream.id}
+                    />
                   </div>
                 );
               }
@@ -153,7 +158,12 @@ function Drag({ dreams, isOn }) {
                   draggable
                   onDragStart={(event) => handleDragStart(event, dream)}
                 >
-                  <MiniCards dreams={dream} key={dream.id} />
+                  <MiniCards
+                    dreams={dream}
+                    key={dream.id}
+                    setColumn2={setColumn2}
+                    column2={column2}
+                  />
                 </div>
               ))}
             </div>
