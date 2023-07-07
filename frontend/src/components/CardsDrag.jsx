@@ -4,15 +4,18 @@ import MyContext from "./Context";
 import etoilePleine from "../assets/images/etoile-pleine.png";
 import etoileVide from "../assets/images/etoile-vide.png";
 import Arrow2 from "../assets/images/arrowRound2.png";
+import imageCheckBlanc from "../assets/images/image-check-blanc.png";
 
-function Cards({ dreams }) {
+function Cards({ dreams, column2, setColumn2 }) {
   const { user, setUser } = useContext(MyContext);
   const [isMounted, setIsMounted] = useState(false);
+  const [cardChecked, setCardChecked] = useState(false);
 
   const [isArrowClicked, setIsArrowClicked] = useState(false);
 
   const handleArrowClick = () => {
     setIsArrowClicked(!isArrowClicked);
+    setCardChecked(!cardChecked);
   };
 
   const defineIsFavoriteUser = () => {
@@ -52,6 +55,24 @@ function Cards({ dreams }) {
   } else {
     fontSize = "18px";
   }
+
+  const handleClickTransfertToColumn2 = () => {
+    // column2.every((dream) => dream.id !== droppedItem.id)
+    // ) {
+    setColumn2([...column2, dreams]);
+  };
+
+  const handleHoverCard = () => {
+    if (isArrowClicked === false) {
+      setCardChecked(true);
+    }
+  };
+
+  const handleLeaveCard = () => {
+    if (cardChecked === true) {
+      setCardChecked(false);
+    }
+  };
 
   // quand l'user change, on réapplique l'état true à isFavorite pour les cartes favoris du user
   useEffect(() => {
@@ -104,7 +125,27 @@ function Cards({ dreams }) {
       <div
         className={isArrowClicked ? "globalCardScrolled" : "globalCard"}
         style={{ backgroundImage: `url("${dreams?.image}")` }}
+        onMouseEnter={handleHoverCard}
+        onMouseLeave={handleLeaveCard}
       >
+        {cardChecked && (
+          <>
+            <img
+              className="img-checkbox"
+              src={imageCheckBlanc}
+              onClick={handleClickTransfertToColumn2}
+              alt="logo-cliquer"
+            />
+            <button
+              type="button"
+              className="divTransparenteCliquable"
+              onClick={handleClickTransfertToColumn2}
+              value="bouton"
+            >
+              1
+            </button>
+          </>
+        )}
         <div className="cardContents">
           <div className="cardTitle">
             <h1 style={{ fontSize, textAlign: "center" }}>{dreams?.name}</h1>

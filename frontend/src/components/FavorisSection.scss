@@ -22,11 +22,26 @@
       width: 100%;
       padding-bottom: 50px;
       box-sizing: border-box;
-      div {
-        height: 300px;
-        // width: 133px;
+      // div {
+      //   height: 300px;
+      //   // width: 133px;
 
-        // transform: scale(0.75);
+      //   // transform: scale(0.75);
+      // }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .mainFavorisSection {
+    width: 100vw;
+    align-items: center;
+
+    .main-favoris-container {
+      width: 100%;
+
+      .div-favoris-container {
+        justify-content: center;
       }
     }
   }
