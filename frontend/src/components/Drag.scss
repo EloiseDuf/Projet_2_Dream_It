@@ -193,7 +193,6 @@
     height: 80vh;
     width: 103%;
   }
-
 }
 
 @media screen and (max-width: 996px) {
@@ -257,9 +256,9 @@
     height: 80vh;
     width: 102%;
   }
-
 }
 @media screen and (max-height: 740px) and (min-height: 667px) {
-  .column2 {height: 57vh;}
-
+  .column2 {
+    height: 57vh;
+  }
 }
