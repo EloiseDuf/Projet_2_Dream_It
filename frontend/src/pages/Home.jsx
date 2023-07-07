@@ -198,7 +198,7 @@ function Home({ dreams }) {
       <div className="makeIt">
         <Drag dreams={dreams} isOn={isOn} />
       </div>
-      <div className="arrow">
+      <div className="arrowDnd">
         <span />
         <span />
         <span />

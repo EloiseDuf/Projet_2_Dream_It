@@ -157,6 +157,7 @@
 
 .makeIt {
   height: 90vh;
+  margin-bottom: 200px;
 }
 
 .sectionTitle2 {
@@ -549,6 +550,52 @@
   animation-delay: -0.4s;
 }
 
+.arrowDnd {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: rotate(0deg);
+  cursor: pointer;
+  width: 50%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.arrowDnd span {
+  display: block;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-bottom: 5px solid #8f8f8f;
+  border-right: 5px solid #8f8f8f;
+  transform: rotate(1deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+
+.arrowDnd span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrowDnd span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+@media screen and (max-width: 999px) {
+  .arrowDnd {
+    display: none;
+  }
+  .arrowDnd span {
+    display: none;
+  }
+
+  .arrowDnd span:nth-child(3) {
+    display: none;
+  }
+}
+
 @keyframes animate {
   0% {
     opacity: 0;
@@ -573,6 +620,20 @@
   }
 
   .sectionTitle2 {
+    .textSection2 {
+      justify-content: center;
+      margin-top: 3em;
+      margin-left: 0rem;
+      :nth-child(1) {
+        font-size: 4.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .sectionTitle2 {
+    margin-top: 300px;
     .textSection2 {
       justify-content: center;
       margin-top: 3em;
