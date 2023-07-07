@@ -63,11 +63,15 @@ function Cards({ dreams, column2, setColumn2 }) {
   };
 
   const handleHoverCard = () => {
-    setCardChecked(true);
+    if (isArrowClicked === false) {
+      setCardChecked(true);
+    }
   };
 
   const handleLeaveCard = () => {
-    setCardChecked(false);
+    if (cardChecked === true) {
+      setCardChecked(false);
+    }
   };
 
   // quand l'user change, on réapplique l'état true à isFavorite pour les cartes favoris du user
