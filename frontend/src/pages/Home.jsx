@@ -15,15 +15,15 @@ import logoDreamIt from "../assets/images/deam it LOGOLogo.png";
 function Home({ dreams }) {
   // const [dreams, setDreams] = useState([]);
   // useEffect(() => {
-  //   fetch("http://localhost:4242/api/all")
+  //   fetch("http://dreamitapi.bengi.fr:4242/api/all")
   //     .then((res) => res.json())
   //     .then((res) => setDreams(res));
   // }, []);
 
-  const imgTopReve = "src/assets/images/topDoctor.png";
-  const imgTopCauchemar = "src/assets/images/topDemon.png";
-  const imgBottomReve = "src/assets/images/bottomGirl.png";
-  const imgBottomCauchemar = "src/assets/images/bottomWitch.png";
+  const imgTopReve = "assets/images/topDoctor.png";
+  const imgTopCauchemar = "assets/images/topDemon.png";
+  const imgBottomReve = "assets/images/bottomGirl.png";
+  const imgBottomCauchemar = "assets/images/bottomWitch.png";
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -43,22 +43,22 @@ function Home({ dreams }) {
     if (isOn) {
       root.style.setProperty(
         "--sectionTitle-background",
-        "url(src/assets/images/sectionTitle.png)"
+        "url(images/sectionTitle.png)"
       );
       root.style.setProperty(
         "--top-page-background",
-        "url(src/assets/images/topPage.png)"
+        "url(images/topPage.png)"
       );
       root.style.setProperty("--my-color", "#FFFFFF");
       root.style.setProperty("--text-color", "#000000");
     } else {
       root.style.setProperty(
         "--sectionTitle-background",
-        "url(src/assets/images/sectionTitle2.png)"
+        "url(images/sectionTitle2.png)"
       );
       root.style.setProperty(
         "--top-page-background",
-        "url(src/assets/images/topPage2.png)"
+        "url(images/topPage2.png)"
       );
       root.style.setProperty("--my-color", "#D8D8D8");
       root.style.setProperty("--text-color", "#FF0000");
@@ -180,7 +180,7 @@ function Home({ dreams }) {
             <p>{textCompo}</p>
           </div>
           <div className="imgSection1">
-            <img src="src/assets/images/homePill.png" alt="pillule" />
+            <img src="assets/images/homePill.png" alt="pillule" />
           </div>
         </div>
         <div className="sectionDisclaimer">

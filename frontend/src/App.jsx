@@ -17,11 +17,11 @@ function App() {
   const [dreams, setDreams] = useState([]);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4242/api/all")
+    fetch("http://dreamitapi.bengi.fr:4242/api/all")
       .then((res) => res.json())
       .then((res) => setDreams(res));
 
-    fetch("http://localhost:4242/api/users")
+    fetch("http://dreamitapi.bengi.fr:4242/api/users")
       .then((res) => res.json())
       .then((res) => setUsers(res));
   }, []);

@@ -89,7 +89,7 @@ function Cards({ dreams, column2, setColumn2 }) {
 
       if (user !== null) {
         if (newStateFavorite === true) {
-          fetch(`http://localhost:4242/api/users/${user.pseudo}/favoris`, {
+          fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}/favoris`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -98,18 +98,18 @@ function Cards({ dreams, column2, setColumn2 }) {
           })
             .then((response) => response.json())
             .then(() => {
-              fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+              fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}`)
                 .then((res) => res.json())
                 .then((res) => setUser(res));
             });
         } else {
           fetch(
-            `http://localhost:4242/api/users/${user.pseudo}/favoris/${dreams.id}`,
+            `http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}/favoris/${dreams.id}`,
             {
               method: "DELETE",
             }
           ).then(() => {
-            fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+            fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}`)
               .then((res) => res.json())
               .then((res) => setUser(res));
           });

@@ -10,7 +10,7 @@ function CommandeSection() {
   const { commandes } = user;
 
   useEffect(() => {
-    fetch(`http://localhost:4242/api/users/${user.pseudo}`)
+    fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}`)
       .then((res) => res.json())
       .then((res) => {
         const majUser = res;

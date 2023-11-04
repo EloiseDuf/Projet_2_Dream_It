@@ -129,7 +129,7 @@ function NouvelUtilisateur({ isOpen, onClose }) {
   useEffect(() => {
     if (nouvelUser.id !== undefined) {
       // pour éviter de lancer 4 fois le useEffect
-      fetch("http://localhost:4242/api/users", {
+      fetch("http://dreamitapi.bengi.fr:4242/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -138,7 +138,7 @@ function NouvelUtilisateur({ isOpen, onClose }) {
       })
         .then((response) => response.json())
         .then(() => {
-          return fetch("http://localhost:4242/api/users");
+          return fetch("http://dreamitapi.bengi.fr:4242/api/users");
         })
         .then((res) => res.json())
         .then((users) => setUsers(users))
