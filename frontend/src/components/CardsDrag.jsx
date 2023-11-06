@@ -89,13 +89,16 @@ function Cards({ dreams, column2, setColumn2 }) {
 
       if (user !== null) {
         if (newStateFavorite === true) {
-          fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}/favoris`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(dreams),
-          })
+          fetch(
+            `http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}/favoris`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(dreams),
+            }
+          )
             .then((response) => response.json())
             .then(() => {
               fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}`)

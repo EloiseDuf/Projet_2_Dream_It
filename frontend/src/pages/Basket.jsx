@@ -59,13 +59,16 @@ function Basket() {
     } else if (user === null) {
       alert("Veuillez vous connecter pour passer commande !");
     } else {
-      fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}/commandes`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bodyContent),
-      })
+      fetch(
+        `http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}/commandes`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bodyContent),
+        }
+      )
         .then((response) => response.json())
         .then(
           fetch(`http://dreamitapi.bengi.fr:4242/api/users/${user.pseudo}`)
